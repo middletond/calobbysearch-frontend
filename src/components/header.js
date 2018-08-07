@@ -3,9 +3,9 @@ import React from "react";
 const Header = () => {
   return (
     <header>
-      <div className="logo">
+      <h1 className="logo">
         California State Lobbying Search
-      </div>
+      </h1>
     </header>
   )
 };

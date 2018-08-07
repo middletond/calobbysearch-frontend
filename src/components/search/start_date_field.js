@@ -8,7 +8,7 @@ const StartDateField = (props) => {
   return <DatePicker
            className="start-date-field"
            selected={moment()}
-           onChange={event => console.log(event)}
+           onChange={date => console.log(date)}
          />
 }
 

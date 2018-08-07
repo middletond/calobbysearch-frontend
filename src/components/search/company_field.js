@@ -1,10 +1,11 @@
 import React from "react";
 
-const CompanyField = (props) => {
+const CompanyField = ({ onChange }) => {
   return (
     <input
       className="company-field"
       placeholder="company name..."
+      onChange={event => onChange(event.target.value)}
     />
   )
 };

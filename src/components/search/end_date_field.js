@@ -8,7 +8,7 @@ const EndDateField = (props) => {
   return <DatePicker
            className="end-date-field"
            selected={moment()}
-           onChange={event => console.log(event.target.value)}
+           onChange={date => console.log(date)}
          />
 }
 
