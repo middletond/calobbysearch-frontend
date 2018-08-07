@@ -1,8 +1,14 @@
 import React from "react";
 
+import Header from "./header";
+import Content from "./content";
+
 const App = () => {
   return (
-    <div>Hello world, I am alive!</div>
+    <div>
+      <Header />
+      <Content />
+    </div>
   )
 };
 
