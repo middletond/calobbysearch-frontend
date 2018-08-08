@@ -1,0 +1,43 @@
+export const UPDATE_FILTER_TERM = "UPDATE_FILTER_TERM";
+export const UPDATE_SORT = "UPDATE_SORT";
+export const UPDATE_SORT_FIELD = "UPDATE_SORT_FIELD";
+export const UPDATE_SORT_DIRECTION = "UPDATE_SORT_DIRECTION";
+export const EXPORT_CURRENT_SEARCH = "EXPORT_CURRENT_SEARCH";
+
+export const updateFilterTerm = (term) => {
+  return {
+    type: UPDATE_FILTER_TERM,
+    term
+  }
+}
+
+export const updateSort = (field, direction) => {
+  return {
+    type: UPDATE_SORT,
+    sort: {
+      field: field,
+      direction, direction
+    }
+  }
+}
+
+export const updateSortField = (field) => {
+  return {
+    type: UPDATE_SORT_FIELD,
+    field
+  }
+}
+
+export const updateSortDirection = (direction) => {
+  return {
+    type: UPDATE_SORT_FIELD,
+    direction
+  }
+}
+
+export const exportCurrentSearch = () => {
+  // Make into thunk action (return callback)
+  return {
+    type: EXPORT_CURRENT_SEARCH
+  }
+}

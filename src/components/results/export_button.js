@@ -1,9 +1,11 @@
 import React from "react";
 
-const ExportButton = (props) => {
+const ExportButton = ({ onExport }) => {
+  const label = "Export to CSV";
+
   return (
-    <button className="export-button">
-      Export To CSV
+    <button className="export-button" onClick={onExport}>
+      {label}
     </button>
   )
 }

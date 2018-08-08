@@ -1,6 +1,8 @@
 import React from "react";
 
-const ResultsHeader = (props) => {
+const ResultsHeader = ({ results }) => {
+  console.log("HELLO FROM RESULTS HEADER:");
+  console.log(results);
   return (
     <div className="results-header">
       <h2 className="results-header-text">

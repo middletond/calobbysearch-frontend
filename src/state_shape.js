@@ -1,41 +1,42 @@
 const stateShape = {
-    // returned results cache
-    searches: [
-      {
-        name: "company:tesla|bill:vehicle|start:2017-01-01|end:2018-21-31", // a unique string by concating all params
-        params: {
-          company: "tesla",
-          bill: "vehicle",
-          start: new Date("2017-01-01"), // always translate session into start - end? we’ll try it for now
-          end: new Date("2018-12-31")
-        },
-        cache: {
-          isFetching: false,
-          isWarm: true, // if cold, we re-fetch
-          lastFetched: null // or dateTime
-        },
-        results: [
-          // records here
-        ]
-      }
-    ],
-    // controlled user inputs
-    searchForm: {
-      fields: {
-        bill: "",
-        company: "",
-        session: "20172018", // this should modulate start and end on change
-        start: new Date("2017-01-01"), // these should switch session to null if acted upon
-        end: new Date("2018-21-31")
+  // returned results cache
+  results: [
+    {
+      name: "AB 101|TESLA MOTORS|20170101|20182131", // a unique string by concating all params
+      params: {
+        company: "tesla",
+        bill: "vehicle",
+        start: new Date("2017-01-01"), // always translate session into start - end? we’ll try it for now
+        end: new Date("2018-12-31")
       },
-      submitted: "company:tesla|bill:vehicle|start:2017-01-01|end:2018-21-31"
+      cache: {
+        isFetching: false,
+        isWarm: true, // if cold, we re-fetch
+        lastFetched: null // or dateTime
+      },
+      records: [
+        // records here
+      ]
     }
+  ],
+  // controlled user inputs
+  searchForm: {
+    fields: {
+      bill: "",
+      company: "",
+      session: "20172018", // this should modulate start and end on change
+      start: new Date("20170101"), // these should switch session to null if acted upon
+      end: new Date("20182131")
+    },
+    submitted: "AB 101|TESLA MOTORS|20170101|20182131"
+  }
 
-    // results controllers
+  // results controllers
+  controls: {
     filterTerm: "",
     sort {
-      field: "start_date",
+      field: "startDate",
       direction: "asc",
     }
-    // currentSearch: "company:tesla|bill:vehicle|start:2017-01-01|end:2018-21-31" // ("name" from searches)
+  }
 }
