@@ -1,8 +1,7 @@
 const stateShape = {
   // returned results cache
-  results: [
-    {
-      name: "AB 101|TESLA MOTORS|20170101|20182131", // a unique string by concating all params
+  results: {
+    "AB 101|TESLA MOTORS|20170101|20182131": { // a unique key by concating all params
       params: {
         company: "tesla",
         bill: "vehicle",
@@ -18,7 +17,7 @@ const stateShape = {
         // records here
       ]
     }
-  ],
+  },
   // controlled user inputs
   searchForm: {
     fields: {

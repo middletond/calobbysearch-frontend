@@ -9,9 +9,20 @@ import {
 const results = (state = {}, action) => {
   switch (action.type) {
     case REQUEST_RESULTS:
-      return state;
+      return fresh(state, {
+        [action.resultKey]: {
+          params: action.params,
+          isFetching: true
+        }
+      });
     case RECEIVE_RESULTS:
-      return state;
+    return fresh(state, {
+      [action.resultKey]: {
+        params: action.params,
+        records: action.records,
+        isFetching: false
+      }
+    });
     case RECEIVE_ERROR:
       return state;
     default:

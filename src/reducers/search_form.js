@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fresh } from "../utils";
+import { fresh, makeResultKey } from "../utils";
 import {
   SUBMIT_SEARCH,
   UPDATE_BILL,
@@ -20,18 +20,6 @@ const dateFromSession = (sesh, type) => {
 }
 
 // utils
-const toSearchName = ({ bill, company, startDate, endDate }) => {
-  // Ex: "AB 101|TESLA MOTORS|20170101|20181231"
-  const DATE_FORMAT = "YYYYMMDD";
-  const DELIMITER = "|";
-  return [
-    bill.toUpperCase(),
-    company.toUpperCase(),
-    startDate.format(DATE_FORMAT),
-    endDate.format(DATE_FORMAT)
-  ].join(DELIMITER)
-}
-
 const updateField = (field, value, state) => {
   // Update a single field value and handle any other
   // field updates that should occur as a result.
@@ -57,7 +45,7 @@ const searchForm = (state = {
   fields: {
     bill: "vehicle",
     company: "tesla motors",
-    session: "20172018", 
+    session: "20172018",
     startDate: moment("20170101"),
     endDate: moment("20181231")
   }
@@ -65,7 +53,7 @@ const searchForm = (state = {
   switch (action.type) {
     case SUBMIT_SEARCH:
       return fresh(state, {
-        submitted: toSearchName(state.fields)
+        submitted: makeResultKey(state.fields)
       })
     case UPDATE_BILL:
       return updateField("bill", action.term, state);

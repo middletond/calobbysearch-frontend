@@ -14,7 +14,6 @@ import ResultsHeader from "../components/results/header";
 import ResultsControlBar from "../components/results/control_bar";
 
 class Results extends React.Component {
-
   render() {
     const { filterTerm, onFilterTermChange,
             currentResults, onExport } = this.props;
