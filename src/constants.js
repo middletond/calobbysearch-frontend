@@ -13,5 +13,6 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "20052006", verbose: "2005 - 2006" },
   { value: "20032004", verbose: "2003 - 2004" },
   { value: "20012002", verbose: "2001 - 2002" },
-  { value: "19992000", verbose: "1999 - 2000" }
+  { value: "19992000", verbose: "1999 - 2000" },
+  { value: "USE_DATES", verbose: "Use Dates" },
 ]

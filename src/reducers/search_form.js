@@ -10,11 +10,12 @@ import {
 } from "../actions/search_form";
 
 const toSearchName = ({ bill, company, startDate, endDate }) => {
+  // Ex: "AB 101|TESLA MOTORS|20170101|20181231"
   const DATE_FORMAT = "YYYYMMDD";
   const DELIMITER = "|";
   return [
-    bill.toLowerCase(),
-    company.toLowerCase(),
+    bill.toUpperCase(),
+    company.toUpperCase(),
     startDate.format(DATE_FORMAT),
     endDate.format(DATE_FORMAT)
   ].join(DELIMITER)
@@ -31,6 +32,27 @@ const initialState = {
   submitted: ""
 }
 
+const dateFromSession = (sesh, type) => {
+  return (type == "start")
+         ? moment(sesh.substring(0, 4) + "0101")
+         : moment(sesh.substring(4, 8) + "1231")
+}
+
+const updateField = (field, value, state) => {
+  let updated =  { [field]: value };
+
+  if (field == "session" && value != "USE_DATES") { // sesh updated, align start / end dates to session
+    updated.startDate = dateFromSession(value, "start");
+    updated.endDate = dateFromSession(value, "end");
+  }
+  else if (field == "startDate" || field == "endDate") { // dates updates, turn off session
+    updated.session = "USE_DATES"; // make this a constant soon
+  }
+  return fresh(state, {
+    fields: fresh(state.fields, updated)
+  })
+}
+
 const searchForm = (state = initialState, action) => {
   switch (action.type) {
     case SUBMIT_SEARCH:
@@ -38,25 +60,15 @@ const searchForm = (state = initialState, action) => {
         submitted: toSearchName(state.fields)
       })
     case UPDATE_BILL:
-      return fresh(state, {
-        fields: fresh(state.fields, { bill: action.term })
-      })
+      return updateField("bill", action.term, state);
     case UPDATE_COMPANY:
-      return fresh(state, {
-        fields: fresh(state.fields, { company: action.term })
-      })
+      return updateField("company", action.term, state);
     case UPDATE_START_DATE:
-      return fresh(state, {
-        fields: fresh(state.fields, { startDate: action.date })
-      })
+      return updateField("startDate", action.date, state);
     case UPDATE_END_DATE:
-      return fresh(state, {
-        fields: fresh(state.fields, { endDate: action.date })
-      })
+      return updateField("endDate", action.date, state);
     case UPDATE_SESSION:
-      return fresh(state, {
-        fields: fresh(state.fields, { session: action.session })
-      })
+      return updateField("session", action.session, state);
     default:
       return state;
   }
