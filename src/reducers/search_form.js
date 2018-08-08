@@ -9,6 +9,17 @@ import {
   UPDATE_SESSION
 } from "../actions/search_form";
 
+
+const USE_DATES_NOT_SESSION = "USE_DATES";
+const DATE_FIELDS = ["startDate", "endDate"];
+
+const dateFromSession = (sesh, type) => {
+  return (type == "start")
+         ? moment(sesh.substring(0, 4) + "0101")
+         : moment(sesh.substring(4, 8) + "1231")
+}
+
+// utils
 const toSearchName = ({ bill, company, startDate, endDate }) => {
   // Ex: "AB 101|TESLA MOTORS|20170101|20181231"
   const DATE_FORMAT = "YYYYMMDD";
@@ -21,39 +32,36 @@ const toSearchName = ({ bill, company, startDate, endDate }) => {
   ].join(DELIMITER)
 }
 
-const initialState = {
-  fields: {
-    bill: "vehicle",
-    company: "tesla motors",
-    session: "20172018", // this should modulate start and end on change
-    startDate: moment("20170101"), // these should switch session to null if acted upon
-    endDate: moment("20181231")
-  },
-  submitted: ""
-}
-
-const dateFromSession = (sesh, type) => {
-  return (type == "start")
-         ? moment(sesh.substring(0, 4) + "0101")
-         : moment(sesh.substring(4, 8) + "1231")
-}
-
 const updateField = (field, value, state) => {
+  // Update a single field value and handle any other
+  // field updates that should occur as a result.
   let updated =  { [field]: value };
 
-  if (field == "session" && value != "USE_DATES") { // sesh updated, align start / end dates to session
+  if (field == "session" && value != USE_DATES_NOT_SESSION) {
+    // sesh updated, align start / end dates to session
     updated.startDate = dateFromSession(value, "start");
     updated.endDate = dateFromSession(value, "end");
   }
-  else if (field == "startDate" || field == "endDate") { // dates updates, turn off session
-    updated.session = "USE_DATES"; // make this a constant soon
+  else if (DATE_FIELDS.includes(field)) {
+    // dates updates, turn off session
+    updated.session = USE_DATES_NOT_SESSION;
   }
   return fresh(state, {
     fields: fresh(state.fields, updated)
   })
 }
 
-const searchForm = (state = initialState, action) => {
+// reducer
+const searchForm = (state = {
+  submitted: "",
+  fields: {
+    bill: "vehicle",
+    company: "tesla motors",
+    session: "20172018", 
+    startDate: moment("20170101"),
+    endDate: moment("20181231")
+  }
+}, action) => {
   switch (action.type) {
     case SUBMIT_SEARCH:
       return fresh(state, {
