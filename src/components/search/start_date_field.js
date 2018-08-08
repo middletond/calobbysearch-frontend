@@ -4,12 +4,11 @@ import moment from "moment";
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-const StartDateField = (props) => {
+const StartDateField = ({ date, onChange }) => {
   return <DatePicker
            className="start-date-field"
-           selected={moment()}
-           onChange={date => console.log(date)}
-         />
+           onChange={date => onChange(date)}
+           selected={date} />
 }
 
 export default StartDateField;

@@ -1,22 +1,24 @@
 import React from "react";
 
-const SESSIONS = [ // XXX Dummy data: move this to container -> eventual API call
-  { value: "20172018", verbose: "2017 - 2018" },
-  { value: "20152016", verbose: "2015 - 2016" },
-  { value: "20132014", verbose: "2013 - 2014" },
-  { value: "20112012", verbose: "2011 - 2012" },
-  { value: "20092010", verbose: "2009 - 2010" }
-]
+import { SESSIONS } from "../../constants";
 
-const SessionSelect = (props) => {
+const SessionOption = ({ session }) => {
   return (
-    <select className="session-select">
+    <option value={session.value}>
+      {session.verbose}
+    </option>
+  )
+}
+
+const SessionSelect = ({ value, onChange }) => {
+  return (
+    <select
+      className="session-select"
+      onChange={event => onChange(event.target.value)}
+      value={value}>
       {
-        SESSIONS.map(sesh => {
-          return <option
-                   key={sesh.value}
-                   value={sesh.value}
-                 >{sesh.verbose}</option>
+        SESSIONS.map((sesh, index) => {
+          return <SessionOption key={index} session={sesh} />
         })
       }
     </select>

@@ -1,10 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import TextFields from "../components/search/text_fields";
-import DateFields from "../components/search/date_fields";
-import SubmitButton from "../components/search/submit_button";
-
 import {
   submitSearch,
   updateBill,
@@ -14,17 +10,31 @@ import {
   updateSession
 } from "../actions/search_form";
 
+import TextFields from "../components/search/text_fields";
+import DateFields from "../components/search/date_fields";
+import SubmitButton from "../components/search/submit_button";
+
 class SearchForm extends React.Component {
   render() {
-    const { onBillChange, onCompanyChange } = this.props;
+    const { onBillChange, onCompanyChange,
+            onStartDateChange, onEndDateChange,
+            onSessionChange, onSubmit } = this.props;
     return (
       <form
         className="search-form"
-        onSubmit={event => this.props.onSubmit(event)} >
+        onSubmit={event => onSubmit(event)} >
         <TextFields
+          bill={this.props.fields.bill}
+          company={this.props.fields.company}
           onBillChange={onBillChange}
           onCompanyChange={onCompanyChange} />
-        <DateFields />
+        <DateFields
+          startDate={this.props.fields.startDate}
+          endDate={this.props.fields.endDate}
+          session={this.props.fields.session}
+          onStartDateChange={onStartDateChange}
+          onEndDateChange={onEndDateChange}
+          onSessionChange={onSessionChange} />
         <SubmitButton />
       </form>
     )
@@ -33,7 +43,8 @@ class SearchForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchFields: state.searchFields
+    fields: state.searchForm.fields,
+    submitted: state.searchForm.submitted
   }
 }
 
