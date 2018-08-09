@@ -1,8 +1,8 @@
 import React from "react";
 
 import Table from "../table";
-import ResultsRow from "./row";
-import { COLUMNS } from "../../columns";
+import ResultsRowGroup from "./row";
+import { FILINGS_COLUMNS } from "../../columns";
 
 const ResultsTable = ({ results, sorting, filterTerm }) => {
   if (!results.params) // empty results
@@ -12,9 +12,9 @@ const ResultsTable = ({ results, sorting, filterTerm }) => {
 
   return (
     <Table
-      Row={ResultsRow}
+      Row={ResultsRowGroup}
       records={results.records}
-      columns={COLUMNS}
+      columns={FILINGS_COLUMNS}
       className="results" />
   )
 }

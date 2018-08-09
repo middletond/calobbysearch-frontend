@@ -6,7 +6,32 @@ export const TYPE_TEXT = "text";
 export const TYPE_CURRENCY = "currency";
 export const TYPE_ARRAY = "array";
 
-export const COLUMNS = [
+export const BILLS_COLUMNS = [
+  {
+    name: "name",
+    verbose: "Name",
+    url: "url",
+    type: TYPE_TEXT
+  },
+  {
+    name: "title",
+    verbose: "Title",
+    url: "url",
+    type: TYPE_TEXT
+  },
+  {
+    name: "authors",
+    verbose: "Author(s)",
+    type: TYPE_TEXT
+  },
+  {
+    name: "status",
+    verbose: "Status",
+    type: TYPE_TEXT
+  },
+]
+
+export const FILINGS_COLUMNS = [
   {
     name: "employer",
     verbose: "Company",
