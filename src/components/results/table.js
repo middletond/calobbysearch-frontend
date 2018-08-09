@@ -1,7 +1,8 @@
 import React from "react";
 
+import Table from "../table";
 import ResultsRow from "./row";
-import { COLUMNS } from "../../constants";
+import { COLUMNS } from "../../columns";
 
 const ResultsTable = ({ results, sorting, filterTerm }) => {
   if (!results.params) // empty results
@@ -10,20 +11,11 @@ const ResultsTable = ({ results, sorting, filterTerm }) => {
     return <div className="results loading">Loading...</div>;
 
   return (
-    <table className="results">
-      <thead>
-        <tr>
-          {COLUMNS.map((col, index) => {
-            return <th key={index}>{col.verbose}</th>
-          })}
-        </tr>
-      </thead>
-      <tbody>
-        {results.records.map((record, index) => {
-          return <ResultsRow key={index} record={record} />
-        })}
-      </tbody>
-    </table>
+    <Table
+      Row={ResultsRow}
+      records={results.records}
+      columns={COLUMNS}
+      className="results" />
   )
 }
 

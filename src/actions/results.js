@@ -19,6 +19,11 @@ export const receiveResults = (resultKey, params, json) => {
     params,
     resultKey,
     records: json.results,
+    page: {
+      count: json.count,
+      next: json.next,
+      prev: json.previous
+    },
     receivedAt: Date.now()
   }
 }

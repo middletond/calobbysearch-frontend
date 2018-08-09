@@ -1,44 +1,3 @@
-export const COLUMNS = [
-  {
-    name: "employer",
-    verbose: "Company",
-    url: "employer_url",
-    type: "text"
-  },
-  {
-    name: "compensation",
-    verbose: "Paid",
-    type: "currency"
-  },
-  {
-    name: "lobbyer",
-    verbose: "Lobby Firm",
-    url: "lobbyer_url",
-    type: "text"
-  },
-  {
-    name: "interests",
-    verbose: "For Interests / Bills",
-    type: "text"
-  },
-  {
-    name: "start_date",
-    verbose: "Starting",
-    type: "date"
-  },
-  {
-    name: "end_date",
-    verbose: "Ending",
-    type: "date"
-  },
-  {
-    name: "filing_date",
-    verbose: "Filed",
-    url: "filing_url",
-    type: "date"
-  }
-];
-
 export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "20172018", verbose: "2017 - 2018" },
   { value: "20152016", verbose: "2015 - 2016" },
@@ -52,3 +11,6 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "19992000", verbose: "1999 - 2000" },
   { value: "USE_DATES", verbose: "Use Dates" },
 ]
+
+// https://devhints.io/moment
+export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";

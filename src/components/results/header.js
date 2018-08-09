@@ -11,7 +11,7 @@ const ResultsHeader = ({ results }) => {
     {("records" in results) ?
       <div className="results-header-meta">
         <div className="meta-item">{results.records.length} Filings</div>
-        <div className="meta-item">{("totals" in results) ? results.totals.bills : 1} Bills</div>
+        <div className="meta-item">{results.bills.length} Bills</div>
       </div> : ""
     }
     </div>

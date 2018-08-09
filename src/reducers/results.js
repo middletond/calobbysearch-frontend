@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fresh } from "../utils";
+import { fresh, findMatchingBills } from "../utils";
 import {
   REQUEST_RESULTS,
   RECEIVE_RESULTS,
@@ -20,6 +20,8 @@ const results = (state = {}, action) => {
       [action.resultKey]: {
         params: action.params,
         records: action.records,
+        bills: findMatchingBills(action.records),
+        page: action.page,
         isFetching: false
       }
     });
