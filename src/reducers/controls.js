@@ -13,7 +13,7 @@ const DESCENDING = "desc";
 
 const controls = (state = {
   filterTerm: "",
-  sort: {
+  sorting: {
     field: "startDate",
     direction: ASCENDING,
   }
@@ -25,15 +25,15 @@ const controls = (state = {
       });
     case UPDATE_SORT:
         return fresh(state, {
-          sort: action.sort
+          sorting: action.sorting
         })
     case UPDATE_SORT_FIELD:
       return fresh(state, {
-        sort: fresh(state.sort, { field: action.field })
+        sorting: fresh(state.sorting, { field: action.field })
       })
     case UPDATE_SORT_DIRECTION:
       return fresh(state, {
-        sort: fresh(state.sort, { direction: action.direction })
+        sorting: fresh(state.sorting, { direction: action.direction })
       })
     case EXPORT_CURRENT_SEARCH:
       // use thunk action to get to here

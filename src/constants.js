@@ -1,6 +1,42 @@
 export const COLUMNS = [
-  "filing_id",
-  "company"
+  {
+    name: "employer",
+    verbose: "Company",
+    url: "employer_url",
+    type: "text"
+  },
+  {
+    name: "compensation",
+    verbose: "Paid",
+    type: "currency"
+  },
+  {
+    name: "lobbyer",
+    verbose: "Lobby Firm",
+    url: "lobbyer_url",
+    type: "text"
+  },
+  {
+    name: "interests",
+    verbose: "For Interests / Bills",
+    type: "text"
+  },
+  {
+    name: "start_date",
+    verbose: "Starting",
+    type: "date"
+  },
+  {
+    name: "end_date",
+    verbose: "Ending",
+    type: "date"
+  },
+  {
+    name: "filing_date",
+    verbose: "Filed",
+    url: "filing_url",
+    type: "date"
+  }
 ];
 
 export const SESSIONS = [ // XXX Dummy data: move this to API call

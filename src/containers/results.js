@@ -12,11 +12,12 @@ import {
 
 import ResultsHeader from "../components/results/header";
 import ResultsControlBar from "../components/results/control_bar";
+import ResultsTable from "../components/results/table";
 
 class Results extends React.Component {
   render() {
     const { filterTerm, onFilterTermChange,
-            currentResults, onExport } = this.props;
+            sorting, onExport, currentResults } = this.props;
 
     return (
       <div className="results-controls">
@@ -25,6 +26,10 @@ class Results extends React.Component {
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
           onExport={onExport} />
+        <ResultsTable
+          results={currentResults}
+          filterTerm={filterTerm}
+          sorting={sorting} />
       </div>
     )
   }
@@ -36,6 +41,7 @@ const mapStateToProps = (state) => {
     submitted: searchForm.submitted,
     currentResults: results[searchForm.submitted] || {},
     filterTerm: controls.filterTerm,
+    sorting: controls.sorting
   }
 }
 

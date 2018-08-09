@@ -14,7 +14,7 @@ export const updateFilterTerm = (term) => {
 export const updateSort = (field, direction) => {
   return {
     type: UPDATE_SORT,
-    sort: {
+    sorting: {
       field: field,
       direction, direction
     }

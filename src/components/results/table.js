@@ -3,31 +3,25 @@ import React from "react";
 import ResultsRow from "./row";
 import { COLUMNS } from "../../constants";
 
-const currentSearch = { // XXX dummy data, replace w redux -> API
-  items: [
-    {"filing_id": 1, "company": "Facebook"},
-    {"filing_id": 2, "company": "Tesla Motors"}
-  ]
-}
+const ResultsTable = ({ results, sorting, filterTerm }) => {
+  if (!results.params) // empty results
+    return "";
+  if (results.isFetching)
+    return <div className="results loading">Loading...</div>;
 
-const ResultsTable = (props) => {
   return (
     <table className="results">
       <thead>
         <tr>
-          {
-            COLUMNS.map((col, index) => {
-              return <th key={index}>{col}</th>
-            })
-          }
+          {COLUMNS.map((col, index) => {
+            return <th key={index}>{col.verbose}</th>
+          })}
         </tr>
       </thead>
       <tbody>
-        {
-          currentSearch.items.map((item, index) => {
-            return <ResultsRow key={index} item={item} />
-          })
-        }
+        {results.records.map((record, index) => {
+          return <ResultsRow key={index} record={record} />
+        })}
       </tbody>
     </table>
   )
