@@ -15,7 +15,8 @@ const ResultsTable = ({ results, sorting, filterTerm }) => {
       Row={ResultsRowGroup}
       records={results.records}
       columns={FILINGS_COLUMNS}
-      className="results" />
+      className="results"
+      wrapRows={false} />
   )
 }
 

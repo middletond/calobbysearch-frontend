@@ -20,11 +20,16 @@ const TableRows = ({ Row, records, columns }) => {
   )
 }
 
-const Table = ({ Row, records, columns, className }) => {
+const Table = ({ Row, records, columns, className, wrapRows = true }) => {
   return (
     <table className={className}>
       <TableHead columns={columns} />
-      <TableRows Row={Row} records={records} columns={columns} />
+      {(wrapRows) ?
+      <tbody>
+        <TableRows Row={Row} records={records} columns={columns} />
+      </tbody>
+      :
+      <TableRows Row={Row} records={records} columns={columns} />}
     </table>
   )
 }

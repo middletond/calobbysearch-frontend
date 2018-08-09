@@ -5,8 +5,6 @@ import BillsRow from "./bills_row";
 import { BILLS_COLUMNS } from "../../columns";
 
 const BillsTable = ({ bills }) => {
-  if (!bills.length) return "";
-
   return (
     <Table
       Row={BillsRow}
