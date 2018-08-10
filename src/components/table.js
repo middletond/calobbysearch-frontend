@@ -12,24 +12,24 @@ const TableHead = ({ columns }) => {
   )
 }
 
-const TableRows = ({ Row, records, columns }) => {
+const TableRows = ({ Row, records, columns, rowCallback }) => {
   return (
     records.map((record, index) => {
-      return <Row key={index} record={record} columns={columns} />
+      return <Row key={index} record={record} columns={columns} rowCallback={rowCallback} />
     })
   )
 }
 
-const Table = ({ Row, records, columns, className, wrapRows = true }) => {
+const Table = ({ Row, records, columns, className, wrapRows = true, rowCallback }) => {
   return (
     <table className={className}>
       <TableHead columns={columns} />
       {(wrapRows) ?
       <tbody>
-        <TableRows Row={Row} records={records} columns={columns} />
+        <TableRows Row={Row} records={records} columns={columns} rowCallback={rowCallback} />
       </tbody>
       :
-      <TableRows Row={Row} records={records} columns={columns} />}
+      <TableRows Row={Row} records={records} columns={columns} rowCallback={rowCallback} />}
     </table>
   )
 }

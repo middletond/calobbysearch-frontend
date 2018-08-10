@@ -20,7 +20,7 @@ const results = (state = {}, action) => {
       [action.resultKey]: {
         params: action.params,
         records: action.records,
-        bills: findMatchingBills(action.records),
+        bills: findMatchingBills(action.records), // aggregate for header or separate bill-based view
         page: action.page,
         isFetching: false
       }

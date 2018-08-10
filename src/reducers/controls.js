@@ -1,9 +1,12 @@
+import _ from "lodash";
+
 import {
   UPDATE_FILTER_TERM,
   UPDATE_SORT,
   UPDATE_SORT_FIELD,
   UPDATE_SORT_DIRECTION,
-  EXPORT_CURRENT_SEARCH
+  EXPORT_CURRENT_SEARCH,
+  TOGGLE_BILLS_FOR_RECORD
 } from "../actions/controls";
 
 import { fresh } from "../utils";
@@ -12,6 +15,7 @@ const ASCENDING = "asc";
 const DESCENDING = "desc";
 
 const controls = (state = {
+  opened: [],
   filterTerm: "",
   sorting: {
     field: "startDate",
@@ -38,6 +42,12 @@ const controls = (state = {
     case EXPORT_CURRENT_SEARCH:
       // use thunk action to get to here
       return state;
+    case TOGGLE_BILLS_FOR_RECORD:
+      return fresh(state, {
+        opened: (!state.opened.includes(action.id))
+                 ? [...state.opened, action.id]
+                 : [...state.opened].filter(id => id != action.id)
+      })
     default:
       return state;
   }
