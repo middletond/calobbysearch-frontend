@@ -5,8 +5,8 @@ import Table from "../table";
 import ResultsRowGroup from "./row";
 
 import { FILINGS_COLUMNS } from "../../columns";
-import {valuesToString } from "../../utils";
 import { ASCENDING, DESCENDING } from "../../constants";
+import {valuesToString } from "../../utils";
 
 class ResultsTable extends React.Component {
   constructor(props) {
@@ -43,41 +43,37 @@ class ResultsTable extends React.Component {
     const { sorting } = this.props;
 
     const getSortVal = (record) => {
-      const DATE_STRING = /^\d+[./-]\d+[./-]\d+$/;
-      const NON_NUMBERS = /[^0-9\.]+/g;
-
       let sortVal = record[sorting.field];
-      console.log("HELLO");
-      console.log(sorting);
-      console.log(sortVal);
-      console.log(typeof sortVal);
-      // If value is a string, we clean it.
+
       if (typeof sortVal == "string") {
-          sortVal = sortVal.toLowerCase().trim();
-          // check if string should be a date
-          if (sortVal.match(DATE_STRING)) { // Date.parse() is VERY liberal w what constitutes a date
-              let date = Date.parse(sortVal) || null;
-              if (date)
-                  return date;
-          }
-          // check if string should be a number
-          let num = Number(sortVal.replace(NON_NUMBERS, "")); // "$20,000" --> 20000 etc
-          if (num)
-              return num;
+        const DATE_STRING = /^\d+[./-]\d+[./-]\d+$/;
+        const NON_NUMBERS = /[^0-9\.]+/g;
+        // clean the string
+        sortVal = sortVal.toLowerCase().trim();
+        // check if string should be a date
+        if (sortVal.match(DATE_STRING)) { // Date.parse() is VERY liberal w what constitutes a date
+          let date = Date.parse(sortVal) || null;
+          if (date)
+            return date;
+        }
+        // check if string should be a number
+        let num = Number(sortVal.replace(NON_NUMBERS, "")); // "$20,000" --> 20000 etc
+        if (num)
+          return num;
       }
       return sortVal;
     }
     let sortedRecs = _.sortBy(records, record => getSortVal(record));
 
-      if (sorting.direction == DESCENDING)
-        sortedRecs = sortedRecs.reverse();
+    if (sorting.direction == DESCENDING)
+      sortedRecs = sortedRecs.reverse();
     return sortedRecs;
   }
 
   opened(records) {
     const { opened } = this.props;
 
-    const appendOpened = (record) => {
+    const appendOpened = (record) => { // XXX this alters redux state still.
       record.opened = (opened.includes(record.filing_id));
       return record;
     }
