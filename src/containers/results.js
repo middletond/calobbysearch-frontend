@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import {
-  updateSort,
+  updateSorting,
   updateFilterTerm,
   exportCurrentSearch,
   toggleBillsForRecord
@@ -19,7 +19,7 @@ class Results extends React.Component {
   render() {
     const { filterTerm, onFilterTermChange,
             sorting, onExport, currentResults,
-            onShowBillsClick, opened } = this.props;
+            onShowBillsClick, onColumnNameClick, opened } = this.props;
 
     return (
       <div className="results-controls">
@@ -33,6 +33,7 @@ class Results extends React.Component {
           filterTerm={filterTerm}
           sorting={sorting}
           opened={opened}
+          onColumnNameClick={onColumnNameClick}
           onShowBillsClick={onShowBillsClick} />
       </div>
     )
@@ -52,6 +53,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onColumnNameClick: (name) => {
+      dispatch(updateSorting(name));
+    },
     onShowBillsClick: (id) => {
       dispatch(toggleBillsForRecord(id));
     },

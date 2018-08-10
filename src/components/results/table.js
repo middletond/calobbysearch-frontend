@@ -81,7 +81,7 @@ class ResultsTable extends React.Component {
   }
 
   render() {
-    const { results, onShowBillsClick } = this.props;
+    const { results, onShowBillsClick, onColumnNameClick } = this.props;
 
     if (!results.params) // empty results
       return "";
@@ -93,7 +93,11 @@ class ResultsTable extends React.Component {
         <thead>
           <tr>
             {FILINGS_COLUMNS.map((col, index) => {
-              return <th key={index}>{col.verbose}</th>
+              return <th
+                       key={index}
+                       onClick={() => onColumnNameClick(col.name)}>
+                       {col.verbose}
+                     </th>
             })}
           </tr>
         </thead>
