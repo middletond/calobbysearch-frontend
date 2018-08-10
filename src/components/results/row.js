@@ -3,12 +3,24 @@ import React from "react";
 import TableCell from "../table_cell";
 import BillsTable from "./bills_table";
 
-const ResultsRow = ({ record, columns, onShowBillsClick }) => {
+import { FILINGS_COLUMNS } from "../../columns";
+
+const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
   const buttonLabel = (record.opened) ? "Hide Bills" : "Show Bills";
+
+  const sortingClasses = (column) => {
+    const { field, direction } = sorting;
+    return (column.name == field) ? `sort ${direction}` : "";
+  }
+
   return (
     <tr className={record.type}>
-      {columns.map((col, index) => {
-        return <TableCell key={index} record={record} column={col} />
+      {FILINGS_COLUMNS.map((col, index) => {
+        return <TableCell
+                 sortingClasses={sortingClasses(col)}
+                 key={index}
+                 record={record}
+                 column={col} />
       })}
       <td>
         <button onClick={() => onShowBillsClick(record.filing_id)}>
@@ -31,10 +43,13 @@ const ResultsRowBills = ({ record }) => {
   )
 }
 
-const ResultsRowGroup = ({ record, columns, onShowBillsClick }) => {
+const ResultsRowGroup = ({ record, sorting, onShowBillsClick }) => {
   return (
     <tbody className="results-row-group">
-      <ResultsRow record={record} columns={columns} onShowBillsClick={onShowBillsClick} />
+      <ResultsRow
+        record={record}
+        sorting={sorting}
+        onShowBillsClick={onShowBillsClick} />
       <ResultsRowBills record={record} />
     </tbody>
   )

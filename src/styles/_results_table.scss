@@ -1,0 +1,6 @@
+.results-table {
+  .sort {
+    &.asc { background-color: $magenta; }
+    &.desc { background-color: $peach; }
+  }
+}

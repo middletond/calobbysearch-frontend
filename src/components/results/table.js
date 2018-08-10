@@ -48,18 +48,15 @@ class ResultsTable extends React.Component {
       if (typeof sortVal == "string") {
         const DATE_STRING = /^\d+[./-]\d+[./-]\d+$/;
         const NON_NUMBERS = /[^0-9\.]+/g;
-        // clean the string
         sortVal = sortVal.toLowerCase().trim();
         // check if string should be a date
         if (sortVal.match(DATE_STRING)) { // Date.parse() is VERY liberal w what constitutes a date
           let date = Date.parse(sortVal) || null;
-          if (date)
-            return date;
+          if (date) return date;
         }
         // check if string should be a number
         let num = Number(sortVal.replace(NON_NUMBERS, "")); // "$20,000" --> 20000 etc
-        if (num)
-          return num;
+        if (num) return num;
       }
       return sortVal;
     }
@@ -80,8 +77,13 @@ class ResultsTable extends React.Component {
     return records.map(record => appendOpened(record));
   }
 
+  sortingClasses(column) {
+    const { field, direction } = this.props.sorting;
+    return (column.name == field) ? `sort ${direction}` : "";
+  }
+
   render() {
-    const { results, onShowBillsClick, onColumnNameClick } = this.props;
+    const { results, sorting, onShowBillsClick, onColumnNameClick } = this.props;
 
     if (!results.params) // empty results
       return "";
@@ -89,12 +91,13 @@ class ResultsTable extends React.Component {
       return <div className="results loading">Loading...</div>;
 
     return (
-      <table className="results">
+      <table className="results-table">
         <thead>
           <tr>
             {FILINGS_COLUMNS.map((col, index) => {
               return <th
                        key={index}
+                       className={this.sortingClasses(col)}
                        onClick={() => onColumnNameClick(col.name)}>
                        {col.verbose}
                      </th>
@@ -106,7 +109,7 @@ class ResultsTable extends React.Component {
             <ResultsRowGroup
               key={index}
               record={record}
-              columns={FILINGS_COLUMNS}
+              sorting={sorting}
               onShowBillsClick={onShowBillsClick} />
           )
         })}

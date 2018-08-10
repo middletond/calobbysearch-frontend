@@ -2,14 +2,15 @@ import React from "react";
 
 import { makeCell } from "../columns";
 
-const TableCell = ({ record, column }) => {
+const TableCell = ({ record, column, sortingClasses }) => {
   const cell = makeCell(record, column);
+  const classes = `${sortingClasses} ${cell.name}`;
 
   if (!cell.url) {
-    return <td className={cell.colName}>{cell.value}</td>;
+    return <td className={classes}>{cell.value}</td>;
   }
   return (
-    <td className={cell.colName}>
+    <td className={classes}>
       <a href={cell.url} target="_blank">
         {cell.value}
       </a>
