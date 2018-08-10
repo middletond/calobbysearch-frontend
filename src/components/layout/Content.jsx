@@ -1,7 +1,7 @@
 import React from "react";
 
-import SearchForm from "../containers/search_form";
-import Results from "../containers/results";
+import SearchForm from "../../containers/SearchForm";
+import Results from "../../containers/Results";
 
 const Content = () => {
   return (

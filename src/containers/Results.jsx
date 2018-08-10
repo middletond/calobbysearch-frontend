@@ -2,18 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 
 import {
+  fetchResults
+} from "../actions/results";
+import {
   updateSorting,
   updateFilterTerm,
   exportCurrentSearch,
   toggleBillsForRecord
 } from "../actions/controls";
-import {
-  fetchResults
-} from "../actions/results";
 
-import ResultsHeader from "../components/results/header";
-import ResultsControlBar from "../components/results/control_bar";
-import ResultsTable from "../components/results/table";
+import ResultsHeader from "../components/results/ResultsHeader";
+import ResultsControls from "../components/results/ResultsControls";
+import ResultsTable from "../components/results/ResultsTable";
 
 class Results extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class Results extends React.Component {
     return (
       <div className="results-controls">
         <ResultsHeader results={currentResults} />
-        <ResultsControlBar
+        <ResultsControls
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
           onExport={onExport} />

@@ -5,10 +5,13 @@ import moment from "moment";
 import 'react-datepicker/dist/react-datepicker.css';
 
 const EndDateField = ({ date, onChange }) => {
-  return <DatePicker
-           className="end-date-field"
-           onChange={date => onChange(date)}
-           selected={date} />
+  return (
+    <DatePicker
+      selected={date}
+      autoComplete="enddate"
+      className="end-date-field"
+      onChange={date => onChange(date)} />
+  )
 }
 
 export default EndDateField;

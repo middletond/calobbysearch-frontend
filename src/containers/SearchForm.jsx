@@ -13,9 +13,9 @@ import {
   fetchResults
 } from "../actions/results";
 
-import TextFields from "../components/search/text_fields";
-import DateFields from "../components/search/date_fields";
-import SubmitButton from "../components/search/submit_button";
+import TextFields from "../components/search_form/TextFields";
+import DateFields from "../components/search_form/DateFields";
+import SubmitButton from "../components/search_form/SubmitButton";
 
 class SearchForm extends React.Component {
   render() {

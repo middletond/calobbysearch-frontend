@@ -30,9 +30,14 @@ export const uniqueBy = (key, objs) => {
   return uniqueVals.map(val => findFirst(val));
 }
 
+/**
+ * Returns a string of concatenated values from a record or object.
+ *
+ * > let rec = {a:1, b:2, c: {d:3, e:4}}
+ * > valuesToString(rec);
+ * "1 2 3 4"
+ */
 export const valuesToString = (record, columns = null) => {
-  // let rec = {a:1, b:2, c: {d:3, e:4}}
-  // valuesToString(rec); // "1 2 3 4"
   if (!columns) {
     columns = Object.keys(record).map(key => ({ name: key }));
   }
@@ -41,7 +46,15 @@ export const valuesToString = (record, columns = null) => {
 
     if (columnVal && typeof columnVal == "object")
       columnVal = valuesToString(columnVal);
-      
+
     return `${values} ${columnVal}`;
   }, "").trim()
+}
+
+/**
+ * Returns a single string of sorting classes.
+ */
+export const sortingClasses = (column, sorting) => {
+  const { field, direction } = sorting;
+  return (column.name == field) ? `sort ${direction}` : "";
 }

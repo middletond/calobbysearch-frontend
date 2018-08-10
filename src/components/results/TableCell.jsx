@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeCell } from "../columns";
+import { makeCell } from "../../columns";
 
 const TableCell = ({ record, column, classNames }) => {
   const cell = makeCell(record, column);

@@ -1,7 +1,7 @@
 import React from "react";
 
-import BillField from "./bill_field";
-import CompanyField from "./company_field";
+import BillField from "./BillField";
+import CompanyField from "./CompanyField";
 
 const TextFields = ({
   bill, onBillChange,

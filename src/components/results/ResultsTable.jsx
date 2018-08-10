@@ -1,12 +1,11 @@
 import React from "react";
 import _ from "lodash";
 
-import Table from "../table";
-import ResultsRowGroup from "./row";
+import ResultsRowGroup from "./ResultsRowGroup";
 
-import { FILINGS_COLUMNS } from "../../columns";
+import { RESULTS_COLUMNS } from "../../columns";
 import { ASCENDING, DESCENDING } from "../../constants";
-import {valuesToString } from "../../utils";
+import {valuesToString, sortingClasses } from "../../utils";
 
 class ResultsTable extends React.Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class ResultsTable extends React.Component {
     const { filterTerm } = this.props;
 
     const hasTerm = (record, term) => {
-      let recVals = valuesToString(record, FILINGS_COLUMNS);
+      let recVals = valuesToString(record, RESULTS_COLUMNS);
       return recVals.toUpperCase().includes(term.toUpperCase());
     }
     return records.filter(record => hasTerm(record, filterTerm));
@@ -70,20 +69,17 @@ class ResultsTable extends React.Component {
   opened(records) {
     const { opened } = this.props;
 
-    const appendOpened = (record) => { // XXX this alters redux state still.
+    const appendOpened = (record) => { // XXX this alters redux state and shouldn't.
       record.opened = (opened.includes(record.filing_id));
       return record;
     }
     return records.map(record => appendOpened(record));
   }
 
-  sortingClasses(column) {
-    const { field, direction } = this.props.sorting;
-    return (column.name == field) ? `sort ${direction}` : "";
-  }
-
   render() {
-    const { results, sorting, onShowBillsClick, onColumnNameClick } = this.props;
+    const { results, sorting,
+            onShowBillsClick,
+            onColumnNameClick } = this.props;
 
     if (!results.params) // empty results
       return "";
@@ -94,13 +90,15 @@ class ResultsTable extends React.Component {
       <table className="results-table">
         <thead>
           <tr>
-            {FILINGS_COLUMNS.map((col, index) => {
-              return <th
-                       key={index}
-                       className={this.sortingClasses(col)}
-                       onClick={() => onColumnNameClick(col.name)}>
-                       {col.verbose}
-                     </th>
+            {RESULTS_COLUMNS.map((col, index) => {
+              return (
+                <th
+                  key={index}
+                  className={sortingClasses(col, sorting)}
+                  onClick={() => onColumnNameClick(col.name)}>
+                  {col.verbose}
+                </th>
+              )
             })}
           </tr>
         </thead>

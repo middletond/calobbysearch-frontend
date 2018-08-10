@@ -1,8 +1,8 @@
 import React from "react";
 
-import SessionSelect from "./session_select";
-import StartDateField from "./start_date_field";
-import EndDateField from "./end_date_field";
+import SessionSelect from "./SessionSelect";
+import StartDateField from "./StartDateField";
+import EndDateField from "./EndDateField";
 
 const DateFields = ({
   startDate, onStartDateChange,

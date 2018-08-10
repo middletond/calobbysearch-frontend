@@ -7,10 +7,13 @@ module.exports = {
     path: path.resolve(__dirname),
     filename: "./bundle.js"
   },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js(x?)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",

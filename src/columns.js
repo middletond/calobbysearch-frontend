@@ -31,7 +31,7 @@ export const BILLS_COLUMNS = [
   },
 ]
 
-export const FILINGS_COLUMNS = [
+export const RESULTS_COLUMNS = [
   {
     name: "employer",
     verbose: "Company",

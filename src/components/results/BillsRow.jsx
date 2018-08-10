@@ -1,11 +1,12 @@
 import React from "react";
 
-import TableCell from "../table_cell";
+import TableCell from "./TableCell";
+import { BILLS_COLUMNS } from "../../columns";
 
-const BillsRow = ({ record, columns }) => {
+const BillsRow = ({ record }) => {
   return (
     <tr className={record.type}>
-      {columns.map((col, index) => {
+      {BILLS_COLUMNS.map((col, index) => {
         return <TableCell key={index} record={record} column={col} />
       })}
     </tr>
