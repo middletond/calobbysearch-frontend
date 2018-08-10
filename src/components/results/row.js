@@ -17,10 +17,10 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
     <tr className={record.type}>
       {FILINGS_COLUMNS.map((col, index) => {
         return <TableCell
-                 sortingClasses={sortingClasses(col)}
                  key={index}
+                 column={col}
                  record={record}
-                 column={col} />
+                 classNames={sortingClasses(col)} />
       })}
       <td>
         <button onClick={() => onShowBillsClick(record.filing_id)}>

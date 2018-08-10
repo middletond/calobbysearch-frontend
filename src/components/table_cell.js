@@ -2,12 +2,16 @@ import React from "react";
 
 import { makeCell } from "../columns";
 
-const TableCell = ({ record, column, sortingClasses }) => {
+const TableCell = ({ record, column, classNames }) => {
   const cell = makeCell(record, column);
-  const classes = `${sortingClasses} ${cell.name}`;
+  const classes = `${cell.name} ${classNames}`;
 
   if (!cell.url) {
-    return <td className={classes}>{cell.value}</td>;
+    return (
+      <td className={classes}>
+        {cell.value}
+      </td>
+    )
   }
   return (
     <td className={classes}>
