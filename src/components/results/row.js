@@ -31,10 +31,10 @@ const ResultsRowBills = ({ record }) => {
   )
 }
 
-const ResultsRowGroup = ({ record, columns, rowCallback }) => {
+const ResultsRowGroup = ({ record, columns, onShowBillsClick }) => {
   return (
-    <tbody className="results-row">
-      <ResultsRow record={record} columns={columns} onShowBillsClick={rowCallback} />
+    <tbody className="results-row-group">
+      <ResultsRow record={record} columns={columns} onShowBillsClick={onShowBillsClick} />
       <ResultsRowBills record={record} />
     </tbody>
   )

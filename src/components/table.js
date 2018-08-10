@@ -20,7 +20,7 @@ const TableRows = ({ Row, records, columns, rowCallback }) => {
   )
 }
 
-const Table = ({ Row, records, columns, className, wrapRows = true, rowCallback }) => {
+const Table = ({ Row, filterTerm, sorting, records, columns, className, wrapRows = true, rowCallback }) => {
   return (
     <table className={className}>
       <TableHead columns={columns} />

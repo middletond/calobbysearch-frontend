@@ -1,6 +1,12 @@
 const stateShape = {
   // returned results cache
   results: {
+    opened: [], // record filing_ids... this could be kept separate from results
+    filterTerm: "",
+    sort {
+      field: "startDate",
+      direction: "asc",
+    },
     "AB 101|TESLA MOTORS|20170101|20182131": { // a unique key by concating all params
       params: {
         company: "tesla",
@@ -31,11 +37,11 @@ const stateShape = {
   }
 
   // results controllers
-  controls: {
-    filterTerm: "",
-    sort {
-      field: "startDate",
-      direction: "asc",
-    }
-  }
+  // controls: {
+  //   filterTerm: "",
+  //   sort {
+  //     field: "startDate",
+  //     direction: "asc",
+  //   }
+  // }
 }
