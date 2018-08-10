@@ -29,3 +29,19 @@ export const uniqueBy = (key, objs) => {
   }
   return uniqueVals.map(val => findFirst(val));
 }
+
+export const valuesToString = (record, columns = null) => {
+  // let rec = {a:1, b:2, c: {d:3, e:4}}
+  // valuesToString(rec); // "1 2 3 4"
+  if (!columns) {
+    columns = Object.keys(record).map(key => ({ name: key }));
+  }
+  return columns.reduce((values, column) => {
+    let columnVal = record[column.name];
+
+    if (columnVal && typeof columnVal == "object")
+      columnVal = valuesToString(columnVal);
+      
+    return `${values} ${columnVal}`;
+  }, "").trim()
+}

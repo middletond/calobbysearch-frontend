@@ -9,17 +9,16 @@ import {
   TOGGLE_BILLS_FOR_RECORD
 } from "../actions/controls";
 
-import { fresh } from "../utils";
+import { ASCENDING, DESCENDING } from "../constants";
 
-const ASCENDING = "asc";
-const DESCENDING = "desc";
+import { fresh } from "../utils";
 
 const controls = (state = {
   opened: [],
   filterTerm: "",
   sorting: {
-    field: "startDate",
-    direction: ASCENDING,
+    field: "filing_date",
+    direction: DESCENDING,
   }
 }, action) => {
   switch (action.type) {

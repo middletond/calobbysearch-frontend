@@ -15,4 +15,7 @@ tr.bills-container {
 
 table {
   width: 100%;
+  td {
+    word-wrap: break-word;
+  }
 }
