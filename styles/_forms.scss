@@ -1,0 +1,33 @@
+input, button, select {
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 35px 0px;
+  box-sizing: border-box;
+  background: transparent;
+  color: $grey;
+  font-size: 19px;
+  font-family: "Lato", sans-serif;
+  border: none;
+  border-bottom: $light-grey solid 1px;
+}
+// Nudge `react-datepicker` styles
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100% !important;
+}
+
+select {
+  height: 100px;
+}
+
+.submit-button {
+  padding: 23px 0px;
+  color: $white;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: $magenta;
+  border: $magenta-dark solid 1px;
+  border-radius: 3px;
+}

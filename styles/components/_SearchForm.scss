@@ -2,4 +2,9 @@
   background-color: $cream;
   box-sizing: border-box;
   padding: 0px 20px 20px 20px;
+  h3 {
+    margin: 0;
+    padding: 10px 0px;
+    border-bottom: $light-grey solid 1px;
+  }
 }

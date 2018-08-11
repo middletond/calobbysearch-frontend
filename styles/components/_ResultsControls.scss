@@ -1,0 +1,19 @@
+.results-controls {
+  height: 70px;
+  @include flex_display();
+  @include flex_justify_content(center);
+  @include flex_align_items(center);
+  border-top: $light-grey solid 1px;
+  border-bottom: $light-grey solid 1px;
+
+  .filter-field {
+    width: 65%;
+    border: none;
+    font-style: italic;
+  }
+  .export-button {
+    width: 35%;
+    border: none;
+    border-left: $light-grey solid 1px;
+  }
+}
