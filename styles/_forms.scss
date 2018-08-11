@@ -1,15 +1,15 @@
 input, button, select {
+  position: relative;
   outline: none;
   display: block;
   width: 100%;
-  padding: 35px 0px;
+  padding: 39px 0px;
   box-sizing: border-box;
   background: transparent;
   color: $dark-grey;
   font-size: 19px;
   font-family: "Lato", sans-serif;
   border: none;
-  border-bottom: $light-grey solid 1px;
   // Placeholder text
   &::-webkit-input-placeholder { @include placeholder(); } // Chrome/Opera/Safari
   &::-moz-placeholder { @include placeholder(); } // Firefox 19+
@@ -26,13 +26,8 @@ select {
   height: 100px;
 }
 
-.submit-button {
-  padding: 23px 0px;
-  color: $white;
+.button {
   font-weight: 600;
   font-size: 15px;
   text-transform: uppercase;
-  background-color: $magenta;
-  border: $magenta-dark solid 1px;
-  border-radius: 3px;
 }
