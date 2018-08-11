@@ -1,17 +1,33 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: $white;
-  color: $black;
+  color: $text-black;
+	font-family: "Lato", sans-serif;
+	line-height: 1.9em;
+  letter-spacing: 0em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
 }
 
-tr.bills-container {
+h1 {
+  font-family: "Alegreya", "Lato", serif;
+}
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+  b { font-weight: 600; }
+}
+h3 {
+  color: $dark-grey;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.results-row {
-  width: 100%;
-}
 
 table {
   width: 100%;

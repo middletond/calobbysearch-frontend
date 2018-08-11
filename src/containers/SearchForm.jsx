@@ -24,23 +24,23 @@ class SearchForm extends React.Component {
             onSessionChange, onSubmit, fields } = this.props;
 
     return (
-      <form
-        className="search-form"
-        onSubmit={event => onSubmit(event, fields)} >
-        <TextFields
-          bill={fields.bill}
-          company={fields.company}
-          onBillChange={onBillChange}
-          onCompanyChange={onCompanyChange} />
-        <DateFields
-          startDate={fields.startDate}
-          endDate={fields.endDate}
-          session={fields.session}
-          onStartDateChange={onStartDateChange}
-          onEndDateChange={onEndDateChange}
-          onSessionChange={onSessionChange} />
-        <SubmitButton />
-      </form>
+      <div className="search-form">
+        <form onSubmit={event => onSubmit(event, fields)} >
+          <TextFields
+            bill={fields.bill}
+            company={fields.company}
+            onBillChange={onBillChange}
+            onCompanyChange={onCompanyChange} />
+          <DateFields
+            startDate={fields.startDate}
+            endDate={fields.endDate}
+            session={fields.session}
+            onStartDateChange={onStartDateChange}
+            onEndDateChange={onEndDateChange}
+            onSessionChange={onSessionChange} />
+          <SubmitButton />
+        </form>
+      </div>
     )
   }
 }

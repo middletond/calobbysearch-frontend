@@ -1,0 +1,22 @@
+// MIXINS & FUNCTIONS
+
+@mixin flex_display() {
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+}
+@mixin flex_justify_content($val) {
+	justify-content: $val;
+	-webkit-justify-content: $val;
+	-ms-justify-content: $val;
+}
+@mixin flex_align_items($val) {
+	align-items: $val;
+	-webkit-align-items: $val;
+	-ms-align-items: $val;
+}
+@mixin flex_direction($val) {
+	flex-direction: $val;
+	-webkit-flex-direction: $val;
+	-ms-flex-direction: $val;
+}

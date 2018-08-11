@@ -1,0 +1,27 @@
+// Responsive
+
+$break-tiny: 360px;
+$break-small: 480px;
+$break-medium: 720px;
+$break-mobile-nav: 900px;
+$break-large: 1024px;
+$break-x-large: 1285px;
+$break-xx-large: 1700px;
+
+@mixin below($breakpoint) {
+     @media screen and (max-width: $breakpoint) { @content; }
+}
+@mixin above($breakpoint) {
+     @media screen and (min-width: $breakpoint) { @content; }
+}
+@mixin between($min-breakpoint, $max-breakpoint) {
+     @media screen and (min-width: $min-breakpoint) and (max-width: $max-breakpoint) { @content; }
+}
+
+@mixin full_width_below($breakpoint, $width) {
+    width: $width;
+    @include below($breakpoint) { width: 100%; }
+}
+
+$header-height: 75px;
+$sidebar-width: 350px;
