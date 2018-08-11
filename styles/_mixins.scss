@@ -20,3 +20,7 @@
 	-webkit-flex-direction: $val;
 	-ms-flex-direction: $val;
 }
+
+@mixin placeholder() {
+	color: $grey; 
+}

@@ -5,11 +5,16 @@ input, button, select {
   padding: 35px 0px;
   box-sizing: border-box;
   background: transparent;
-  color: $grey;
+  color: $dark-grey;
   font-size: 19px;
   font-family: "Lato", sans-serif;
   border: none;
   border-bottom: $light-grey solid 1px;
+  // Placeholder text
+  &::-webkit-input-placeholder { @include placeholder(); } // Chrome/Opera/Safari
+  &::-moz-placeholder { @include placeholder(); } // Firefox 19+
+  &:-ms-input-placeholder { @include placeholder(); } // IE 10+
+  &:-moz-placeholder { @include placeholder(); } // Firefox 18-
 }
 // Nudge `react-datepicker` styles
 .react-datepicker-wrapper,
