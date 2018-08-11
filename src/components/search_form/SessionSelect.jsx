@@ -2,12 +2,12 @@ import React from "react";
 
 import { SESSIONS } from "../../constants";
 
-const SessionSelect = ({ value, onChange }) => {
+const SessionSelect = ({ value, active, onChange }) => {
   return (
     <select
       value={value}
       autoComplete="session"
-      className="session-select"
+      className={(!active) ? "session-select inactive" : "session-select"}
       onChange={event => onChange(event.target.value)}>
       {
         SESSIONS.map((session, index) => {

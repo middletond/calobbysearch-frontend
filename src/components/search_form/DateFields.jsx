@@ -5,20 +5,32 @@ import StartDateField from "./StartDateField";
 import EndDateField from "./EndDateField";
 import Icon from "../controls/Icon";
 
+import { USE_DATES_NOT_SESSION } from "../../constants";
+
 const DateFields = ({
   startDate, onStartDateChange,
   endDate, onEndDateChange,
   session, onSessionChange
 }) => {
+  const datesActive = (session === USE_DATES_NOT_SESSION);
   return (
     <section className="date-fields">
       <h3>During Session or Date Range</h3>
       <div className="fields">
         <Icon name="calendar" />
-        <SessionSelect value={session} onChange={onSessionChange} />
+        <SessionSelect
+          value={session}
+          active={!datesActive}
+          onChange={onSessionChange} />
         <div className="date-picker-fields">
-          <StartDateField date={startDate} onChange={onStartDateChange} />
-          <EndDateField date={endDate} onChange={onEndDateChange} />
+          <StartDateField
+            date={startDate}
+            active={datesActive}
+            onChange={onStartDateChange} />
+          <EndDateField
+            date={endDate}
+            active={datesActive}
+            onChange={onEndDateChange} />
         </div>
       </div>
     </section>

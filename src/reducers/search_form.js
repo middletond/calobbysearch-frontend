@@ -9,9 +9,10 @@ import {
   UPDATE_SESSION
 } from "../actions/search_form";
 
-
-const USE_DATES_NOT_SESSION = "USE_DATES";
-const DATE_FIELDS = ["startDate", "endDate"];
+import {
+  USE_DATES_NOT_SESSION,
+  DATE_PICKER_FIELDS
+} from "../constants";
 
 const dateFromSession = (sesh, type) => {
   return (type == "start")
@@ -30,7 +31,7 @@ const updateField = (field, value, state) => {
     updated.startDate = dateFromSession(value, "start");
     updated.endDate = dateFromSession(value, "end");
   }
-  else if (DATE_FIELDS.includes(field)) {
+  else if (DATE_PICKER_FIELDS.includes(field)) {
     // dates updates, turn off session
     updated.session = USE_DATES_NOT_SESSION;
   }

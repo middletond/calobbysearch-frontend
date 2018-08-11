@@ -1,3 +1,12 @@
+// https://devhints.io/moment
+export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";
+
+export const ASCENDING = "asc";
+export const DESCENDING = "desc";
+
+export const USE_DATES_NOT_SESSION = "USE_DATES";
+export const DATE_PICKER_FIELDS = ["startDate", "endDate"];
+
 export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "20172018", verbose: "2017 - 2018" },
   { value: "20152016", verbose: "2015 - 2016" },
@@ -9,11 +18,5 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "20032004", verbose: "2003 - 2004" },
   { value: "20012002", verbose: "2001 - 2002" },
   { value: "19992000", verbose: "1999 - 2000" },
-  { value: "USE_DATES", verbose: "Use Dates" },
+  { value: USE_DATES_NOT_SESSION, verbose: "Use Dates" },
 ]
-
-// https://devhints.io/moment
-export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";
-
-export const ASCENDING = "asc";
-export const DESCENDING = "desc";

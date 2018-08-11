@@ -4,12 +4,12 @@ import moment from "moment";
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-const EndDateField = ({ date, onChange }) => {
+const EndDateField = ({ date, active, onChange }) => {
   return (
     <DatePicker
       selected={date}
       autoComplete="enddate"
-      className="end-date-field"
+      className={(!active) ? "end-date-field inactive" : "end-date-field"}
       onChange={date => onChange(date)} />
   )
 }

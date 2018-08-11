@@ -11,10 +11,13 @@ input, button, select {
   font-family: "Lato", sans-serif;
   border: none;
   // Placeholder text
-  &::-webkit-input-placeholder { @include placeholder(); } // Chrome/Opera/Safari
-  &::-moz-placeholder { @include placeholder(); } // Firefox 19+
-  &:-ms-input-placeholder { @include placeholder(); } // IE 10+
-  &:-moz-placeholder { @include placeholder(); } // Firefox 18-
+  &::-webkit-input-placeholder { color: $grey;  } // Chrome/Opera/Safari
+  &::-moz-placeholder { color: $grey;  } // Firefox 19+
+  &:-ms-input-placeholder { color: $grey;  } // IE 10+
+  &:-moz-placeholder { color: $grey;  } // Firefox 18-
+  &.inactive {
+    color: $grey;
+  }
 }
 // Nudge `react-datepicker` styles
 .react-datepicker-wrapper,
