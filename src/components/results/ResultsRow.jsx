@@ -8,7 +8,7 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
   const buttonLabel = (record.opened) ? "Hide Bills" : "Show Bills";
 
   return (
-    <tr className={record.type}>
+    <tr className={`results-row ${record.type}-filing`}>
       {RESULTS_COLUMNS.map((col, index) => {
         return <TableCell
                  key={index}

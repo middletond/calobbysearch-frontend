@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 import App from "./components/App";
 import reducer from "./reducers";
 
-import "./styles/app.scss";
+import "../styles/app.scss";
 
 const logger = createLogger();
 

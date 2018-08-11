@@ -4,7 +4,7 @@ import { makeCell } from "../../columns";
 
 const TableCell = ({ record, column, classNames }) => {
   const cell = makeCell(record, column);
-  const classes = `${cell.name} ${classNames}`;
+  const classes = `${cell.colName} ${classNames}`;
 
   if (!cell.url) {
     return (

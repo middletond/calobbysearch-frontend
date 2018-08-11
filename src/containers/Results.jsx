@@ -22,7 +22,7 @@ class Results extends React.Component {
             onShowBillsClick, onColumnNameClick, opened } = this.props;
 
     return (
-      <div className="results-controls">
+      <div className="results">
         <ResultsHeader results={currentResults} />
         <ResultsControls
           onFilterTermChange={onFilterTermChange}
