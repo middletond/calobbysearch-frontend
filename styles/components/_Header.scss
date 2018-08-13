@@ -1,7 +1,9 @@
 header {
-  text-align: center;
+  @include flex_display();
+  @include flex_justify_content(center);
+  @include flex_align_items(center);
   box-shadow: 0px 0px 12px rgba(0,0,0,0.35);
   .logo {
-    display: inline-block;
+    font-size: 23px;
   }
 }
