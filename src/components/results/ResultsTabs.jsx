@@ -5,7 +5,7 @@ const ResultsTabs = ({ results, onResultsTabClick }) => {
   return (
     <div className="results-tabs">
       <div
-        className="results-tab-item filings"
+        className="results-tab-item filings active"
         onClick={() => onResultsTabClick("filings")}>
         {results.records.length} Filings</div>
       <div
