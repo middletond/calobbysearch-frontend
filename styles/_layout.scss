@@ -27,7 +27,7 @@ main {
     z-index: 1;
     position: absolute;
     margin: 0 0 0 $sidebar-width;
-    width: 100%;
+    width: calc(100% - #{$sidebar-width}); // is there a better way?
     min-height: 100%;
   }
 }
