@@ -1,5 +1,7 @@
 import React from "react";
 
+import ResultsTabs from "./ResultsTabs";
+
 class ResultsHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,7 @@ class ResultsHeader extends React.Component {
   }
 
   headerMessage(results) {
-    if (!("params" in results)) 
+    if (!("params" in results))
       return <span>Search for lobby activity by <b>bill</b>, <b>company</b>, or <b>both</b>.</span>;
 
     const { bill, company } = results.params;
@@ -26,10 +28,13 @@ class ResultsHeader extends React.Component {
   }
 
   render() {
-    const { results } = this.props;
+    const { results, onResultsTabClick } = this.props;
     return (
       <div className="results-header">
         <h2 className="results-header-text">{this.headerMessage(results)}</h2>
+        <ResultsTabs
+          results={results}
+          onResultsTabClick={onResultsTabClick} />
       </div>
     )
   }

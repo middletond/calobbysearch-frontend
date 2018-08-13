@@ -26,14 +26,13 @@ class Results extends React.Component {
 
     return (
       <div className="results">
-        <ResultsHeader results={currentResults} />
+        <ResultsHeader
+          results={currentResults}
+          onResultsTabClick={onResultsTabClick} />
         <ResultsControls
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
           onExport={onExport} />
-        <ResultsTabs
-          results={currentResults}
-          onResultsTabClick={onResultsTabClick} />
         <ResultsTable
           results={currentResults}
           filterTerm={filterTerm}
