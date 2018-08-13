@@ -8,18 +8,21 @@ import {
   updateSorting,
   updateFilterTerm,
   exportCurrentSearch,
-  toggleBillsForRecord
+  toggleBillsForRecord,
+  updateResultsView
 } from "../actions/controls";
 
 import ResultsHeader from "../components/results/ResultsHeader";
 import ResultsControls from "../components/results/ResultsControls";
+import ResultsTabs from "../components/results/ResultsTabs";
 import ResultsTable from "../components/results/ResultsTable";
 
 class Results extends React.Component {
   render() {
-    const { filterTerm, onFilterTermChange,
-            sorting, onExport, currentResults,
-            onShowBillsClick, onColumnNameClick, opened } = this.props;
+    const { filterTerm, onFilterTermChange, onExport,
+            onResultsTabClick, currentResults,
+            onShowBillsClick, onColumnNameClick,
+            sorting, opened } = this.props;
 
     return (
       <div className="results">
@@ -28,6 +31,9 @@ class Results extends React.Component {
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
           onExport={onExport} />
+        <ResultsTabs
+          results={currentResults}
+          onResultsTabClick={onResultsTabClick} />
         <ResultsTable
           results={currentResults}
           filterTerm={filterTerm}
@@ -64,6 +70,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onExport: () => {
       dispatch(exportCurrentSearch());
+    },
+    onResultsTabClick: (view) => {
+      dispatch(updateResultsView(view))
     }
   }
 }
