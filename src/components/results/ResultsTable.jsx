@@ -100,6 +100,7 @@ class ResultsTable extends React.Component {
                 </th>
               )
             })}
+            <th className="show-bills"></th>
           </tr>
         </thead>
         {this.processedRecords().map((record, index) => {

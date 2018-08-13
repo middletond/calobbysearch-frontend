@@ -44,8 +44,8 @@ const updateField = (field, value, state) => {
 const searchForm = (state = {
   submitted: "",
   fields: {
-    bill: "",
-    company: "",
+    bill: "vehicle",
+    company: "tesla",
     session: "20172018",
     startDate: moment("20170101"),
     endDate: moment("20181231")

@@ -16,7 +16,7 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
                  record={record}
                  classNames={sortingClasses(col, sorting)} />
       })}
-      <td>
+      <td className="show-bills">
         <button onClick={() => onShowBillsClick(record.filing_id)}>
           {buttonLabel}
         </button>

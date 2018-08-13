@@ -18,6 +18,10 @@ import DateFields from "../components/search_form/DateFields";
 import SubmitButton from "../components/search_form/SubmitButton";
 
 class SearchForm extends React.Component {
+  componentDidMount() { // XXX remove this, just for testing
+    this.props.onSubmit(null, this.props.fields);
+  }
+
   render() {
     const { onBillChange, onCompanyChange,
             onStartDateChange, onEndDateChange,
@@ -54,8 +58,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    dispatch: dispatch,
     onSubmit: (event, params) => {
-      event.preventDefault();
+      if (event)
+        event.preventDefault();
       dispatch(submitSearch());
       dispatch(fetchResults(params)); //  bonehead approach to kicking off async
     },

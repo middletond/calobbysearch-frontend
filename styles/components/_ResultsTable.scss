@@ -1,8 +1,53 @@
-.results-table {
+.results-table, .bills-table {
+  width: 100%;
+  border-collapse: collapse;
+  thead {
+    tr {
+      th {
+        padding: 55px 15px 10px 15px;
+        border-bottom: darken($light-grey, 6) solid 3px;
+        font-family: "Alegreya", serif;
+        color: $text-black;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-align: center;
+        line-height: 1.1em;
+        cursor: pointer;
+        &.sort { border-bottom-color: lighten($magenta, 5); }
+      }
+    }
+  }
+  tbody {
+    tr {
+      margin: 0;
+      padding: 0;
+      td {
+        vertical-align: center;
+        padding: 18px 10px;
+        font-size: 13px;
+        line-height: 150%;
+        border-bottom: $lighter-grey solid 1px;
+      }
+    }
+  }
+  th, td {
+    border-left: #FFF solid 1px;
+    // border-right: #FFF solid 1px; // this is hiding the adjacent .sort borders
+  }
   .sort {
-    background-color: $cream;
+    background-color: #FCFCFC;
+    border-left: #f8f0fd solid 1px;
+    border-right: #f8f0fd solid 1px;
+  }
+  // Limits for individual fields
+  td.show-bills button {
+    padding: 0px;
+  }
+  td.start-date {
+
   }
   td.interests {
-    max-width: 300px;
+    // max-width: 300px;
   }
 }
