@@ -1,4 +1,15 @@
 .results {
+  position: relative;
   padding: 0px 40px 0px 40px;
   box-shadow: 0px 0px 30px rgba(0,0,0,0.20);
+  &:before { // caret icon
+    content: "";
+    position: absolute;
+    top: 550px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    background-color: $white;
+    transform: rotate(45deg);
+  }
 }
