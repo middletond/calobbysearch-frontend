@@ -5,15 +5,29 @@
   @include flex_align_items(center);
   border-top: $light-grey solid 1px;
   border-bottom: $light-grey solid 1px;
+  position: relative;
 
   .filter-field {
-    width: 65%;
-    border: none;
-    font-style: italic;
+    width: 75%;
+    input {
+      padding: 23px 10px 23px 55px;
+      font-style: italic;
+    }
+    .icon {
+      // XXX refactor these flex groups
+      @include flex_display();
+      @include flex_justify_content(center);
+      @include flex_align_items(center);
+      position: absolute;
+      width: 55px;
+      height: 100%;
+      font-size: 27px;
+      color: lighten($dark-grey, 10);
+    }
   }
   .export-button {
     padding: 18px 0; // leave a little space on top / bottom so right border looks nice
-    width: 35%;
+    width: 25%;
     border: none;
     border-left: $light-grey solid 1px;
   }
