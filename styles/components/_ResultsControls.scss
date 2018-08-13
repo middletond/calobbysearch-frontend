@@ -8,7 +8,7 @@
   position: relative;
 
   .filter-field {
-    width: 75%;
+    width: 74%;
     input {
       padding: 23px 10px 23px 55px;
       font-style: italic;
@@ -26,10 +26,10 @@
     }
   }
   .export-button {
+    width: 26%;
     @include flex_display();
     @include flex_justify_content(start);
     @include flex_align_items(center);
-    width: 25%;
     border-left: $light-grey solid 1px;
     padding: 10px 0;
     cursor: pointer;
