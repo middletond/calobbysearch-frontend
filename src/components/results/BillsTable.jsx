@@ -5,7 +5,7 @@ import { BILLS_COLUMNS } from "../../columns";
 
 class BillsTable extends React.Component {
   render() {
-    const { bills } = this.props;
+    const { bills } = this.props; // XXX TODO: make this have its own and sorting + pass filter
 
     return (
       <table className="bills-table">

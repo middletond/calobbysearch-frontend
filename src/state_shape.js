@@ -36,13 +36,4 @@ const stateShape = {
     },
     submitted: "AB 101|TESLA MOTORS|20170101|20182131"
   }
-
-  // results controllers
-  // controls: {
-  //   filterTerm: "",
-  //   sort {
-  //     field: "startDate",
-  //     direction: "asc",
-  //   }
-  // }
 }

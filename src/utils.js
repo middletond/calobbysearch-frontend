@@ -24,10 +24,14 @@ export const findMatchingBills = (records) => { // or second API call handles th
 export const uniqueBy = (key, objs) => {
   let uniqueVals = [...new Set(objs.map(obj => obj[key]))];
 
-  const findFirst = (val) => {
-    return objs.filter(obj => (obj[key] == val))[0]
-  }
-  return uniqueVals.map(val => findFirst(val));
+  return uniqueVals.map(val => findFirst(key, val, objs));
+}
+
+export const findFirst = (key, val, objs) => {
+  const t= objs.find(obj => (obj[key] == val))
+  console.log("HELLO FROM FINDFIRST");
+  console.log(objs);
+  return t;
 }
 
 /**

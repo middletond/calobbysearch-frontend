@@ -16,6 +16,9 @@ import ResultsHeader from "../components/results/ResultsHeader";
 import ResultsControls from "../components/results/ResultsControls";
 import ResultsTabs from "../components/results/ResultsTabs";
 import ResultsTable from "../components/results/ResultsTable";
+import BillsTable from "../components/results/BillsTable";
+
+import { FILINGS_VIEW, BILLS_VIEW } from "../constants";
 
 class Results extends React.Component {
   render() {
@@ -34,13 +37,18 @@ class Results extends React.Component {
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
           onExport={onExport} />
-        <ResultsTable
-          results={currentResults}
-          filterTerm={filterTerm}
-          sorting={sorting}
-          opened={opened}
-          onColumnNameClick={onColumnNameClick}
-          onShowBillsClick={onShowBillsClick} />
+        {(view == FILINGS_VIEW) ?
+          <ResultsTable
+            results={currentResults}
+            filterTerm={filterTerm}
+            sorting={sorting}
+            opened={opened}
+            onColumnNameClick={onColumnNameClick}
+            onShowBillsClick={onShowBillsClick} />
+          :
+          <BillsTable
+            bills={currentResults.bills} />
+        }
       </div>
     )
   }

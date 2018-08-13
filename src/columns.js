@@ -1,5 +1,6 @@
 import moment from "moment";
-import { DATE_DISPLAY_FORMAT } from "./constants";
+import { DATE_DISPLAY_FORMAT, SESSIONS } from "./constants";
+import { findFirst } from "./utils";
 
 export const TYPE_DATE = "date";
 export const TYPE_TEXT = "text";
@@ -29,6 +30,13 @@ export const BILLS_COLUMNS = [
     verbose: "Status",
     type: TYPE_TEXT
   },
+  {
+    name: "session",
+    verbose: "Session",
+    type: TYPE_TEXT,
+    // make it verbose. should likely be made its own robust thing somewhere
+    transform: (seshval) => findFirst("value", seshval, SESSIONS).verbose
+  }
 ]
 
 export const RESULTS_COLUMNS = [
