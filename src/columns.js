@@ -84,12 +84,12 @@ export const RESULTS_COLUMNS = [
     url: "filing_url",
     type: TYPE_DATE
   },
-  {
-    name: "form_type",
-    verbose: "Filed By",
-    type: TYPE_TEXT,
-    transform: (val) => (val === "F625") ? "Lobby Firm" : "Employer"
-  }
+  // {
+  //   name: "form_type",
+  //   verbose: "Filed By",
+  //   type: TYPE_TEXT,
+  //   transform: (val) => (val === "F625") ? "Lobby Firm" : "Employer"
+  // }
 ];
 
 export const makeCell = (record, column) => {

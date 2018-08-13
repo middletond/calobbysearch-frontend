@@ -41,8 +41,15 @@
     border-right: #f8f0fd solid 1px;
   }
   // Limits for individual fields
-  td.show-bills button {
+  td.show-bills {
     padding: 0px;
+    button {
+      text-align: center;
+      padding: 5px 0px 5px 20px;
+      font-size: 12px;
+      border-left: $light-grey solid 1px;
+      // background-color: aqua;
+    }
   }
   td.start-date {
 
