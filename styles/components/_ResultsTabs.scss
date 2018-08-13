@@ -1,6 +1,5 @@
 .results-tabs {
-  width: 18%;
-  max-width: 200px;
+  width: 26%;
   height: inherit;
   position: absolute;
   top: 0;
@@ -9,8 +8,9 @@
   @include flex_justify_content(center);
   @include flex_direction(column);
   .results-tab-item {
-    margin: 20px 0px 0px 0px;
+    margin: 15px 0;
     width: 100%;
+    max-width: 250px;
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
@@ -19,7 +19,7 @@
     color: $dark-grey;
     border: $light-grey solid 1px;
     border-radius: 20px;
-    padding: 4px 0px;
+    padding: 5px 0px;
     cursor: pointer;
     &.active {
       color: $magenta;
