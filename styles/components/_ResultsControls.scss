@@ -26,9 +26,26 @@
     }
   }
   .export-button {
-    padding: 18px 0; // leave a little space on top / bottom so right border looks nice
+    @include flex_display();
+    @include flex_justify_content(start);
+    @include flex_align_items(center);
     width: 25%;
-    border: none;
     border-left: $light-grey solid 1px;
+    padding: 10px 0;
+    cursor: pointer;
+    button, .icon {
+      display: inline-block;
+    }
+    button {
+      width: auto;
+      padding: 0px;
+    }
+    .icon {
+      text-align: center;
+      width: 75px;
+      height: 100%;
+      font-size: 27px;
+      color: lighten($dark-grey, 10);
+    }
   }
 }
