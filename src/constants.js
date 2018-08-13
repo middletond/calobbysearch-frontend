@@ -20,3 +20,6 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
   { value: "19992000", verbose: "1999 - 2000" },
   { value: USE_DATES_NOT_SESSION, verbose: "Use Dates" },
 ]
+
+export const BILLS_VIEW = "bills";
+export const FILINGS_VIEW = "filings";

@@ -7,6 +7,7 @@ const stateShape = {
       field: "startDate",
       direction: "asc",
     },
+    view: "filings", // "filings" or "bills"
     "AB 101|TESLA MOTORS|20170101|20182131": { // a unique key by concating all params
       params: {
         company: "tesla",

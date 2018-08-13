@@ -22,11 +22,12 @@ class Results extends React.Component {
     const { filterTerm, onFilterTermChange, onExport,
             onResultsTabClick, currentResults,
             onShowBillsClick, onColumnNameClick,
-            sorting, opened } = this.props;
+            sorting, opened, view } = this.props;
 
     return (
       <div className="results">
         <ResultsHeader
+          view={view}
           results={currentResults}
           onResultsTabClick={onResultsTabClick} />
         <ResultsControls
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => {
     currentResults: results[searchForm.submitted] || {},
     filterTerm: controls.filterTerm,
     sorting: controls.sorting,
-    opened: controls.opened
+    opened: controls.opened,
+    view: controls.view
   }
 }
 

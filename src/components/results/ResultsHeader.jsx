@@ -28,11 +28,12 @@ class ResultsHeader extends React.Component {
   }
 
   render() {
-    const { results, onResultsTabClick } = this.props;
+    const { view, results, onResultsTabClick } = this.props;
     return (
       <div className="results-header">
         <h2 className="results-header-text">{this.headerMessage(results)}</h2>
         <ResultsTabs
+          view={view}
           results={results}
           onResultsTabClick={onResultsTabClick} />
       </div>
