@@ -1,5 +1,6 @@
 import React from "react";
 
+import Icon from "../controls/Icon";
 import { SESSIONS } from "../../constants";
 
 const SessionSelect = ({ value, active, onChange }) => {

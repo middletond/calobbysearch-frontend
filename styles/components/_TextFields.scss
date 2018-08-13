@@ -1,0 +1,6 @@
+.text-fields {
+  input.bill-field {
+    // Keep borders specific to named fields since they vary so much
+    border-bottom: $cream-dark solid 1px;
+  }
+}

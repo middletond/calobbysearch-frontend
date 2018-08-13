@@ -1,0 +1,33 @@
+.date-fields {
+  select.session-select {
+    font-size: 17px;
+    // Keep borders specific to named fields since they vary so much
+    border-bottom: $cream-dark solid 1px;
+  }
+  .date-picker-fields {
+    @include flex_display();
+    // wrapper added by `react-date-picker`
+    & > div {
+      width: 50%;
+      position: relative;
+    }
+    & > div:first-child:after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 80%;
+      top: 10%;
+      right: 0;
+      background-color: $cream-dark;
+    }
+    input {
+      font-size: 17px;
+    }
+    input.start-date-field {
+      text-align: left;
+    }
+    input.end-date-field {
+      text-align: right;
+    }
+  }
+}

@@ -27,10 +27,16 @@ input, button, select {
 
 select {
   height: 100px;
+  -webkit-appearance: none; // remove extra text indent added by browsers
+  -moz-appearance: none;
+  &::-ms-expand { // IE 10-11 and Edge
+    display: none;
+  }
 }
 
 .button {
   font-weight: 600;
   font-size: 15px;
   text-transform: uppercase;
+  cursor: pointer;
 }
