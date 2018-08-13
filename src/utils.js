@@ -28,10 +28,7 @@ export const uniqueBy = (key, objs) => {
 }
 
 export const findFirst = (key, val, objs) => {
-  const t= objs.find(obj => (obj[key] == val))
-  console.log("HELLO FROM FINDFIRST");
-  console.log(objs);
-  return t;
+  return objs.find(obj => (obj[key] == val))
 }
 
 /**

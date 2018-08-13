@@ -7,6 +7,10 @@ class BillsTable extends React.Component {
   render() {
     const { bills } = this.props; // XXX TODO: make this have its own and sorting + pass filter
 
+    if (!bills) return "";
+    // if (results.isFetching)
+    //   return <div className="results-table loading">Loading...</div>;
+
     return (
       <table className="bills-table">
         <thead>
