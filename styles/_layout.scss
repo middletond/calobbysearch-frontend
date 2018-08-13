@@ -1,6 +1,5 @@
 header, main, footer,
 .search-form, .results {
-  position: relative;
   display: block;
 }
 
@@ -13,7 +12,6 @@ header {
 }
 main {
   position: absolute;
-  @include flex_display();
   padding: $header-height 0 0 0;
   z-index: 0;
   width: 100%;
@@ -27,9 +25,10 @@ main {
   }
   .results {
     z-index: 1;
-    position: relative;
+    position: absolute;
     margin: 0 0 0 $sidebar-width;
     width: 100%;
+    min-height: 100%;
   }
 }
 
