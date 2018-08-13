@@ -1,8 +1,23 @@
 .date-fields {
-  select.session-select {
-    font-size: 17px;
+  .session-select {
+    margin: 0;
+    padding: 0;
+    position: relative;
     // Keep borders specific to named fields since they vary so much
     border-bottom: $cream-dark solid 1px;
+    select {
+      z-index: 1; // make select above icon so it's clickable
+      font-size: 17px;
+    }
+    .icon {
+      z-index: 0;
+      left: auto !important;
+      right: -38px;
+      i { font-size: 24px !important; }
+    }
+    &.inactive {
+      select, .icon i { color: $grey; }
+    }
   }
   .date-picker-fields {
     @include flex_display();
