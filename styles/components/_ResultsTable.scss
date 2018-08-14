@@ -40,7 +40,41 @@
     border-left: #f8f0fd solid 1px;
     border-right: #f8f0fd solid 1px;
   }
+  // Color coding for rows
+  td.employer {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      bottom: 15%;
+      left: -20px;
+      width: 2px;
+      height: 70%;
+      opacity: 0.5;
+    }
+  }
+  tr.lobbyer-filing {
+    td.employer:before {
+      background: $peach;
+    }
+  }
+  tr.employer-filing {
+    td.employer:before {
+      background: $magenta;
+    }
+  }
   // Limits for individual fields
+  td.start_date, td.end_date, td.filing_date {
+    white-space: nowrap;
+  }
+  td.start_date {
+    position: relative;
+
+  }
+  td.interests {
+    max-width: 350px;
+  }
   td.show-bills {
     padding: 0px;
     button {
@@ -48,13 +82,6 @@
       padding: 5px 0px 5px 20px;
       font-size: 12px;
       border-left: $light-grey solid 1px;
-      // background-color: aqua;
     }
-  }
-  td.start_date, td.end_date, td.filing_date {
-    white-space: nowrap;
-  }
-  td.interests {
-    max-width: 350px;
   }
 }

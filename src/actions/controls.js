@@ -33,8 +33,6 @@ export const toggleBillsForRecord = (id) => {
 }
 
 export const updateResultsView = (view) => {
-  console.log("HELLO FROM UPDATE RESULTS:")
-  console.log(view);
   return {
     type: UPDATE_RESULTS_VIEW,
     view

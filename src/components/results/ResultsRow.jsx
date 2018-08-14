@@ -6,9 +6,10 @@ import { sortingClasses } from "../../utils";
 
 const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
   const buttonLabel = (record.opened) ? "Hide Bills" : "Show Bills";
+  const filingType = (record.form_type == "F625") ? "lobbyer" : "employer";
 
   return (
-    <tr className={`results-row ${record.type}-filing`}>
+    <tr className={`results-row ${filingType}-filing`}>
       {RESULTS_COLUMNS.map((col, index) => {
         return <TableCell
                  key={index}

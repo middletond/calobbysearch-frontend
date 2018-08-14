@@ -107,7 +107,10 @@ export const makeCell = (record, column) => {
       const digits = dollars.split("").reverse();
       const withCommas = digits.map((digit, index) => {
         let count = index + 1;
-        return (count % 3 == 0) ? ("," + digit) : digit;
+        if ((count % 3 == 0) && count < digits.length) {
+            return ("," + digit);
+        }
+        return digit;
       })
       const formattedDollars = withCommas.reverse().join("");
       value = `$${formattedDollars}.${cents}`;
