@@ -85,3 +85,30 @@
     }
   }
 }
+
+// Bills child table
+.results-row-bills {
+  & > td {
+    padding: 0 !important;
+    position: relative;
+    // border-top: $light-grey solid 2px;
+    // border-bottom: $light-grey solid 2px;
+    .bills-table {
+      // box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+      position: relative;
+      // position: absolute;
+      z-index: 3;
+      // top: 0;
+      // left: 0;
+      background-color: $white;
+      thead {
+        display: none;
+      }
+      tbody {
+        tr:last-child td {
+         border-bottom: none;
+        }
+      }
+    }
+  }
+}
