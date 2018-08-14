@@ -102,7 +102,15 @@ export const makeCell = (record, column) => {
       value = moment(rawVal).format(DATE_DISPLAY_FORMAT);
       break;
     case TYPE_CURRENCY:
-      value = "$" + rawVal;
+      // XXX lets move this to utils soon...
+      const [ dollars, cents ] = (rawVal.includes(".")) ? rawVal.split(".") : rawVal;
+      const digits = dollars.split("").reverse();
+      const withCommas = digits.map((digit, index) => {
+        let count = index + 1;
+        return (count % 3 == 0) ? ("," + digit) : digit;
+      })
+      const formattedDollars = withCommas.reverse().join("");
+      value = `$${formattedDollars}.${cents}`;
       break;
     case TYPE_TEXT:
       value = rawVal.trim();

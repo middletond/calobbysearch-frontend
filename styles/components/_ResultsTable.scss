@@ -51,10 +51,10 @@
       // background-color: aqua;
     }
   }
-  td.start-date {
-
+  td.start_date, td.end_date, td.filing_date {
+    white-space: nowrap;
   }
   td.interests {
-    // max-width: 300px;
+    max-width: 350px;
   }
 }
