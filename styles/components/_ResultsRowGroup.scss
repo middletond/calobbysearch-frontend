@@ -37,17 +37,5 @@
     .row .cell {
       border-bottom-color: darken($magenta-lightest, 7);
     }
-    .child-table {
-      background: white;
-      .tabs {
-        display: none;
-      }
-      .row .cell {
-        border-bottom-color: $light-grey;
-      }
-      & > div:last-child .cell { // last row
-        border-bottom: none;
-      }
-    }
   }
 }

@@ -59,7 +59,44 @@
   }
 }
 
-// Bills child table
+// child table
 .child-table {
   margin: 0;
+  background: white;
+  .tabs {
+    @include flex_display;
+    background-color: $white;
+    margin: 0;
+    padding: 0;
+    .tab {
+      flex: 1;
+      width: 50%;
+      margin: 0;
+      padding: 7px 0px;
+      list-style-type: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: $grey;
+      border-bottom: $light-grey solid 1px;
+      cursor: pointer;
+      &.active {
+        color: lighten($dark-grey, 7);
+        border-bottom: none;
+      }
+    }
+    & > li:first-child { // first .tab
+      border-right: $light-grey solid 1px;
+    }
+  }
+  .row {
+    .cell {
+      border-bottom-color: $light-grey;
+    }
+  }
+  & > div:last-child .cell { // last row
+    border-bottom: none;
+  }
 }

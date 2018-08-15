@@ -8,7 +8,8 @@ const ResultsRowBills = ({ record, filterTerm }) => {
   return (
     <BillsTable
       renderAsChild={true}
-      bills={record.matching_bills} />
+      bills={record.bills}
+      matchingBills={record.matching_bills} />
   )
 }
 

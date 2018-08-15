@@ -11,7 +11,7 @@
       box-sizing: border-box;
       // handle borders
       border-bottom: $light-grey solid 1px;
-      // border-right: $grey solid 1px; // use this to troubleshoot column misalignment
+      // border-right: $grey solid 1px; // <-- use this to troubleshoot column misalignment
       // need these two lines to make flex heed break-word in .cell
       overflow-wrap: break-word;
       min-width: 0;

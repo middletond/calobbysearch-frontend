@@ -4,10 +4,35 @@ import BillsRow from "./BillsRow";
 import { BILLS_COLUMNS } from "../../columns";
 import { valuesToString } from "../../utils";
 
+const TAB_MATCHING_BILLS = "matching";
+const TAB_ALL_BILLS = "all";
+
 class BillsTable extends React.Component {
   constructor(props) {
     super(props);
+
     this.filtered = this.filtered.bind(this);
+    this.onTabClick = this.onTabClick.bind(this);
+    this.billsByTab
+    // Child bills table gets internal state since there's so many of them.
+    this.state = {
+      tab: TAB_MATCHING_BILLS
+    }
+  }
+
+  onTabClick(tab) {
+    this.setState({ tab: tab });
+  }
+
+  billsByTab() {
+    const { matchingBills, bills } = this.props;
+    let b;
+
+    if (this.state.tab === TAB_MATCHING_BILLS)
+      b = matchingBills;
+    else if (this.state.tab === TAB_ALL_BILLS)
+      b = bills;
+    return b;
   }
 
   filtered(bills) {
@@ -23,11 +48,22 @@ class BillsTable extends React.Component {
   }
 
   renderAsChild() {
-    const { bills } = this.props;
+    const tab = this.state.tab;
+    const bills = this.billsByTab(tab);
 
+    if (!bills) return "";
     return (
       <div className="child-table bills-table">
-        <div className="tabs">Tabs here</div>
+        <ul className="tabs">
+          <li
+            className={`tab matching ${(tab === TAB_MATCHING_BILLS) ? "active" : ""}`}
+            onClick={() => this.onTabClick(TAB_MATCHING_BILLS)}>
+            Matching Bills</li>
+          <li
+            className={`tab matching ${(tab === TAB_ALL_BILLS) ? "active" : ""}`}
+            onClick={() => this.onTabClick(TAB_ALL_BILLS)}>
+            All Bills</li>
+        </ul>
         {this.filtered(bills).map((record, index) => {
           return (
             <BillsRow key={index} record={record} />
@@ -40,11 +76,10 @@ class BillsTable extends React.Component {
   render() {
     const { bills, renderAsChild } = this.props; // XXX TODO: make this have its own and sorting
 
-    if (!bills)
-      return "";
     if (renderAsChild)
       return this.renderAsChild();
 
+    if (!bills) return "";
     return (
       <div className="table bills-table">
         <div className="row header">
