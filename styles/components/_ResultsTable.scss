@@ -1,14 +1,18 @@
+.results-table {
+}
+
 .results-table, .bills-table {
   width: 100%;
+  margin-top: 61px;
   border-collapse: collapse;
   thead {
     tr {
       th {
-        padding: 55px 15px 10px 15px;
+        padding: 10px 15px 10px 15px;
         border-bottom: darken($light-grey, 6) solid 3px;
         font-family: "Alegreya", serif;
         color: $text-black;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.01em;
         text-align: center;
@@ -36,23 +40,25 @@
     // border-right: #FFF solid 1px; // this is hiding the adjacent .sort borders
   }
   .sort {
-    background-color: #FCFCFC;
     border-left: #f8f0fd solid 1px;
     border-right: #f8f0fd solid 1px;
+  }
+  td.sort {
+    background-color: #FCFCFC;
   }
   // Color coding for rows
   td.employer {
     position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 15%;
-      bottom: 15%;
-      left: -20px;
-      width: 2px;
-      height: 70%;
-      opacity: 0.5;
-    }
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 15%;
+    //   bottom: 15%;
+    //   left: -20px;
+    //   width: 2px;
+    //   height: 70%;
+    //   opacity: 0.5;
+    // }
   }
   tr.lobbyer-filing {
     td.employer:before {
@@ -91,16 +97,8 @@
   & > td {
     padding: 0 !important;
     position: relative;
-    // border-top: $light-grey solid 2px;
-    // border-bottom: $light-grey solid 2px;
     .bills-table {
-      // box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
-      position: relative;
-      // position: absolute;
-      z-index: 3;
-      // top: 0;
-      // left: 0;
-      background-color: $white;
+      margin-top: 0px;
       thead {
         display: none;
       }

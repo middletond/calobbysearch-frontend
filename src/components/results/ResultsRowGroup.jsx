@@ -5,7 +5,7 @@ import ResultsRowBills from "./ResultsRowBills";
 
 const ResultsRowGroup = ({ record, sorting, onShowBillsClick }) => {
   return (
-    <tbody className="results-row-group">
+    <tbody className={(record.opened) ? "results-row-group active" : "results-row-group"}>
       <ResultsRow
         record={record}
         sorting={sorting}
