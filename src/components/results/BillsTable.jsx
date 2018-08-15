@@ -14,7 +14,7 @@ class BillsTable extends React.Component {
     const { filterTerm } = this.props;
     if (!filterTerm)
       return bills;
-      
+
     const hasTerm = (bill, term) => {
       let billVals = valuesToString(bill, BILLS_COLUMNS);
       return billVals.toUpperCase().includes(term.toUpperCase());
@@ -23,7 +23,7 @@ class BillsTable extends React.Component {
   }
 
   render() {
-    const { bills } = this.props; // XXX TODO: make this have its own and sorting + pass filter
+    const { bills } = this.props; // XXX TODO: make this have its own and sorting
 
     if (!bills) return "";
     return (

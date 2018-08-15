@@ -77,9 +77,8 @@ class ResultsTable extends React.Component {
   }
 
   render() {
-    const { results, sorting,
-            onShowBillsClick,
-            onColumnNameClick } = this.props;
+    const { results, sorting, filterTerm,
+            onShowBillsClick, onColumnNameClick } = this.props;
 
     if (!results.params) // empty results
       return "";
@@ -109,6 +108,7 @@ class ResultsTable extends React.Component {
               key={index}
               record={record}
               sorting={sorting}
+              filterTerm={filterTerm}
               onShowBillsClick={onShowBillsClick} />
           )
         })}
