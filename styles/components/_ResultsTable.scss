@@ -1,6 +1,5 @@
 .results-table, .bills-table {
   width: 100%;
-  min-width: $results-min-width;
   margin-top: 61px;
   .row {
     margin: 0;
@@ -29,9 +28,9 @@
       border-bottom: $lighter-grey solid 1px;
       // individual cells, both header and body
       &.employer { flex: 0 0 11%; }
-      &.compensation { flex: 0 0 8%; }
+      &.compensation { flex: 0 0 9%; }
       &.lobbyer { flex: 0 0 11%; }
-      &.interests { flex: 0 0 27%; }
+      &.interests { flex: 0 0 26%; }
       &.matching_bills { flex: 0 0 11%; }
       &.start_date { flex: 0 0 8%; }
       &.end_date { flex: 0 0 8%; }

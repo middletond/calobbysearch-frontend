@@ -1,4 +1,6 @@
 .results {
+  min-width: $results-min-width;
+
   background-color: $white;
   position: relative;
   padding: 0px 40px 0px 40px;

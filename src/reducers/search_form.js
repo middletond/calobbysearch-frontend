@@ -44,8 +44,8 @@ const updateField = (field, value, state) => {
 const searchForm = (state = {
   submitted: "",
   fields: {
-    bill: "accessory dwelling",
-    company: "",
+    bill: "water",
+    company: "county of sacramento",
     session: "20172018",
     startDate: moment("20170101"),
     endDate: moment("20181231")

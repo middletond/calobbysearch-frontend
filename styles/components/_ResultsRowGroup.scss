@@ -42,6 +42,9 @@
       .tabs {
         display: none;
       }
+      .row .cell {
+        border-bottom-color: $light-grey;
+      }
       & > div:last-child .cell { // last row
         border-bottom: none;
       }
