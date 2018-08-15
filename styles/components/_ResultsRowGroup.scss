@@ -39,3 +39,8 @@
     }
   }
 }
+// first row group below header shouldn't have a top border
+.table > div:nth-child(2).active {
+  border-top: none !important;
+  padding-top: 1px;
+}
