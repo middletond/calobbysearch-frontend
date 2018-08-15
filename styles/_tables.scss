@@ -1,0 +1,32 @@
+// Simulated tables using divs and flexbox.
+// We do this to get much more styling flexibility.
+.table {
+  .row {
+    display: flex;
+    .cell {
+      // handle layout
+      flex: 1;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      // handle borders
+      border-right: $light-grey solid 1px;
+      border-bottom: $light-grey solid 1px;
+    }
+    &.header {
+      .cell {
+        justify-content: center;
+      }
+    }
+  }
+  .row-group {
+    position: relative;
+  }
+  // must handle last child borders this way since using classes
+  .row > div:last-child { // last cell in row
+    border-right: none;
+  }
+  & > div:last-child > div:last-child .cell { // cells in last row of last row group
+    border-bottom: none;
+  }
+}
