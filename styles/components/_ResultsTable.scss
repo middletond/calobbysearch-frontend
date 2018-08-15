@@ -1,13 +1,12 @@
-.results-table {
-}
-
 .results-table, .bills-table {
   width: 100%;
+  min-width: $results-min-width;
   margin-top: 61px;
-  border-collapse: collapse;
-  thead {
-    tr {
-      th {
+  .row {
+    margin: 0;
+    padding: 0;
+    &.header {
+      .cell {
         padding: 10px 15px 10px 15px;
         border-bottom: darken($light-grey, 6) solid 3px;
         font-family: "Alegreya", serif;
@@ -21,92 +20,47 @@
         &.sort { border-bottom-color: lighten($magenta, 5); }
       }
     }
-  }
-  tbody {
-    tr {
-      margin: 0;
-      padding: 0;
-      td {
-        vertical-align: center;
-        padding: 24px 10px;
-        font-size: 13px;
-        line-height: 150%;
-        border-bottom: $lighter-grey solid 1px;
+    // body and header
+    .cell {
+      position: relative;
+      padding: 24px 10px;
+      font-size: 13px;
+      line-height: 150%;
+      border-bottom: $lighter-grey solid 1px;
+      // individual cells, both header and body
+      &.employer { flex: 0 0 11%; }
+      &.compensation { flex: 0 0 8%; }
+      &.lobbyer { flex: 0 0 11%; }
+      &.interests { flex: 0 0 27%; }
+      &.matching_bills { flex: 0 0 11%; }
+      &.start_date { flex: 0 0 8%; }
+      &.end_date { flex: 0 0 8%; }
+      &.filing_date { flex: 0 0 8%; }
+      &.show-bills { flex: 0 0 8%; }
+      &.start_date, &.end_date, &.filing_date {
+        white-space: nowrap;
       }
-    }
-  }
-  th, td {
-    border-left: #FFF solid 1px;
-    // border-right: #FFF solid 1px; // this is hiding the adjacent .sort borders
-  }
-  .sort {
-    border-left: #f8f0fd solid 1px;
-    border-right: #f8f0fd solid 1px;
-  }
-  td.sort {
-    background-color: #FCFCFC;
-  }
-  // Color coding for rows
-  td.employer {
-    position: relative;
-    // &:before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 15%;
-    //   bottom: 15%;
-    //   left: -20px;
-    //   width: 2px;
-    //   height: 70%;
-    //   opacity: 0.5;
-    // }
-  }
-  tr.lobbyer-filing {
-    td.employer:before {
-      background: $peach;
-    }
-  }
-  tr.employer-filing {
-    td.employer:before {
-      background: $magenta;
-    }
-  }
-  // Limits for individual fields
-  td.start_date, td.end_date, td.filing_date {
-    white-space: nowrap;
-  }
-  td.start_date {
-    position: relative;
+      &.show-bills {
+        padding: 0px;
+        button {
+          text-align: center;
+          padding: 5px 0px 5px 20px;
+          font-size: 12px;
+          border-left: $light-grey solid 1px;
+        }
+      }
+      &.sort {
+        left: -1px;
+        border-left: #f8f0fd solid 1px;
+        border-right: #f8f0fd solid 1px;
+        background-color: #FCFCFC;
 
-  }
-  td.interests {
-    max-width: 350px;
-  }
-  td.show-bills {
-    padding: 0px;
-    button {
-      text-align: center;
-      padding: 5px 0px 5px 20px;
-      font-size: 12px;
-      border-left: $light-grey solid 1px;
+      }
     }
   }
 }
 
 // Bills child table
-.results-row-bills {
-  & > td {
-    padding: 0 !important;
-    position: relative;
-    .bills-table {
-      margin-top: 0px;
-      thead {
-        display: none;
-      }
-      tbody {
-        tr:last-child td {
-         border-bottom: none;
-        }
-      }
-    }
-  }
+.child-table {
+  margin: 0;
 }

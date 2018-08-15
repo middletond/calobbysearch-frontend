@@ -92,7 +92,7 @@ class ResultsTable extends React.Component {
             return (
               <div
                 key={index}
-                className={`cell ${sortingClasses(col, sorting)}`}
+                className={`cell ${col.name} ${sortingClasses(col, sorting)}`}
                 onClick={() => onColumnNameClick(col.name)}>
                 {col.verbose}
               </div>

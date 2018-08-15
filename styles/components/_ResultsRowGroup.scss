@@ -1,27 +1,50 @@
-.results-row-group {
+.row-group {
   &.active {
-    background: $white;
-
-
-    border-bottom: $magenta solid 1px;
-    td.sort { background: transparent; }
-
-    // Adapt borders
-    tr td:not(:first-child) {
-      border-left-color: $magenta-lightest;
+    border-top: darken($magenta-lightest, 7) solid 1px;
+    top: -1px;
+    z-index: 2;
+    & > .row {
+      background: linear-gradient(90deg, $white 0%,
+                                         $magenta-lightest 5%,
+                                         $magenta-lightest 95%,
+                                         $white 100%);
     }
-    tr td {
-      border-bottom-color: darken($magenta-lightest, 5);
+    // add a highlight marker
+    &:before {
+      content: "";
+       position: absolute;
+       z-index: 1;
+       top: 2%;
+       left: -20px;
+       width: 2px;
+       height: 95%;
+       background-color: $magenta;
     }
-    tr.results-row-bills {
-      .bills-table {
-        // background: transparent;
-        background: linear-gradient(90deg, $white 0%,
-                                           $magenta-lightest 5%,
-                                           $magenta-lightest 95%,
-                                           $white 100%);
+    // add a curved shadow
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.28);
+      top: 10px;
+      bottom: 0px;
+      left: 10px;
+      right: 10px;
+      border-radius: 100px / 10px;
+    }
+    .cell.sort { background: transparent; }
+    // borders
+    .row .cell {
+      border-bottom-color: darken($magenta-lightest, 7);
+    }
+    .child-table {
+      background: white;
+      .tabs {
+        display: none;
       }
-      // box-shadow: 0px 0px 10px rgba(0,0,0,0.1) inset;
+      & > div:last-child .cell { // last row
+        border-bottom: none;
+      }
     }
   }
 }

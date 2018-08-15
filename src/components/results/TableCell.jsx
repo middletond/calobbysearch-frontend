@@ -9,7 +9,7 @@ const TableCell = ({ record, column, classNames }) => {
   if (!cell.url) {
     return (
       <div className={classes}>
-        {cell.value}
+        <span>{cell.value}</span>
       </div>
     )
   }
