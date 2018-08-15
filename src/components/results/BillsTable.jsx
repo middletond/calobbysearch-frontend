@@ -22,31 +22,46 @@ class BillsTable extends React.Component {
     return bills.filter(bill => hasTerm(bill, filterTerm));
   }
 
-  render() {
-    const { bills } = this.props; // XXX TODO: make this have its own and sorting
+  renderAsChild() {
+    const { bills } = this.props;
 
-    if (!bills) return "";
     return (
-      <table className="bills-table">
-        <thead>
-          <tr>
-            {BILLS_COLUMNS.map((col, index) => {
-              return (
-                <th key={index}>
-                  {col.verbose}
-                </th>
-              )
-            })}
-          </tr>
-        </thead>
-        <tbody>
-          {this.filtered(bills).map((record, index) => {
+      <div className="child-table bills-table">
+        <div className="tabs">Tabs here</div>
+        {this.filtered(bills).map((record, index) => {
+          return (
+            <BillsRow key={index} record={record} />
+          )
+        })}
+      </div>
+    )
+  }
+
+  render() {
+    const { bills, renderAsChild } = this.props; // XXX TODO: make this have its own and sorting
+
+    if (!bills)
+      return "";
+    if (renderAsChild)
+      return this.renderAsChild();
+
+    return (
+      <div className="table bills-table">
+        <div className="row header">
+          {BILLS_COLUMNS.map((col, index) => {
             return (
-              <BillsRow key={index} record={record} />
+              <div className="cell" key={index}>
+                {col.verbose}
+              </div>
             )
           })}
-        </tbody>
-      </table>
+        </div>
+        {this.filtered(bills).map((record, index) => {
+          return (
+            <BillsRow key={index} record={record} />
+          )
+        })}
+      </div>
     )
   }
 }

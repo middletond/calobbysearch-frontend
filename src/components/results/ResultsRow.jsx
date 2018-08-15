@@ -9,7 +9,7 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
   const filingType = (record.form_type == "F625") ? "lobbyer" : "employer";
 
   return (
-    <tr className={`results-row ${filingType}-filing`}>
+    <div className={`row results-row ${filingType}-filing`}>
       {RESULTS_COLUMNS.map((col, index) => {
         return <TableCell
                  key={index}
@@ -17,14 +17,14 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
                  record={record}
                  classNames={sortingClasses(col, sorting)} />
       })}
-      <td className="show-bills">
+      <div className="cell show-bills">
         <button
           className="button show-bills-button"
           onClick={() => onShowBillsClick(record.filing_id)}>
           {buttonLabel}
         </button>
-      </td>
-    </tr>
+      </div>
+    </div>
   )
 }
 export default ResultsRow;

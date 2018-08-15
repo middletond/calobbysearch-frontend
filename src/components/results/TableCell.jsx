@@ -4,21 +4,21 @@ import { makeCell } from "../../columns";
 
 const TableCell = ({ record, column, classNames }) => {
   const cell = makeCell(record, column);
-  const classes = `${cell.colName} ${classNames}`;
-
+  const classes = (classNames) ? `cell ${cell.colName} ${classNames}`
+                               : `cell ${cell.colName}`;
   if (!cell.url) {
     return (
-      <td className={classes}>
+      <div className={classes}>
         {cell.value}
-      </td>
+      </div>
     )
   }
   return (
-    <td className={classes}>
+    <div className={classes}>
       <a href={cell.url} target="_blank">
         {cell.value}
       </a>
-    </td>
+    </div>
   )
 }
 

@@ -6,11 +6,9 @@ const ResultsRowBills = ({ record, filterTerm }) => {
   if (!record.opened) return null;
 
   return (
-    <tr className="results-row-bills">
-      <td colSpan="100">
-        <BillsTable bills={record.matching_bills} />
-      </td>
-    </tr>
+    <BillsTable
+      renderAsChild={true}
+      bills={record.matching_bills} />
   )
 }
 

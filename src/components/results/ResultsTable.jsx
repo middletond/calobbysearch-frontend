@@ -86,22 +86,20 @@ class ResultsTable extends React.Component {
       return <div className="results-table loading">Loading...</div>;
 
     return (
-      <table className="results-table">
-        <thead>
-          <tr>
-            {RESULTS_COLUMNS.map((col, index) => {
-              return (
-                <th
-                  key={index}
-                  className={sortingClasses(col, sorting)}
-                  onClick={() => onColumnNameClick(col.name)}>
-                  {col.verbose}
-                </th>
-              )
-            })}
-            <th className="show-bills"></th>
-          </tr>
-        </thead>
+      <div className="table results-table">
+        <div className="row header">
+          {RESULTS_COLUMNS.map((col, index) => {
+            return (
+              <div
+                key={index}
+                className={`cell ${sortingClasses(col, sorting)}`}
+                onClick={() => onColumnNameClick(col.name)}>
+                {col.verbose}
+              </div>
+            )
+          })}
+          <div className="cell show-bills"></div>
+        </div>
         {this.processedRecords().map((record, index) => {
           return (
             <ResultsRowGroup
@@ -112,7 +110,7 @@ class ResultsTable extends React.Component {
               onShowBillsClick={onShowBillsClick} />
           )
         })}
-      </table>
+      </div>
     )
   }
 }

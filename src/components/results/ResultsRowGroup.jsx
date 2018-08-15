@@ -5,7 +5,9 @@ import ResultsRowBills from "./ResultsRowBills";
 
 const ResultsRowGroup = ({ record, sorting, filterTerm, onShowBillsClick }) => {
   return (
-    <tbody className={(record.opened) ? "results-row-group active" : "results-row-group"}>
+    <div className={(record.opened)
+        ? "row-group results-row-group active"
+        : "row-group results-row-group"}>
       <ResultsRow
         record={record}
         sorting={sorting}
@@ -13,7 +15,7 @@ const ResultsRowGroup = ({ record, sorting, filterTerm, onShowBillsClick }) => {
       <ResultsRowBills
         record={record}
         filterTerm={filterTerm}/>
-    </tbody>
+    </div>
   )
 }
 

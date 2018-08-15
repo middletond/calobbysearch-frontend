@@ -5,11 +5,11 @@ import { BILLS_COLUMNS } from "../../columns";
 
 const BillsRow = ({ record }) => {
   return (
-    <tr className={record.type}>
+    <div className="row">
       {BILLS_COLUMNS.map((col, index) => {
         return <TableCell key={index} record={record} column={col} />
       })}
-    </tr>
+    </div>
   )
 }
 
