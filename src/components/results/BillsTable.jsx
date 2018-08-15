@@ -2,15 +2,30 @@ import React from "react";
 
 import BillsRow from "./BillsRow";
 import { BILLS_COLUMNS } from "../../columns";
+import { valuesToString } from "../../utils";
 
 class BillsTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.filtered = this.filtered.bind(this);
+  }
+
+  filtered(bills) {
+    const { filterTerm } = this.props;
+    if (!filterTerm)
+      return bills;
+      
+    const hasTerm = (bill, term) => {
+      let billVals = valuesToString(bill, BILLS_COLUMNS);
+      return billVals.toUpperCase().includes(term.toUpperCase());
+    }
+    return bills.filter(bill => hasTerm(bill, filterTerm));
+  }
+
   render() {
     const { bills } = this.props; // XXX TODO: make this have its own and sorting + pass filter
 
     if (!bills) return "";
-    // if (results.isFetching)
-    //   return <div className="results-table loading">Loading...</div>;
-
     return (
       <table className="bills-table">
         <thead>
@@ -25,7 +40,7 @@ class BillsTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {bills.map((record, index) => {
+          {this.filtered(bills).map((record, index) => {
             return (
               <BillsRow key={index} record={record} />
             )

@@ -47,7 +47,8 @@ class Results extends React.Component {
             onShowBillsClick={onShowBillsClick} />
           :
           <BillsTable
-            bills={currentResults.bills} />
+            bills={currentResults.bills}
+            filterTerm={filterTerm} />
         }
       </div>
     )
