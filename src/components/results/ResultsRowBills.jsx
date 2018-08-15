@@ -8,9 +8,7 @@ const ResultsRowBills = ({ record, filterTerm }) => {
   return (
     <tr className="results-row-bills">
       <td colSpan="100">
-        <BillsTable
-          bills={record.matching_bills}
-          filterTerm={filterTerm} />
+        <BillsTable bills={record.matching_bills} />
       </td>
     </tr>
   )
