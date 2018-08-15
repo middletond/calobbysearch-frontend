@@ -1,10 +1,7 @@
 .results-row-group {
   &.active {
     background: $white;
-    background: linear-gradient(90deg, $white 0%,
-                                       $magenta-lightest 5%,
-                                       $magenta-lightest 95%,
-                                       $white 100%);
+
 
     border-bottom: $magenta solid 1px;
     td.sort { background: transparent; }
@@ -18,7 +15,11 @@
     }
     tr.results-row-bills {
       .bills-table {
-        background: transparent;
+        // background: transparent;
+        background: linear-gradient(90deg, $white 0%,
+                                           $magenta-lightest 5%,
+                                           $magenta-lightest 95%,
+                                           $white 100%);
       }
       // box-shadow: 0px 0px 10px rgba(0,0,0,0.1) inset;
     }
