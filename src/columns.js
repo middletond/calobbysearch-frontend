@@ -6,6 +6,7 @@ export const TYPE_DATE = "date";
 export const TYPE_TEXT = "text";
 export const TYPE_CURRENCY = "currency";
 export const TYPE_ARRAY = "array";
+export const TYPE_SEARCH_ONLY = "search";
 
 export const BILLS_COLUMNS = [
   {
@@ -66,6 +67,12 @@ export const RESULTS_COLUMNS = [
     name: "matching_bills",
     verbose: "Matching Bills",
     type: TYPE_ARRAY,
+    transform: bills => bills.map(bill => bill.name).join(", ")
+  },
+  {
+    name: "bills",
+    verbose: "All Bills",
+    type: TYPE_SEARCH_ONLY,
     transform: bills => bills.map(bill => bill.name).join(", ")
   },
   {

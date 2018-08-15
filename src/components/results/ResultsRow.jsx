@@ -1,7 +1,7 @@
 import React from "react";
 
 import TableCell from "./TableCell";
-import { RESULTS_COLUMNS } from "../../columns";
+import { RESULTS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { sortingClasses } from "../../utils";
 
 const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
@@ -10,7 +10,9 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
 
   return (
     <div className={`row results-row ${filingType}-filing`}>
-      {RESULTS_COLUMNS.map((col, index) => {
+      {RESULTS_COLUMNS
+        .filter(col => col.type !== TYPE_SEARCH_ONLY)
+        .map((col, index) => {
         return <TableCell
                  key={index}
                  column={col}

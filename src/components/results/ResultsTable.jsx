@@ -3,7 +3,7 @@ import _ from "lodash";
 
 import ResultsRowGroup from "./ResultsRowGroup";
 
-import { RESULTS_COLUMNS } from "../../columns";
+import { RESULTS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { ASCENDING, DESCENDING } from "../../constants";
 import {valuesToString, sortingClasses } from "../../utils";
 
@@ -88,7 +88,9 @@ class ResultsTable extends React.Component {
     return (
       <div className="table results-table">
         <div className="row header">
-          {RESULTS_COLUMNS.map((col, index) => {
+          {RESULTS_COLUMNS
+            .filter(col => col.type !== TYPE_SEARCH_ONLY)
+            .map((col, index) => {
             return (
               <div
                 key={index}
