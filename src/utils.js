@@ -59,3 +59,16 @@ export const sortingClasses = (column, sorting) => {
   const { field, direction } = sorting;
   return (column.name == field) ? `sort ${direction}` : "";
 }
+
+/**
+ * Returns a boolean for whether a record contains a term in
+ * its values (case insensitive). 
+ *
+ * > let rec = {a:"dog", b:"cat", c:"moose"}
+ * > hasTerm(rec, "Dog", [{name: "a"}, {name: "b"}])
+ * true
+ */
+export const hasTerm = (record, term, columns = null) => {
+  let recordVals = valuesToString(record, columns);
+  return recordVals.toUpperCase().includes(term.toUpperCase());
+}
