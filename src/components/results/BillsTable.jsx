@@ -2,7 +2,7 @@ import React from "react";
 
 import BillsRow from "./BillsRow";
 import { BILLS_COLUMNS } from "../../columns";
-import { hasTerm } from "../../utils";
+import { hasTerm, fresh } from "../../utils";
 
 const TAB_MATCHING_BILLS = "matching";
 const TAB_ALL_BILLS = "all";
@@ -13,11 +13,19 @@ class BillsTable extends React.Component {
 
     this.filtered = this.filtered.bind(this);
     this.onTabClick = this.onTabClick.bind(this);
-    this.billsByTab
+    this.billsByTab = this.billsByTab.bind(this);
+    this.updatefilterMatches = this.updatefilterMatches.bind(this);
     // Child bills table gets internal state since there's so many of them.
     this.state = {
       tab: TAB_MATCHING_BILLS
     }
+  }
+
+  updatefilterMatches() {
+    const { filterTerm, bills } = this.props;
+    this.setState({
+      filterMatches: this.filtered(bills).map(bill => bill.name)
+    }, () => console.log("HELLO", this.state))
   }
 
   onTabClick(tab) {
@@ -41,7 +49,16 @@ class BillsTable extends React.Component {
   }
 
   highlighted(bills) {
-    return this.filtered(bills);
+    const { filterTerm } = this.props;
+    if (!filterTerm)
+      return bills;
+
+    const highlight = (bill) => {
+      return Object.assign({}, bill, { highlight: true })
+    }
+    const matching = this.filtered(bills).map(bill => highlight(bill));
+    const nonmatching = bills.filter(bill => !hasTerm(bill, filterTerm, BILLS_COLUMNS));
+    return matching.concat(nonmatching);
   }
 
   renderAsChild() {

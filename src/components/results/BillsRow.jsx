@@ -5,7 +5,7 @@ import { BILLS_COLUMNS } from "../../columns";
 
 const BillsRow = ({ record }) => {
   return (
-    <div className="row">
+    <div className={(record.highlight) ? "row highlight" : "row"}>
       {BILLS_COLUMNS.map((col, index) => {
         return <TableCell key={index} record={record} column={col} />
       })}
