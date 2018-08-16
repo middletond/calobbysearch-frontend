@@ -83,7 +83,9 @@ class ResultsTable extends React.Component {
     if (!results.params) // empty results
       return "";
     if (results.isFetching)
-      return <div className="results-table loading">Loading...</div>;
+      return <div className="table loading">Loading...</div>;
+    if (!results.records.length)
+      return <div className="table no-results">No activities found</div>;
 
     return (
       <div className="table results-table">

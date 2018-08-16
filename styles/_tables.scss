@@ -33,4 +33,13 @@
   & > div:last-child > div:last-child > .cell { // cells in last row of last row group
     border-bottom: none;
   }
+  // no results
+  &.no-results {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 100px;
+    color: lighten($grey, 6);
+  }
 }

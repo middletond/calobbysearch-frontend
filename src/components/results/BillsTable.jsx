@@ -79,7 +79,11 @@ class BillsTable extends React.Component {
     if (renderAsChild)
       return this.renderAsChild();
 
-    if (!bills) return "";
+    console.log("HELLO", bills);
+    if (!bills)
+      return "";
+    if (!bills.length)
+      return <div className="table no-results">No bills found</div>;
     return (
       <div className="table bills-table">
         <div className="row header">
