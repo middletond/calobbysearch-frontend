@@ -14,10 +14,11 @@
       content: "";
        position: absolute;
        z-index: 1;
-       top: 2%;
+       top: 20px;
+       bottom: 20px;
        left: -20px;
        width: 2px;
-       height: 95%;
+       // height: 95%;
        background-color: $magenta;
     }
     // add a curved shadow

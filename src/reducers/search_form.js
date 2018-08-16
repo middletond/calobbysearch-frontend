@@ -44,7 +44,7 @@ const updateField = (field, value, state) => {
 const searchForm = (state = {
   submitted: "",
   fields: {
-    bill: "accessory dwelling",
+    bill: "accessory dwelling units",
     company: "",
     session: "20172018",
     startDate: moment("20170101"),
