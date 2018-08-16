@@ -2,7 +2,7 @@ import React from "react";
 
 import BillsRow from "./BillsRow";
 import { BILLS_COLUMNS } from "../../columns";
-import { valuesToString } from "../../utils";
+import { hasTerm } from "../../utils";
 
 const TAB_MATCHING_BILLS = "matching";
 const TAB_ALL_BILLS = "all";
@@ -37,12 +37,11 @@ class BillsTable extends React.Component {
     const { filterTerm } = this.props;
     if (!filterTerm)
       return bills;
+    return bills.filter(bill => hasTerm(bill, filterTerm, BILLS_COLUMNS));
+  }
 
-    const hasTerm = (bill, term) => {
-      let billVals = valuesToString(bill, BILLS_COLUMNS);
-      return billVals.toUpperCase().includes(term.toUpperCase());
-    }
-    return bills.filter(bill => hasTerm(bill, filterTerm));
+  highlighted(bills) {
+    return this.filtered(bills);
   }
 
   renderAsChild() {
@@ -64,7 +63,7 @@ class BillsTable extends React.Component {
             <span className="tab-count">{this.props.bills.length}</span>
              In Filing</li>
         </ul>
-        {this.filtered(bills).map((record, index) => {
+        {this.highlighted(bills).map((record, index) => {
           return (
             <BillsRow key={index} record={record} />
           )

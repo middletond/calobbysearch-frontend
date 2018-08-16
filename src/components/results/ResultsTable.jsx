@@ -5,7 +5,7 @@ import ResultsRowGroup from "./ResultsRowGroup";
 
 import { RESULTS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { ASCENDING, DESCENDING } from "../../constants";
-import {valuesToString, sortingClasses } from "../../utils";
+import {hasTerm, sortingClasses } from "../../utils";
 
 class ResultsTable extends React.Component {
   constructor(props) {
@@ -30,12 +30,7 @@ class ResultsTable extends React.Component {
 
   filtered(records) {
     const { filterTerm } = this.props;
-
-    const hasTerm = (record, term) => {
-      let recVals = valuesToString(record, RESULTS_COLUMNS);
-      return recVals.toUpperCase().includes(term.toUpperCase());
-    }
-    return records.filter(record => hasTerm(record, filterTerm));
+    return records.filter(record => hasTerm(record, filterTerm, RESULTS_COLUMNS));
   }
 
   sorted(records) {
