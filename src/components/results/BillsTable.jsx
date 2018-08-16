@@ -62,12 +62,13 @@ class BillsTable extends React.Component {
   }
 
   renderAsChild() {
+    const { filterTerm } = this.props;
     const tab = this.state.tab;
     const bills = this.billsByTab(tab);
 
     if (!bills) return "";
     return (
-      <div className="child-table bills-table">
+      <div className={`child-table bills-table ${(filterTerm) ? "highlighted" : ""}`}>
         <ul className="tabs">
           <li
             className={`tab matching ${(tab === TAB_MATCHING_BILLS) ? "active" : ""}`}
