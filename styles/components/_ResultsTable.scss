@@ -79,12 +79,34 @@
       font-weight: 400;
       font-size: 11px;
       letter-spacing: 0.04em;
-      color: $grey;
+      color: darken($grey, 5);
       border-bottom: $light-grey solid 1px;
       cursor: pointer;
+      .tab-count {
+        display: inline-block;
+        border-radius: 10px;
+        // border: $light-grey solid 1px;
+        // background-color: lighten($grey, 5);
+        color: darken($grey, 5);
+        font-weight: 900;
+        font-size: 12px;
+        margin: 0 0px 0 0;
+        padding: 9px 5px 0 5px;
+        box-sizing: border-box;
+        line-height: 0;
+        min-width: 18px;
+        height: 18px;
+        text-align: center;
+      }
       &.active {
-        color: lighten($dark-grey, 7);
+        color: lighten($dark-grey, 0);
         border-bottom: none;
+        .tab-count {
+          color: $text-black;
+          // background-color: $magenta;
+          // color: $white;
+          // border-color: $magenta;
+        }
       }
     }
     & > li:first-child { // first .tab

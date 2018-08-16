@@ -72,8 +72,7 @@ export const RESULTS_COLUMNS = [
   {
     name: "bills",
     verbose: "All Bills",
-    type: TYPE_SEARCH_ONLY,
-    transform: bills => bills.map(bill => bill.name).join(", ")
+    type: TYPE_SEARCH_ONLY
   },
   {
     name: "start_date",

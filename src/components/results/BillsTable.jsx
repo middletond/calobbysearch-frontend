@@ -26,13 +26,11 @@ class BillsTable extends React.Component {
 
   billsByTab() {
     const { matchingBills, bills } = this.props;
-    let b;
 
     if (this.state.tab === TAB_MATCHING_BILLS)
-      b = matchingBills;
+      return matchingBills;
     else if (this.state.tab === TAB_ALL_BILLS)
-      b = bills;
-    return b;
+      return bills;
   }
 
   filtered(bills) {
@@ -58,11 +56,13 @@ class BillsTable extends React.Component {
           <li
             className={`tab matching ${(tab === TAB_MATCHING_BILLS) ? "active" : ""}`}
             onClick={() => this.onTabClick(TAB_MATCHING_BILLS)}>
-            Matching Bills</li>
+            <span className="tab-count">{this.props.matchingBills.length}</span>
+            Matching</li>
           <li
-            className={`tab matching ${(tab === TAB_ALL_BILLS) ? "active" : ""}`}
+            className={`tab all ${(tab === TAB_ALL_BILLS) ? "active" : ""}`}
             onClick={() => this.onTabClick(TAB_ALL_BILLS)}>
-            All Bills</li>
+            <span className="tab-count">{this.props.bills.length}</span>
+             In Filing</li>
         </ul>
         {this.filtered(bills).map((record, index) => {
           return (

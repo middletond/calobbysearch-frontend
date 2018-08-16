@@ -7,6 +7,7 @@ const ResultsRowBills = ({ record, filterTerm }) => {
 
   return (
     <BillsTable
+      filterTerm={filterTerm}
       renderAsChild={true}
       bills={record.bills}
       matchingBills={record.matching_bills} />
