@@ -7,7 +7,7 @@ const ExportButton = ({ onExport }) => {
 
   return (
     <div className="export-button" onClick={onExport}>
-      <Icon name="download" />
+      <Icon name="export" />
       <button className="button">
         {label}
       </button>

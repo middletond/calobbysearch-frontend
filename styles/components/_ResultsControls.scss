@@ -7,6 +7,16 @@
   border-top: $light-grey solid 1px;
   border-bottom: $light-grey solid 1px;
   position: relative;
+
+  .icon {
+    color: $dark-grey;
+    svg path { stroke: $dark-grey; }
+  }
+  // & > div:hover .icon {
+  //   transition: 0.3s;
+  //   color: $dark-grey;
+  //   svg path { stroke: $dark-grey; }
+  // }
   &.sticky {
     top: 0;
     left: 0;
@@ -29,6 +39,7 @@
       }
     }
   }
+
   .filter-field {
     width: 74%;
     input {
@@ -44,9 +55,9 @@
       width: 55px;
       height: 100%;
       font-size: 27px;
-      color: lighten($dark-grey, 10);
     }
   }
+
   .export-button {
     width: 26%;
     @include flex_display();
@@ -63,11 +74,10 @@
       padding: 0px;
     }
     .icon {
-      text-align: center;
-      width: 75px;
-      height: 100%;
+      margin: 0px 20px;
+      width: 28px;
+      height: 28px;
       font-size: 27px;
-      color: lighten($dark-grey, 10);
     }
   }
 }
