@@ -5,7 +5,8 @@ import {
   UPDATE_SORTING,
   EXPORT_CURRENT_SEARCH,
   TOGGLE_BILLS_FOR_RECORD,
-  UPDATE_RESULTS_VIEW
+  UPDATE_RESULTS_VIEW,
+  UPDATE_STICKY_CONTROLS
 } from "../actions/controls";
 
 import { ASCENDING, DESCENDING } from "../constants";
@@ -20,7 +21,8 @@ const controls = (state = {
     field: settings.DEFAULT_SORT_FIELD,
     direction: settings.DEFAULT_SORT_DIRECTION,
   },
-  view: settings.DEFAULT_RESULTS_VIEW
+  view: settings.DEFAULT_RESULTS_VIEW,
+  sticky: false
 }, action) => {
   switch (action.type) {
     case UPDATE_FILTER_TERM:
@@ -43,6 +45,10 @@ const controls = (state = {
     case UPDATE_RESULTS_VIEW:
       return fresh(state, {
         view: action.view
+      })
+    case UPDATE_STICKY_CONTROLS:
+      return fresh(state, {
+        sticky: action.sticky
       })
     case EXPORT_CURRENT_SEARCH:
       return state; // TODO: use thunk action to get to here

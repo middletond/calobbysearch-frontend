@@ -25,10 +25,10 @@ class Results extends React.Component {
     const { filterTerm, onFilterTermChange, onExport,
             onResultsTabClick, currentResults,
             onShowBillsClick, onColumnNameClick,
-            sorting, opened, view } = this.props;
+            sorting, opened, view, stickyControls } = this.props;
 
     return (
-      <div className="results">
+      <div className={(stickyControls) ? "results sticky-controls" : "results"}>
         <ResultsHeader
           view={view}
           results={currentResults}
@@ -36,7 +36,8 @@ class Results extends React.Component {
         <ResultsControls
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
-          onExport={onExport} />
+          onExport={onExport}
+          sticky={stickyControls} />
         {(view == FILINGS_VIEW) ?
           <ResultsTable
             results={currentResults}
@@ -63,7 +64,8 @@ const mapStateToProps = (state) => {
     filterTerm: controls.filterTerm,
     sorting: controls.sorting,
     opened: controls.opened,
-    view: controls.view
+    view: controls.view,
+    stickyControls: controls.sticky
   }
 }
 

@@ -3,6 +3,7 @@ export const UPDATE_SORTING = "UPDATE_SORTING";
 export const EXPORT_CURRENT_SEARCH = "EXPORT_CURRENT_SEARCH";
 export const TOGGLE_BILLS_FOR_RECORD = "TOGGLE_BILLS_FOR_RECORD";
 export const UPDATE_RESULTS_VIEW = "UPDATE_RESULTS_VIEW";
+export const UPDATE_STICKY_CONTROLS = "UPDATE_STICKY_CONTROLS";
 
 export const updateFilterTerm = (term) => {
   return {
@@ -36,5 +37,12 @@ export const updateResultsView = (view) => {
   return {
     type: UPDATE_RESULTS_VIEW,
     view
+  }
+}
+
+export const updateStickyControls = (sticky) => {
+  return {
+    type: UPDATE_STICKY_CONTROLS,
+    sticky
   }
 }

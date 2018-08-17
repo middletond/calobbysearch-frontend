@@ -8,6 +8,7 @@ const stateShape = {
       direction: "asc",
     },
     view: "filings", // "filings" or "bills"
+    stickyControls: false
     "AB 101|TESLA MOTORS|20170101|20182131": { // a unique key by concating all params
       params: {
         company: "tesla",
