@@ -16,7 +16,10 @@
         text-align: center;
         line-height: 1.1em;
         cursor: pointer;
-        &.sort { border-bottom-color: lighten($magenta, 5); }
+        &.sort {
+          border-bottom-color: lighten($magenta, 5);
+          background: transparent; }
+        &.start_date:after { content: none }
       }
     }
     // body and header
@@ -38,6 +41,21 @@
       &.show-bills { flex: 0 0 8%; }
       &.start_date, &.end_date, &.filing_date {
         white-space: nowrap;
+      }
+      &.start_date, &.end_date {
+        @include flex_justify_content(center);
+      }
+      &.start_date:after {
+        @include flex_display();
+        @include flex_align_items(center);
+        content: "\2014";
+        font-weight: 400;
+        font-size: 18px;
+        color: $gold;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -8px;
       }
       &.show-bills {
         padding: 0px;

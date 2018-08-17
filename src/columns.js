@@ -1,8 +1,10 @@
 import moment from "moment";
-import { DATE_DISPLAY_FORMAT, SESSIONS } from "./constants";
+import { SESSIONS } from "./constants";
+import * as settings from "./settings";
 import { findFirst } from "./utils";
 
 export const TYPE_DATE = "date";
+export const TYPE_SHORT_DATE = "shortdate";
 export const TYPE_TEXT = "text";
 export const TYPE_CURRENCY = "currency";
 export const TYPE_ARRAY = "array";
@@ -77,12 +79,12 @@ export const RESULTS_COLUMNS = [
   {
     name: "start_date",
     verbose: "Starting",
-    type: TYPE_DATE
+    type: TYPE_SHORT_DATE
   },
   {
     name: "end_date",
     verbose: "Ending",
-    type: TYPE_DATE
+    type: TYPE_SHORT_DATE
   },
   {
     name: "filing_date",
@@ -105,8 +107,11 @@ export const makeCell = (record, column) => {
 
   switch (column.type) {
     case TYPE_DATE:
-      value = moment(rawVal).format(DATE_DISPLAY_FORMAT);
+      value = moment(rawVal).format(settings.DATE_DISPLAY_FORMAT);
       break;
+    case TYPE_SHORT_DATE: // only month / year relevant, i.e. standard session quarters, etc
+    value = moment(rawVal).format(settings.SHORT_DATE_DISPLAY_FORMAT);
+    break;
     case TYPE_CURRENCY:
       // XXX lets move this to utils soon...
       const [ dollars, cents ] = (rawVal.includes(".")) ? rawVal.split(".") : rawVal;

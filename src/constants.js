@@ -1,6 +1,3 @@
-// https://devhints.io/moment
-export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";
-
 export const ASCENDING = "asc";
 export const DESCENDING = "desc";
 
