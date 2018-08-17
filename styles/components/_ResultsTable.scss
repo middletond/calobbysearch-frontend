@@ -120,11 +120,13 @@
       position: absolute;
       top: 0;
       right: 18px;
+      width: 20px;
       height: 100%;
       @include flex_display;
       @include flex_align_items(center);
       font-size: 20px;
       color: $magenta;
+      svg path { stroke: $magenta }
     }
   }
   & > div:last-child .cell { // last row

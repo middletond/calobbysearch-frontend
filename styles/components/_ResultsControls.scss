@@ -7,16 +7,19 @@
   border-top: $light-grey solid 1px;
   border-bottom: $light-grey solid 1px;
   position: relative;
-
+  transition: 0.3s;
   .icon {
+    width: 28px;
+    height: 28px;
+    font-size: 27px;
     color: $dark-grey;
     svg path { stroke: $dark-grey; }
+    &.active {
+      transition: 0.3s;
+      color: $magenta;
+      svg path { stroke: $magenta; }
+    }
   }
-  // & > div:hover .icon {
-  //   transition: 0.3s;
-  //   color: $dark-grey;
-  //   svg path { stroke: $dark-grey; }
-  // }
   &.sticky {
     top: 0;
     left: 0;
@@ -30,12 +33,12 @@
     .filter-field {
       border-left: $light-grey solid 1px;
       .icon {
-        margin-left: 50px;
+        padding-left: 45px;
         display: inline-block;
         margin-top: 12px;
       }
       input {
-        padding: 13px 10px 13px 90px;
+        padding: 13px 10px 13px 95px;
       }
     }
   }
@@ -43,7 +46,7 @@
   .filter-field {
     width: 74%;
     input {
-      padding: 23px 10px 23px 55px;
+      padding: 21px 10px 25px 65px;
       font-style: italic;
     }
     .icon {
@@ -52,9 +55,8 @@
       @include flex_justify_content(center);
       @include flex_align_items(center);
       position: absolute;
-      width: 55px;
       height: 100%;
-      font-size: 27px;
+      padding: 0px 20px;
     }
   }
 
@@ -69,15 +71,12 @@
     button, .icon {
       display: inline-block;
     }
+    .icon {
+      padding: 0px 25px;
+    }
     button {
       width: auto;
       padding: 0px;
-    }
-    .icon {
-      margin: 0px 20px;
-      width: 28px;
-      height: 28px;
-      font-size: 27px;
     }
   }
 }
