@@ -6,11 +6,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const StartDateField = ({ date, active, onChange }) => {
   return (
-    <DatePicker
-      selected={date}
-      autoComplete="startdate"
-      className={(!active) ? "start-date-field inactive" : "start-date-field"}
-      onChange={date => onChange(date)} />
+    <div className="start-date-field-wrapper">
+      <DatePicker
+        selected={date}
+        disabledKeyboardNavigation
+        autoComplete="startdate"
+        className={(!active) ? "start-date-field inactive" : "start-date-field"}
+        onChange={date => onChange(date)} />
+    </div>
   )
 }
 

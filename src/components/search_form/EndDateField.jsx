@@ -6,11 +6,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const EndDateField = ({ date, active, onChange }) => {
   return (
-    <DatePicker
-      selected={date}
-      autoComplete="enddate"
-      className={(!active) ? "end-date-field inactive" : "end-date-field"}
-      onChange={date => onChange(date)} />
+    <div className="end-date-field-wrapper">
+      <DatePicker
+        selected={date}
+        todayButton={"Use Today"}
+        disabledKeyboardNavigation
+        autoComplete="enddate"
+        className={(!active) ? "end-date-field inactive" : "end-date-field"}
+        onChange={date => onChange(date)} />
+    </div>
   )
 }
 

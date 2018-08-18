@@ -62,6 +62,8 @@ const mapDispatchToProps = (dispatch) => {
     onSubmit: (event, params) => {
       if (event)
         event.preventDefault();
+      // form validation should happen here:
+      // if !state.searchForm.isValid... dont do next stuff.
       dispatch(submitSearch());
       dispatch(fetchResults(params)); //  bonehead approach to kicking off async
     },
