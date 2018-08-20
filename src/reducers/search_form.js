@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fresh, makeResultKey, toParams } from "../utils";
+import { makeResultKey, toParams } from "../utils";
 import {
   SUBMIT_SEARCH,
   UPDATE_BILL,
@@ -63,9 +63,9 @@ const searchForm = (state = {
 }, action) => {
   switch (action.type) {
     case SUBMIT_SEARCH:
-      return fresh(state, {
+      return { ...state,
         submitted: makeResultKey(toParams(state.fields))
-      })
+      }
     case UPDATE_BILL:
       return updateField("bill", action.term, state);
     case UPDATE_COMPANY:
