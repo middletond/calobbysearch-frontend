@@ -29,8 +29,9 @@ const dateFromSession = (sesh, type) => {
 const updateField = (field, value, state) => {
   // Update a single field value and handle any other
   // field updates that should occur as a result.
-  let updated = fresh(state.fields[field], { value });
-
+  let updated = { ...state.fields,
+    [field]: { ...state.fields[field], value }
+  }
   if (field == "session" && value != USE_DATES_NOT_SESSION) {
     // sesh updated, align start / end dates to session
     updated.startDate.value = dateFromSession(value, "start");
@@ -40,11 +41,7 @@ const updateField = (field, value, state) => {
     // dates updates, turn off session
     updated.session.value = USE_DATES_NOT_SESSION;
   }
-  return { ...state,
-    fields: { ...state.fields,
-      [field]: updated
-    }
-  }
+  return { ...state, fields: updated }
 }
 
 const makeField = (value, label = "", error = "") => {

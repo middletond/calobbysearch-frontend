@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const StartDateField = ({ date, active, onChange }) => {
   return (
-    <div className="start-date-field-wrapper">
+    <div className="field-wrapper start-date-field-wrapper">
       <DatePicker
         selected={date.value}
         disabledKeyboardNavigation

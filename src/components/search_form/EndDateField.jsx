@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const EndDateField = ({ date, active, onChange }) => {
   return (
-    <div className="end-date-field-wrapper">
+    <div className="field-wrapper end-date-field-wrapper">
       <DatePicker
         selected={date.value}
         todayButton={"Use Today"}
