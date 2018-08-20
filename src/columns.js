@@ -10,6 +10,9 @@ export const TYPE_CURRENCY = "currency";
 export const TYPE_ARRAY = "array";
 export const TYPE_SEARCH_ONLY = "search";
 
+export const FORM_TYPE_LOBBYER = "F625";
+export const FORM_TYPE_EMPLOYER = "F635";
+
 export const BILLS_COLUMNS = [
   {
     name: "name",
@@ -92,13 +95,12 @@ export const RESULTS_COLUMNS = [
     url: "filing_url",
     type: TYPE_DATE
   },
-  // {
-  //   name: "form_type",
-  //   verbose: "Filed By",
-  //   type: TYPE_TEXT,
-  //   transform: (val) => (val === "F625") ? "Lobby Firm" : "Employer"
-  // }
 ];
+
+// Column utils
+export const filingType = (record) => {
+  return (record.form_type == FORM_TYPE_LOBBYER) ? "lobbyer" : "employer";
+}
 
 export const makeCell = (record, column) => {
   let value = "";

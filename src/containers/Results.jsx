@@ -74,8 +74,8 @@ const mapDispatchToProps = (dispatch) => {
     onColumnNameClick: (name) => {
       dispatch(updateSorting(name));
     },
-    onShowBillsClick: (id) => {
-      dispatch(toggleBillsForRecord(id));
+    onShowBillsClick: (id, tab) => {
+      dispatch(toggleBillsForRecord(id, tab));
     },
     onFilterTermChange: (term) => {
       dispatch(updateFilterTerm(term));
