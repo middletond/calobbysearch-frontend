@@ -13,6 +13,10 @@ export const TYPE_SEARCH_ONLY = "search";
 export const FORM_TYPE_LOBBYER = "F625";
 export const FORM_TYPE_EMPLOYER = "F635";
 
+export const LOBBYER_TYPE_FIRM = "firm";
+export const LOBBYER_TYPE_INHOUSE = "inhouse";
+export const LOBBYER_TYPE_OTHER = "other";
+
 export const BILLS_COLUMNS = [
   {
     name: "name",
@@ -133,6 +137,20 @@ export const makeCell = (record, column) => {
       break;
     default:
       value = rawVal;
+  }
+
+  // Handle renaming of lobbyer field if not a firm
+  if (column.name === "lobbyer") {
+    switch (record.type) {
+      case LOBBYER_TYPE_INHOUSE:
+        value = "In-House Lobbyists";
+        url = "";
+        break;
+      case LOBBYER_TYPE_OTHER:
+        value = "Other Payments to Influence";
+        url = "";
+        break;
+    }
   }
 
   if (column.transform)
