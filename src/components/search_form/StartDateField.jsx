@@ -8,7 +8,7 @@ const StartDateField = ({ date, active, onChange }) => {
   return (
     <div className="start-date-field-wrapper">
       <DatePicker
-        selected={date}
+        selected={date.value}
         disabledKeyboardNavigation
         autoComplete="startdate"
         className={(!active) ? "start-date-field inactive" : "start-date-field"}

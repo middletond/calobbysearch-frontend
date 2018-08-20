@@ -8,7 +8,7 @@ const EndDateField = ({ date, active, onChange }) => {
   return (
     <div className="end-date-field-wrapper">
       <DatePicker
-        selected={date}
+        selected={date.value}
         todayButton={"Use Today"}
         disabledKeyboardNavigation
         autoComplete="enddate"

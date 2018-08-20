@@ -3,11 +3,11 @@ import React from "react";
 import Icon from "../controls/Icon";
 import { SESSIONS } from "../../constants";
 
-const SessionSelect = ({ value, active, onChange }) => {
+const SessionSelect = ({ session, active, onChange }) => {
   return (
     <div className={(!active) ? "session-select inactive" : "session-select"}>
       <select
-        value={value}
+        value={session.value}
         autoComplete="session"
 
         onChange={event => onChange(event.target.value)}>

@@ -13,8 +13,8 @@ const TextFields = ({
       <h3>Lobbying Activities Involving</h3>
       <div className="fields">
         <Icon name="search" />
-        <BillField value={bill} onChange={onBillChange} />
-        <CompanyField value={company} onChange={onCompanyChange} />
+        <BillField bill={bill} onChange={onBillChange} />
+        <CompanyField company={company} onChange={onCompanyChange} />
       </div>
     </section>
   )

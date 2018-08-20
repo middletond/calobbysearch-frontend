@@ -19,7 +19,7 @@ const DateFields = ({
       <div className="fields">
         <Icon name="calendar" />
         <SessionSelect
-          value={session}
+          session={session}
           active={!datesActive}
           onChange={onSessionChange} />
         <div className="date-picker-fields">

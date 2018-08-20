@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fresh, makeResultKey } from "../utils";
+import { fresh, makeResultKey, toParams } from "../utils";
 import {
   SUBMIT_SEARCH,
   UPDATE_BILL,
@@ -14,6 +14,11 @@ import {
   DATE_PICKER_FIELDS
 } from "../constants";
 
+import {
+  TYPE_TEXT,
+  TYPE_DATE
+} from "../columns";
+
 const dateFromSession = (sesh, type) => {
   return (type == "start")
          ? moment(sesh.substring(0, 4) + "0101")
@@ -24,37 +29,45 @@ const dateFromSession = (sesh, type) => {
 const updateField = (field, value, state) => {
   // Update a single field value and handle any other
   // field updates that should occur as a result.
-  let updated =  { [field]: value };
+  let updated = fresh(state.fields[field], { value });
 
   if (field == "session" && value != USE_DATES_NOT_SESSION) {
     // sesh updated, align start / end dates to session
-    updated.startDate = dateFromSession(value, "start");
-    updated.endDate = dateFromSession(value, "end");
+    updated.startDate.value = dateFromSession(value, "start");
+    updated.endDate.value = dateFromSession(value, "end");
   }
   else if (DATE_PICKER_FIELDS.includes(field)) {
     // dates updates, turn off session
-    updated.session = USE_DATES_NOT_SESSION;
+    updated.session.value = USE_DATES_NOT_SESSION;
   }
-  return fresh(state, {
-    fields: fresh(state.fields, updated)
-  })
+  return { ...state,
+    fields: { ...state.fields,
+      [field]: updated
+    }
+  }
+}
+
+const makeField = (value, label = "", error = "") => {
+  return {
+    value, label, error
+  }
 }
 
 // reducer
 const searchForm = (state = {
   submitted: "",
   fields: {
-    bill: "accessory dwelling units",
-    company: "",
-    session: "20172018",
-    startDate: moment("20170101"),
-    endDate: moment("20181231")
+    bill: makeField("", "bill name or keyword"),
+    company: makeField("", "company name"),
+    session: makeField("20172018"),
+    startDate: makeField(moment("20170101"), "starting"),
+    endDate: makeField(moment("20181231"), "ending")
   }
 }, action) => {
   switch (action.type) {
     case SUBMIT_SEARCH:
       return fresh(state, {
-        submitted: makeResultKey(state.fields)
+        submitted: makeResultKey(toParams(state.fields))
       })
     case UPDATE_BILL:
       return updateField("bill", action.term, state);

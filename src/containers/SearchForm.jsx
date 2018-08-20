@@ -17,9 +17,33 @@ import TextFields from "../components/search_form/TextFields";
 import DateFields from "../components/search_form/DateFields";
 import SubmitButton from "../components/search_form/SubmitButton";
 
+import { toParams } from "../utils";
+
 class SearchForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.isValid = this.isValid.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
   componentDidMount() { // XXX remove this, just for testing
-    this.props.onSubmit(null, this.props.fields);
+    // this.props.onSubmit(null, this.props.fields);
+  }
+
+  isValid(fields) {
+    return true;
+  }
+
+  onSubmit(event, fields) {
+    const { dispatch } = this.props;
+
+    if (event) event.preventDefault();
+
+    if (this.isValid(fields)) {
+      let params = toParams(fields);
+      dispatch(submitSearch());
+      dispatch(fetchResults(params)); //  bonehead approach to kicking off async
+    };
   }
 
   render() {
@@ -29,7 +53,7 @@ class SearchForm extends React.Component {
 
     return (
       <div className="search-form">
-        <form onSubmit={event => onSubmit(event, fields)} >
+        <form onSubmit={event => this.onSubmit(event, fields)} >
           <TextFields
             bill={fields.bill}
             company={fields.company}
@@ -59,14 +83,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch: dispatch,
-    onSubmit: (event, params) => {
-      if (event)
-        event.preventDefault();
-      // form validation should happen here:
-      // if !state.searchForm.isValid... dont do next stuff.
-      dispatch(submitSearch());
-      dispatch(fetchResults(params)); //  bonehead approach to kicking off async
-    },
     onBillChange: (term) => {
       dispatch(updateBill(term));
     },

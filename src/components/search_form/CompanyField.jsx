@@ -1,9 +1,9 @@
 import React from "react";
 
-const CompanyField = ({ value, onChange }) => {
+const CompanyField = ({ company, onChange }) => {
   return (
     <input
-      value={value}
+      value={company.value}
       autoComplete="company"
       className="company-field"
       placeholder="company name..."

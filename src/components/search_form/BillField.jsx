@@ -1,9 +1,9 @@
 import React from "react";
 
-const BillField = ({ value, onChange }) => {
+const BillField = ({ bill, onChange }) => {
   return (
     <input
-      value={value}
+      value={bill.value}
       autoComplete="bill"
       className="bill-field"
       placeholder="bill name or keyword..."

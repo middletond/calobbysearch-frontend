@@ -6,12 +6,20 @@ export const makeResultKey = ({ bill, company, startDate, endDate }) => {
   // Ex: "AB 101|TESLA MOTORS|20170101|20181231"
   const DATE_FORMAT = "YYYYMMDD";
   const DELIMITER = "|";
+  console.log("HELLO", bill);
   return [
     bill.toUpperCase(),
     company.toUpperCase(),
     startDate.format(DATE_FORMAT),
     endDate.format(DATE_FORMAT)
   ].join(DELIMITER)
+}
+
+export const toParams = (fields) => { // fields are nested objs, convert to strings
+  return Object.keys(fields).reduce((params, key) => {
+    params[key] = fields[key].value;
+    return params;
+  }, {});
 }
 
 export const findMatchingBills = (records) => { // or second API call handles this?
@@ -62,7 +70,7 @@ export const sortingClasses = (column, sorting) => {
 
 /**
  * Returns a boolean for whether a record contains a term in
- * its values (case insensitive). 
+ * its values (case insensitive).
  *
  * > let rec = {a:"dog", b:"cat", c:"moose"}
  * > hasTerm(rec, "Dog", [{name: "a"}, {name: "b"}])
