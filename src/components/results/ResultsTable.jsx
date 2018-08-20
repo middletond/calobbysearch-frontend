@@ -97,7 +97,7 @@ class ResultsTable extends React.Component {
               </div>
             )
           })}
-          <div className="cell show-bills"></div>
+          <div className="cell show-bills">Show Bills</div>
         </div>
         {this.processedRecords().map((record, index) => {
           return (

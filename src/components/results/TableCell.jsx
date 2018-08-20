@@ -8,7 +8,7 @@ const TableCell = ({ record, column, classNames, onClick = null }) => {
   const classes = (classNames) ? `cell ${cell.colName} ${classNames}`
                                : `cell ${cell.colName}`;
   return (
-    <div className={classes} onClick={onClick}>
+    <div className={classes}>
       {(cell.url) ?
         <a href={cell.url} target="_blank">
           {cell.value}

@@ -1,6 +1,9 @@
 import React from "react";
 
 import TableCell from "./TableCell";
+import Icon from "../controls/Icon";
+import { sortingClasses } from "../../utils";
+
 import {
   RESULTS_COLUMNS,
   TYPE_SEARCH_ONLY,
@@ -10,7 +13,6 @@ import {
   TAB_MATCHING_BILLS,
   TAB_ALL_BILLS
 } from "./BillsTable";
-import { sortingClasses } from "../../utils";
 
 const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
 
@@ -37,6 +39,12 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
                  onClick={cellCallback(record, col)}
                  classNames={sortingClasses(col, sorting)} />
       })}
+      <div
+        className="cell show-bills"
+        onClick={() => onShowBillsClick(record.filing_id)}>
+          {(record.opened) ? <Icon name="angle-up" />
+                           : <Icon name="angle-down" />}
+      </div>
     </div>
   )
 }

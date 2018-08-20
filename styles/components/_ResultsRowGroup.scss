@@ -37,6 +37,9 @@
     // borders
     .row .cell {
       border-bottom-color: darken($magenta-lightest, 7);
+      .cell-tag {
+        border-color: darken($magenta-lightest, 5);
+      }
     }
   }
 }
