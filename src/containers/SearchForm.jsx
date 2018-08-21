@@ -17,6 +17,7 @@ import {
 import TextFields from "../components/search_form/TextFields";
 import DateFields from "../components/search_form/DateFields";
 import SubmitButton from "../components/search_form/SubmitButton";
+import FieldErrors from "../components/search_form/FieldErrors";
 
 import { toParams } from "../utils";
 
@@ -41,7 +42,7 @@ class SearchForm extends React.Component {
                          .filter(error => !!error);
     // add multi-field errors
     if (!(billVal || companyVal))
-      errors.push("Please include either a bill name or company name.");
+      errors.push("To find records, include either a bill name or company name.");
 
     dispatch(updateFieldErrors(errors));
     return !errors.length;
@@ -62,7 +63,7 @@ class SearchForm extends React.Component {
   render() {
     const { onBillChange, onCompanyChange,
             onStartDateChange, onEndDateChange,
-            onSessionChange, onSubmit, fields } = this.props;
+            onSessionChange, onSubmit, fields, errors } = this.props;
 
     return (
       <div className="search-form">
@@ -80,6 +81,7 @@ class SearchForm extends React.Component {
             onEndDateChange={onEndDateChange}
             onSessionChange={onSessionChange} />
           <SubmitButton />
+          <FieldErrors errors={errors} />
         </form>
       </div>
     )

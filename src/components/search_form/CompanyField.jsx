@@ -11,6 +11,7 @@ const CompanyField = ({ company, onChange }) => {
         className="company-field"
         placeholder={`${company.label}...`}
         onChange={event => onChange(event.target.value)} />
+      <div className="errors">{company.error}</div>
     </div>
   )
 };
