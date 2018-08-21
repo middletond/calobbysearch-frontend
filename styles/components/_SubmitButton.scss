@@ -1,8 +1,51 @@
-.submit-button {
-  padding: 23px 0px;
-  margin: 35px auto 35px auto;
-  background-color: $magenta;
-  border: $magenta-dark solid 1px;
-  border-radius: 3px;
-  color: $white;
+.submit-button-wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  .submit-button {
+    padding: 23px 0px;
+    margin: 35px auto 35px auto;
+    background-color: $magenta;
+    border: $magenta-dark solid 1px;
+    border-radius: 3px;
+    color: $white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  &.fetching {
+    .submit-button {
+      opacity: 0.8;
+    }
+    .icon {
+      @include flex_display();
+      @include flex_justify_content(center);
+      @include flex_align_items(center);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      color: $white;
+      font-size: 24px;
+      // animation
+      @keyframes spinning {
+        from {
+          -ms-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -ms-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      i {
+        animation: spinning 1.5s linear infinite;
+      }
+    }
+  }
 }

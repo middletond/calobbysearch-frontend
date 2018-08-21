@@ -29,7 +29,6 @@ const searchForm = (state = {
       return { ...state,
         submitted: makeResultKey(toParams(state.fields)) };
     case UPDATE_FIELD_ERRORS:
-      console.log("ERRORS!", action.errors);
       return { ...state,
         errors: action.errors };
     case UPDATE_BILL:

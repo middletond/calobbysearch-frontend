@@ -63,7 +63,8 @@ class SearchForm extends React.Component {
   render() {
     const { onBillChange, onCompanyChange,
             onStartDateChange, onEndDateChange,
-            onSessionChange, onSubmit, fields, errors } = this.props;
+            onSessionChange, onSubmit,
+            fields, errors, isFetching } = this.props;
 
     return (
       <div className="search-form">
@@ -80,7 +81,7 @@ class SearchForm extends React.Component {
             onStartDateChange={onStartDateChange}
             onEndDateChange={onEndDateChange}
             onSessionChange={onSessionChange} />
-          <SubmitButton />
+          <SubmitButton isFetching={isFetching} />
           <FieldErrors errors={errors} />
         </form>
       </div>
@@ -89,10 +90,15 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const { searchForm, results } = state;
+  const { submitted } = searchForm;
+  const currentResults = results[submitted];
+
   return {
     fields: state.searchForm.fields,
     submitted: state.searchForm.submitted,
-    errors: state.searchForm.errors
+    errors: state.searchForm.errors,
+    isFetching: (currentResults) ? currentResults.isFetching : false
   }
 }
 
