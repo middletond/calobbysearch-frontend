@@ -1,6 +1,8 @@
 import React from "react";
 
 import BillsRow from "./BillsRow";
+import ResultsFetching from "./ResultsFetching";
+
 import { BILLS_COLUMNS } from "../../columns";
 import { hasTerm, fresh } from "../../utils";
 
@@ -91,16 +93,20 @@ class BillsTable extends React.Component {
   }
 
   render() {
-    const { bills, renderAsChild } = this.props; // XXX TODO: make this have its own and sorting
+    const { results, renderAsChild } = this.props; // XXX TODO: make this have its own and sorting
 
     if (renderAsChild)
       return this.renderAsChild();
 
-    console.log("HELLO", bills);
+    const { isFetching, bills } = results;
+
     if (!bills)
       return "";
+    if (isFetching)
+      return <ResultsFetching />;
     if (!bills.length)
       return <div className="table no-results">No bills found</div>;
+
     return (
       <div className="table bills-table">
         <div className="row header">
