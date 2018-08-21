@@ -52,7 +52,6 @@ export const validate = (field) => {
         error = `${label} is not a valid date.`;
       break;
     case TYPE_TEXT:
-      value = value.trim();
       if (value.length && value.length < TEXT_FIELD_MINIMUM_CHARS)
           error = `${label} should be at least ${TEXT_FIELD_MINIMUM_CHARS} characters in length.`
       break;

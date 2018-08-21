@@ -5,7 +5,7 @@ const SubmitButton = ({ isFetching }) => {
   if (isFetching) {
     return (
       <div className="submit-button-wrapper fetching">
-        <Icon name="refresh" />
+        <Icon name="fetching" />
         <input
           className="button submit-button"
           type="submit"

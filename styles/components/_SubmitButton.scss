@@ -26,6 +26,11 @@
       z-index: 1;
       color: $white;
       font-size: 24px;
+      svg {
+        width: 30px;
+        opacity: 0.6;
+        path { stroke: $white };
+      }
       // animation
       @keyframes spinning {
         from {
@@ -43,7 +48,7 @@
           transform: rotate(360deg);
         }
       }
-      i {
+      i, svg {
         animation: spinning 1.5s linear infinite;
       }
     }
