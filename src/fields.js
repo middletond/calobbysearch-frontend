@@ -13,11 +13,11 @@ import {
 export const update = (name, value, fields) => {
   // Update a single field value and handle any other
   // field updates that should occur as a result.
-  let updated = { ...fields,
-    [name]: { ...fields[name], value }
-  }
+  let fieldToUpdate = { ...fields[name], value };
+
+  let updated = { ...fields, [name]: validate(fieldToUpdate) };
+
   if (name == "session" && value != USE_DATES_NOT_SESSION) {
-    console.log("HELLO", name, value);
     // sesh updated, align start / end dates to session
     updated.startDate.value = moment(value.substring(0, 4) + "0101");
     updated.endDate.value = moment(value.substring(4, 8) + "1231");
@@ -30,6 +30,8 @@ export const update = (name, value, fields) => {
 }
 
 export const create = (value, label = "", type = TYPE_TEXT) => {
+  if (type == TYPE_DATE)
+    value = moment(value);
   return {
     value,
     label,
@@ -39,5 +41,24 @@ export const create = (value, label = "", type = TYPE_TEXT) => {
 }
 
 export const validate = (field) => {
+  let { value, label } = field;
+  let error = "";
 
+  const TEXT_FIELD_MINIMUM_CHARS = 2;
+
+  switch (field.type) {
+    case TYPE_DATE:
+      if (!value.isValid())
+        error = `${label} is not a valid date.`;
+      break;
+    case TYPE_TEXT:
+      value = value.trim();
+      if (value.length && value.length < TEXT_FIELD_MINIMUM_CHARS)
+          error = `${label} should be at least ${TEXT_FIELD_MINIMUM_CHARS} characters in length.`
+      break;
+  }
+  return { ...field,
+    value: value,
+    error: error
+  }
 }

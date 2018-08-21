@@ -1,11 +1,17 @@
-import moment from "moment";
-
 // search form actions
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
+export const UPDATE_FIELD_ERRORS = "UPDATE_FIELD_ERRORS";
 
 export const submitSearch = () => {
   return {
     type: SUBMIT_SEARCH
+  }
+}
+
+export const updateFieldErrors = (errors) => {
+  return {
+    type: UPDATE_FIELD_ERRORS,
+    errors
   }
 }
 
@@ -33,14 +39,14 @@ export const updateCompany = (term) => {
 export const updateStartDate = (date) => {
   return {
     type: UPDATE_START_DATE,
-    date: moment(date)
+    date
   }
 }
 
 export const updateEndDate = (date) => {
   return {
     type: UPDATE_END_DATE,
-    date: moment(date)
+    date
   }
 }
 

@@ -7,7 +7,8 @@ import {
   updateCompany,
   updateStartDate,
   updateEndDate,
-  updateSession
+  updateSession,
+  updateFieldErrors
 } from "../actions/search_form";
 import {
   fetchResults
@@ -31,8 +32,19 @@ class SearchForm extends React.Component {
   }
 
   isValid(fields) { // validation in reducers, just check for any errors here
-    return Object.values(fields)
-                  .filter(field => !field.error).length;
+    const { dispatch } = this.props;
+    const billVal = fields.bill.value;
+    const companyVal = fields.company.value;
+
+    const errors = Object.values(fields)
+                         .map(field => field.error)
+                         .filter(error => !!error);
+    // add multi-field errors
+    if (!(billVal || companyVal))
+      errors.push("Please include either a bill name or company name.");
+
+    dispatch(updateFieldErrors(errors));
+    return !errors.length;
   }
 
   onSubmit(event, fields) {
@@ -77,7 +89,8 @@ class SearchForm extends React.Component {
 const mapStateToProps = (state) => {
   return {
     fields: state.searchForm.fields,
-    submitted: state.searchForm.submitted
+    submitted: state.searchForm.submitted,
+    errors: state.searchForm.errors
   }
 }
 

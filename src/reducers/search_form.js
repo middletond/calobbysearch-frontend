@@ -5,6 +5,7 @@ import { TYPE_DATE, TYPE_TEXT } from "../columns";
 import * as fields from "../fields";
 import {
   SUBMIT_SEARCH,
+  UPDATE_FIELD_ERRORS,
   UPDATE_BILL,
   UPDATE_COMPANY,
   UPDATE_START_DATE,
@@ -14,19 +15,23 @@ import {
 
 const searchForm = (state = {
   submitted: "",
+  errors: [],
   fields: {
     bill: fields.create("", "bill name or keyword", TYPE_TEXT),
     company: fields.create("", "company name", TYPE_TEXT),
     session: fields.create("20172018", "session", TYPE_TEXT),
-    startDate: fields.create(moment("20170101"), "starting", TYPE_DATE),
-    endDate: fields.create(moment("20181231"), "ending", TYPE_DATE)
+    startDate: fields.create("20170101", "starting", TYPE_DATE),
+    endDate: fields.create("20181231", "ending", TYPE_DATE)
   }
 }, action) => {
   switch (action.type) {
     case SUBMIT_SEARCH:
       return { ...state,
-        submitted: makeResultKey(toParams(state.fields))
-      }
+        submitted: makeResultKey(toParams(state.fields)) };
+    case UPDATE_FIELD_ERRORS:
+      console.log("ERRORS!", action.errors);
+      return { ...state,
+        errors: action.errors };
     case UPDATE_BILL:
       return { ...state,
         fields: fields.update("bill", action.term, state.fields) };
