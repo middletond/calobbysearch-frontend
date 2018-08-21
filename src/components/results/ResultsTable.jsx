@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 
 import ResultsRowGroup from "./ResultsRowGroup";
+import ResultsFetching from "./ResultsFetching";
 
 import { RESULTS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { ASCENDING, DESCENDING } from "../../constants";
@@ -75,10 +76,10 @@ class ResultsTable extends React.Component {
     const { results, sorting, filterTerm,
             onShowBillsClick, onColumnNameClick } = this.props;
 
-    if (!results.params) // empty results
+    if (!results.params)
       return "";
     if (results.isFetching)
-      return <div className="table loading">Loading...</div>;
+      return <ResultsFetching />;
     if (!results.records.length)
       return <div className="table no-results">No activities found</div>;
 

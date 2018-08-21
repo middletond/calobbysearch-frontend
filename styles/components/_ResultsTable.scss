@@ -1,6 +1,6 @@
 .results-table, .bills-table {
   width: 100%;
-  margin-top: 61px;
+  margin-top: 47px; // align table header w session field
   .row {
     margin: 0;
     padding: 0;
@@ -92,6 +92,32 @@
         border-left: #f8f0fd solid 1px;
         border-right: #f8f0fd solid 1px;
         background-color: #FCFCFC;
+      }
+    }
+  }
+  &.fetching {
+    margin-top: 27px;
+    .row {
+      display: block;
+      // background-color: $light-grey;
+      border-bottom: lighten($lighter-grey, 1) solid 1px;
+      padding: 29px 30px;
+      &.header {
+        border-bottom-width: 3px;
+      }
+      .cell {
+        border: none;
+        padding: 0px;
+        height: 23px !important;
+        display: block;
+        background-color: $lighter-grey;
+        border-radius: 15px;
+        // animation
+        @keyframes pulsing {
+          from { opacity: 0.6; }
+          to { opacity: 1; }
+        }
+        animation: pulsing 0.7s alternate infinite;
       }
     }
   }
