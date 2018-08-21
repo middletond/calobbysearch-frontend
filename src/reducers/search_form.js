@@ -12,7 +12,6 @@ import {
   UPDATE_SESSION
 } from "../actions/search_form";
 
-// reducer
 const searchForm = (state = {
   submitted: "",
   fields: {
@@ -29,15 +28,20 @@ const searchForm = (state = {
         submitted: makeResultKey(toParams(state.fields))
       }
     case UPDATE_BILL:
-      return fields.updateValue("bill", action.term, state);
+      return { ...state,
+        fields: fields.update("bill", action.term, state.fields) };
     case UPDATE_COMPANY:
-      return fields.updateValue("company", action.term, state);
+      return { ...state,
+        fields: fields.update("company", action.term, state.fields) };
     case UPDATE_START_DATE:
-      return fields.updateValue("startDate", action.date, state);
+      return { ...state,
+        fields: fields.update("startDate", action.date, state.fields) };
     case UPDATE_END_DATE:
-      return fields.updateValue("endDate", action.date, state);
+      return { ...state,
+        fields: fields.update("endDate", action.date, state.fields) };
     case UPDATE_SESSION:
-      return fields.updateValue("session", action.session, state);
+      return { ...state,
+        fields: fields.update("session", action.session, state.fields) };
     default:
       return state;
   }
