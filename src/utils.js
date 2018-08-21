@@ -67,6 +67,21 @@ export const sortingClasses = (column, sorting) => {
   const { field, direction } = sorting;
   return (column.name == field) ? `sort ${direction}` : "";
 }
+/**
+ * Returns a single string of form field classes.
+ */
+export const fieldClasses = (fieldName, field, active = null) => {
+  let classes = ["field-wrapper", `${fieldName}-field-wrapper`];
+  if (field.error)
+    classes.push("error");
+  if (active !== null && active) {
+    classes.push("active");
+  }
+  if (active === null && field.value) {
+    classes.push("active");
+  }
+  return classes.join(" ");
+}
 
 /**
  * Returns a boolean for whether a record contains a term in

@@ -78,5 +78,12 @@
     input.end-date-field {
       text-align: right;
     }
+    .start-date-field-wrapper label {
+      left: 0px;
+    }
+    .end-date-field-wrapper label {
+      left: initial;
+      right: 0px;
+    }
   }
 }

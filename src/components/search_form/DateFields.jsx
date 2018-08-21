@@ -12,7 +12,7 @@ const DateFields = ({
   endDate, onEndDateChange,
   session, onSessionChange
 }) => {
-  const datesActive = (session === USE_DATES_NOT_SESSION);
+  const datesActive = (session.value === USE_DATES_NOT_SESSION);
   return (
     <section className="date-fields">
       <h3>During Session or Date Range</h3>

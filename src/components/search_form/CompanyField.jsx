@@ -1,13 +1,15 @@
 import React from "react";
+import { fieldClasses } from "../../utils";
 
 const CompanyField = ({ company, onChange }) => {
   return (
-    <div className="field-wrapper company-field-wrapper">
+    <div className={fieldClasses("company", company)}>
+      <label>{company.label}</label>
       <input
         value={company.value}
         autoComplete="company"
         className="company-field"
-        placeholder="company name..."
+        placeholder={`${company.label}...`}
         onChange={event => onChange(event.target.value)} />
     </div>
   )
