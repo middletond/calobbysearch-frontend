@@ -17,53 +17,54 @@ class ResultsTable extends React.Component {
     this.sorted = this.sorted.bind(this);
     this.opened = this.opened.bind(this);
     this.processedRecords = this.processedRecords.bind(this);
-    this.export = this.export.bind(this);
   }
 
   // componentDidUpdate() {
-  //   this.export();
+  //   if (this.props.exportRequested)
+  //     console.log("EXPORT REQUESTED");
+  //     // this.export();
   // }
-
-  export() {
-    if (!("records" in this.props.results))
-      return;
-
-    const EXPORT_FIELDS = [
-      "filing_id",
-      "employer",
-      "compensation",
-      "lobbyer",
-      "interests",
-      "start_date",
-      "end_date",
-      "filing_date"
-    ];
-
-    const download = (csv) => {
-      const csvBlob = new Blob([csv]);
-      const data = window.URL.createObjectURL(csvBlob);
-
-      const link = document.createElement('a');
-      link.href = data;
-      link.download = "export.csv";
-      link.click();
-    }
-
-    const opts = {
-      delimiter : {
-        wrap  : '"', // Double Quote (") character
-        field : ',', // Comma field delimiter
-        array : ';', // Semicolon array value delimiter
-        eol   : '\n' // Newline delimiter
-      },
-      keys: EXPORT_FIELDS
-    }
-    const records = this.processedRecords();
-
-    converter.json2csv(records, (err, csv) => {
-      download(csv);
-    }, opts);
-  }
+  //
+  // export() {
+  //   if (!("records" in this.props.results))
+  //     return;
+  //
+  //   const EXPORT_FIELDS = [
+  //     "filing_id",
+  //     "employer",
+  //     "compensation",
+  //     "lobbyer",
+  //     "interests",
+  //     "start_date",
+  //     "end_date",
+  //     "filing_date"
+  //   ];
+  //
+  //   const download = (csv) => {
+  //     const csvBlob = new Blob([csv]);
+  //     const data = window.URL.createObjectURL(csvBlob);
+  //
+  //     const link = document.createElement('a');
+  //     link.href = data;
+  //     link.download = "export.csv";
+  //     link.click();
+  //   }
+  //
+  //   const opts = {
+  //     delimiter : {
+  //       wrap  : '"', // Double Quote (") character
+  //       field : ',', // Comma field delimiter
+  //       array : ';', // Semicolon array value delimiter
+  //       eol   : '\n' // Newline delimiter
+  //     },
+  //     keys: EXPORT_FIELDS
+  //   }
+  //   const records = this.processedRecords();
+  //
+  //   converter.json2csv(records, (err, csv) => {
+  //     download(csv);
+  //   }, opts);
+  // }
 
   processedRecords() {
     let processed;

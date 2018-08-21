@@ -78,5 +78,10 @@
       width: auto;
       padding: 0px;
     }
+    &.exporting {
+      .icon svg path {
+        stroke: $magenta;
+      }
+    }
   }
 }

@@ -2,11 +2,13 @@ import React from "react";
 
 import Icon from "./Icon";
 
-const ExportButton = ({ onExport }) => {
+const ExportButton = ({ onClick, isExporting }) => {
   const label = "Export to CSV";
 
   return (
-    <div className="export-button" onClick={onExport}>
+    <div
+      className={(isExporting) ? "export-button exporting" : "export-button"}
+      onClick={onClick}>
       <Icon name="export" />
       <button className="button">
         {label}

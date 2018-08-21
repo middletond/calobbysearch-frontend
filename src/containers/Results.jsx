@@ -9,7 +9,8 @@ import {
   updateFilterTerm,
   exportCurrentSearch,
   toggleBillsForRecord,
-  updateResultsView
+  updateResultsView,
+  exportResults
 } from "../actions/controls";
 
 import ResultsHeader from "../components/results/ResultsHeader";
@@ -22,10 +23,11 @@ import { FILINGS_VIEW, BILLS_VIEW } from "../constants";
 
 class Results extends React.Component {
   render() {
-    const { filterTerm, onFilterTermChange, onExport,
+    const { filterTerm, onFilterTermChange,
             onResultsTabClick, currentResults,
             onShowBillsClick, onColumnNameClick,
-            sorting, opened, view, stickyControls } = this.props;
+            sorting, opened, view, stickyControls,
+            onExportClick, isExporting } = this.props;
 
     return (
       <div className={(stickyControls) ? "results sticky-controls" : "results"}>
@@ -36,7 +38,8 @@ class Results extends React.Component {
         <ResultsControls
           onFilterTermChange={onFilterTermChange}
           filterTerm={filterTerm}
-          onExport={onExport}
+          onExportClick={onExportClick}
+          isExporting={isExporting}
           sticky={stickyControls} />
         {(view == FILINGS_VIEW) ?
           <ResultsTable
@@ -65,7 +68,8 @@ const mapStateToProps = (state) => {
     sorting: controls.sorting,
     opened: controls.opened,
     view: controls.view,
-    stickyControls: controls.sticky
+    stickyControls: controls.sticky,
+    isExporting: controls.isExporting
   }
 }
 
@@ -80,11 +84,11 @@ const mapDispatchToProps = (dispatch) => {
     onFilterTermChange: (term) => {
       dispatch(updateFilterTerm(term));
     },
-    onExport: () => {
-      dispatch(exportCurrentSearch());
-    },
     onResultsTabClick: (view) => {
       dispatch(updateResultsView(view))
+    },
+    onExportClick: () => {
+      dispatch(exportResults());
     }
   }
 }

@@ -6,7 +6,9 @@ import {
   EXPORT_CURRENT_SEARCH,
   TOGGLE_BILLS_FOR_RECORD,
   UPDATE_RESULTS_VIEW,
-  UPDATE_STICKY_CONTROLS
+  UPDATE_STICKY_CONTROLS,
+  REQUEST_EXPORT,
+  FINISH_EXPORT
 } from "../actions/controls";
 
 import { ASCENDING, DESCENDING } from "../constants";
@@ -22,7 +24,8 @@ const controls = (state = {
     direction: settings.DEFAULT_SORT_DIRECTION,
   },
   view: settings.DEFAULT_RESULTS_VIEW,
-  sticky: false
+  sticky: false,
+  isExporting: false
 }, action) => {
   switch (action.type) {
     case UPDATE_FILTER_TERM:
@@ -50,13 +53,19 @@ const controls = (state = {
       return fresh(state, {
         sticky: action.sticky
       })
-    case EXPORT_CURRENT_SEARCH:
-      return state; // TODO: use thunk action to get to here
     case TOGGLE_BILLS_FOR_RECORD:
       return fresh(state, {
         opened: (!state.opened.includes(action.id))
                  ? [...state.opened, action.id]
                  : [...state.opened].filter(id => id != action.id)
+      })
+    case REQUEST_EXPORT:
+      return fresh(state, {
+        isExporting: true
+      })
+    case FINISH_EXPORT:
+      return fresh(state, {
+        isExporting: false
       })
     default:
       return state;
