@@ -27,11 +27,12 @@ class SearchForm extends React.Component {
   }
 
   componentDidMount() { // XXX remove this, just for testing
-    // this.props.onSubmit(null, this.props.fields);
+    // this.onSubmit(null, this.props.fields);
   }
 
-  isValid(fields) {
-    return true;
+  isValid(fields) { // validation in reducers, just check for any errors here
+    return Object.values(fields)
+                  .filter(field => !field.error).length;
   }
 
   onSubmit(event, fields) {
