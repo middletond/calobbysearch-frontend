@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "./Icon";
 
 const ExportButton = ({ onExport }) => {
-  const label = "Export to CSV";
+  const label = "Export Visible";
 
   return (
     <div className="export-button" onClick={onExport}>
