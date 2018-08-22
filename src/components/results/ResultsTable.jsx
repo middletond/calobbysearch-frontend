@@ -1,76 +1,30 @@
 import React from "react";
 import _ from "lodash";
-import converter from "json-2-csv";
 
 import ResultsRowGroup from "./ResultsRowGroup";
 import ResultsFetching from "./ResultsFetching";
 
 import { FILINGS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
-import { ASCENDING, DESCENDING } from "../../constants";
+import { ASCENDING, DESCENDING, FILINGS_VIEW } from "../../constants";
 import {hasTerm, sortingClasses } from "../../utils";
+import * as rows from "../../rows";
 
 class ResultsTable extends React.Component {
   constructor(props) {
     super(props);
-
-    this.filtered = this.filtered.bind(this);
-    this.sorted = this.sorted.bind(this);
-    this.opened = this.opened.bind(this);
-    this.processedRecords = this.processedRecords.bind(this);
+    this.visibleRows = this.visibleRows.bind(this);
   }
 
-  processedRecords() {
-    let processed;
+  visibleRows() {
+    const { filterTerm, sorting, opened } = this.props;
+    const { records } = this.props.results
 
-    const { records } = this.props.results;
-
-    processed = this.filtered(records);
-    processed = this.sorted(processed);
-    processed = this.opened(processed);
-    return processed;
-  }
-
-  filtered(records) {
-    const { filterTerm } = this.props;
-    return records.filter(record => hasTerm(record, filterTerm, FILINGS_COLUMNS));
-  }
-
-  sorted(records) {
-    const { sorting } = this.props;
-
-    const getSortVal = (record) => {
-      let sortVal = record[sorting.field];
-
-      if (typeof sortVal == "string") {
-        const DATE_STRING = /^\d+[./-]\d+[./-]\d+$/;
-        const NON_NUMBERS = /[^0-9\.]+/g;
-        sortVal = sortVal.toLowerCase().trim();
-        // check if string should be a date
-        if (sortVal.match(DATE_STRING)) { // Date.parse() is VERY liberal w what constitutes a date
-          let date = Date.parse(sortVal) || null;
-          if (date) return date;
-        }
-        // check if string should be a number
-        let num = Number(sortVal.replace(NON_NUMBERS, "")); // "$20,000" --> 20000 etc
-        if (num) return num;
-      }
-      return sortVal;
-    }
-    let sortedRecs = _.sortBy(records, record => getSortVal(record));
-
-    if (sorting.direction == DESCENDING)
-      sortedRecs = sortedRecs.reverse();
-    return sortedRecs;
-  }
-
-  opened(records) {
-    const { opened } = this.props;
-
-    const appendOpened = (record) => { // XXX this alters redux state and shouldn't.
-      record.opened = (opened.includes(record.filing_id));
-      return record;
-    }
-    return records.map(record => appendOpened(record));
+    return rows.getVisible(records, {
+      filterTerm,
+      sorting,
+      opened,
+      view: FILINGS_VIEW
+    })
   }
 
   render() {
@@ -101,7 +55,7 @@ class ResultsTable extends React.Component {
           })}
           <div className="cell show-bills">Show Bills</div>
         </div>
-        {this.processedRecords().map((record, index) => {
+        {this.visibleRows().map((record, index) => {
           return (
             <ResultsRowGroup
               key={index}
