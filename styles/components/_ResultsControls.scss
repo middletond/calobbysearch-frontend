@@ -73,15 +73,21 @@
     }
     .icon {
       padding: 0px 25px;
+      transition: 0.3s;
     }
     button {
       width: auto;
       padding: 0px;
+      transition: 0.3s;
+    }
+    &:hover {
+      button { color: darken($dark-grey, 8); }
+      .icon svg path { stroke: darken($dark-grey, 8); }
     }
     &.exporting {
-      .icon svg path {
-        stroke: $magenta;
-      }
+      button { animation: pulsing 1.0s alternate infinite; }
+      .icon svg { animation: spinning 1.5s linear infinite; }
+      .icon svg path { stroke: $magenta; }
     }
   }
 }

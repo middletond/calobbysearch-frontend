@@ -112,11 +112,6 @@
         display: block;
         background-color: $lighter-grey;
         border-radius: 15px;
-        // animation
-        @keyframes pulsing {
-          from { opacity: 0.6; }
-          to { opacity: 1; }
-        }
         animation: pulsing 0.7s alternate infinite;
       }
     }
