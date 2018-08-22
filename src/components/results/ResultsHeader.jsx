@@ -30,7 +30,7 @@ class ResultsHeader extends React.Component {
   render() {
     const { view, results, onResultsTabClick } = this.props;
     return (
-      <div className="results-header">
+      <div className={(("params" in results)) ? "results-header" : "results-header no-results"}>
         <h2 className="results-header-text">{this.headerMessage(results)}</h2>
         <ResultsTabs
           view={view}

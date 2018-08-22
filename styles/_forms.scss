@@ -9,6 +9,7 @@ input, button, select {
   color: $dark-grey;
   font-size: 19px;
   font-family: "Lato", sans-serif;
+  // letter-spacing: -0.03em;
   border: none;
   // Placeholder text
   &::-webkit-input-placeholder { color: $grey;  } // Chrome/Opera/Safari
@@ -35,8 +36,9 @@ select {
 }
 
 .button {
-  font-weight: 600;
+  font-weight: 900;
   font-size: 15px;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   cursor: pointer;
 }

@@ -5,17 +5,18 @@ html, body {
   background-color: $white;
 	font-family: "Lato", sans-serif;
 	line-height: 1.4em;
-  letter-spacing: 0em;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
 }
 
-h1 {
-  font-family: "Alegreya", "Lato", serif;
+h1{
+  font-family: "Lora", serif;
 }
 h2 {
-  font-size: 30px;
+  font-family: "Lora", serif;
+  font-size: 35px;
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 130%;
@@ -32,7 +33,5 @@ h3 {
 a {
   text-decoration: none;
   outline: none;
-  // color: $text-black;
-  // border-bottom: lighten($grey, 2) dotted 1px;
   color: $magenta;
 }

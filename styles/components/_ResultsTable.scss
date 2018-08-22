@@ -9,9 +9,9 @@
       .cell {
         padding: 10px 15px 10px 15px;
         border-bottom: lighten($light-grey, 1) solid 3px;
-        font-family: "Alegreya", serif;
-        color: $text-black;
-        font-size: 16px;
+        font-family: "Lora", serif;
+        color: lighten($text-black, 5);
+        font-size: 17px;
         font-weight: 600;
         letter-spacing: 0.01em;
         text-align: center;
