@@ -1,20 +1,21 @@
 .results-table, .bills-table {
   width: 100%;
-  margin-top: 47px; // align table header w session field
+  margin-top: 62px; // align table header w session field
   .row {
     margin: 0;
     padding: 0;
     &.header {
-      height: 57px;
+      height: 40px;
       .cell {
-        padding: 10px 15px 10px 15px;
+        padding: 5px 15px 5px 15px;
         border-bottom: lighten($light-grey, 1) solid 3px;
-        font-family: "Lora", serif;
+        font-family: "Lato", serif;
         color: lighten($text-black, 5);
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 600;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.03em;
         text-align: center;
+        text-transform: uppercase;
         line-height: 1.1em;
         cursor: pointer;
         &.sort {
@@ -27,8 +28,8 @@
     .cell {
       position: relative;
       padding: 24px 10px;
-      font-size: 13px;
-      line-height: 150%;
+      font-size: 14px;
+      line-height: 140%;
       border-bottom: $lighter-grey solid 1px;
       .cell-tag {
           position: absolute;
@@ -42,7 +43,6 @@
           line-height: 120%;
           color: $dark-grey;
           background: transparent;
-          // box-shadow: 1px -1px 4px rgba(0,0,0,0.1);
           border: $lighter-grey solid 1px;
           border-bottom: none;
           border-radius: 3px;
@@ -80,7 +80,7 @@
       }
       &.show-bills {
         padding: 0px;
-        // background-color: aqua;
+        @include flex_justify_content(center);
         .icon {
           text-align: center;
           width: 100%;
@@ -102,7 +102,7 @@
       padding: 30px 30px;
       &.header {
         border-bottom-width: 3px;
-        padding: 10px 30px;
+        padding: 0px 30px 25px 30px;
         box-sizing: border-box;
       }
       .cell {

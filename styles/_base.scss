@@ -11,15 +11,16 @@ html, body {
   word-wrap: break-word;
 }
 
-h1{
+h1 {
   font-family: "Lora", serif;
+  font-weight: 400;
 }
 h2 {
   font-family: "Lora", serif;
-  font-size: 35px;
+  font-size: 44px;
   font-weight: 400;
   letter-spacing: -0.01em;
-  line-height: 130%;
+  line-height: 120%;
   b { font-weight: 600; }
 }
 h3 {
@@ -33,5 +34,7 @@ h3 {
 a {
   text-decoration: none;
   outline: none;
-  color: $magenta;
+  color: darken($magenta, 5);
+  // color: $text-black;
+  // border-bottom: lighten($grey, 2) dotted 1px;
 }

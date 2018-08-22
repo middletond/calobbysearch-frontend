@@ -39,12 +39,16 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
                  onClick={cellCallback(record, col)}
                  classNames={sortingClasses(col, sorting)} />
       })}
-      <div
-        className="cell show-bills"
-        onClick={() => onShowBillsClick(record.filing_id)}>
-          {(record.opened) ? <Icon name="angle-up" />
-                           : <Icon name="angle-down" />}
-      </div>
+      {(record.bills.length) ?
+        <div
+          className="cell show-bills"
+          onClick={() => onShowBillsClick(record.filing_id)}>
+            {(record.opened) ? <Icon name="angle-up" />
+                             : <Icon name="angle-down" />}
+        </div>
+        : ""
+      }
+
     </div>
   )
 }
