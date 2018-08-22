@@ -65,30 +65,17 @@ export const fetchResults = (params) => {
         json => dispatch(receiveResults(key, params, json)),
         error => console.log("ERROR:", error)
       )
-
-      // .then(
-      //   resp => {
-      //     // resp.status
-      //     return resp.json()
-      //   },
-      //   error => {
-      //     dispatch(receiveError(key, error, NETWORK_ERROR))
-      //   }
-      // )
-      // .then(
-      //   json => dispatch(receiveResults(key, params, json))
-      // )
   }
 }
 
 // helpers
 const resultsUrl = ({ bill, company, startDate, endDate }) => {
   const url = new URL(settings.RESULTS_ENDPOINT);
-  // url.search = new URLSearchParams({
-  //   bill,
-  //   company,
-  //   start: startDate.format("YYYY-MM-DD"),
-  //   end: endDate.format("YYYY-MM-DD")
-  // });
+  url.search = new URLSearchParams({
+    bill,
+    company,
+    start: startDate.format("YYYY-MM-DD"),
+    end: endDate.format("YYYY-MM-DD")
+  });
   return url;
 }
