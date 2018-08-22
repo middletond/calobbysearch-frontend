@@ -1,4 +1,4 @@
-import converter from "json-2-csv";
+import exportCSV from "../export";
 
 export const UPDATE_FILTER_TERM = "UPDATE_FILTER_TERM";
 export const UPDATE_SORTING = "UPDATE_SORTING";
@@ -73,42 +73,9 @@ export const exportResults = () => {
     // begin request
     dispatch(requestExport());
     // make csv
-    const opts = {
-      delimiter : {
-        wrap  : '"', // Double Quote (") character
-        field : ',', // Comma field delimiter
-        array : ';', // Semicolon array value delimiter
-        eol   : '\n' // Newline delimiter
-      },
-      keys: EXPORT_FIELDS
-    }
-    converter.json2csv(records, (err, csv) => {
-      download(csv);
-      window.setTimeout(() => {
-        dispatch(finishExport())
-      }, 2000)
-    }, opts);
+    exportCSV(records, view).then(
+      (success) => dispatch(finishExport()),
+      (error) => console.log(error)
+    )
   }
-}
-
-// utils
-const EXPORT_FIELDS = [
-  "filing_id",
-  "employer",
-  "compensation",
-  "lobbyer",
-  "interests",
-  "start_date",
-  "end_date",
-  "filing_date"
-];
-
-const download = (csv) => {
-  const csvBlob = new Blob([csv]);
-  const data = window.URL.createObjectURL(csvBlob);
-
-  const link = document.createElement("a");
-  link.href = data;
-  link.download = "export.csv";
-  link.click();
 }
