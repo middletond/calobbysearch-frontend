@@ -5,9 +5,10 @@
     margin: 0;
     padding: 0;
     &.header {
+      height: 57px;
       .cell {
         padding: 10px 15px 10px 15px;
-        border-bottom: darken($light-grey, 6) solid 3px;
+        border-bottom: lighten($light-grey, 1) solid 3px;
         font-family: "Alegreya", serif;
         color: $text-black;
         font-size: 16px;
@@ -96,14 +97,13 @@
     }
   }
   &.fetching {
-    margin-top: 27px;
     .row {
-      display: block;
-      // background-color: $light-grey;
       border-bottom: lighten($lighter-grey, 1) solid 1px;
-      padding: 29px 30px;
+      padding: 30px 30px;
       &.header {
         border-bottom-width: 3px;
+        padding: 10px 30px;
+        box-sizing: border-box;
       }
       .cell {
         border: none;

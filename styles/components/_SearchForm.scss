@@ -13,13 +13,10 @@
       margin-left: 60px;
       position: relative;
       .icon {
-        position: absolute;
+        // background-color: aqua;
         top: 0;
         left: -60px;
-        width: 60px;
-        height: 100%;
-        @include flex_display();
-        @include flex_align_items(center);
+        width: 30px;
         i {
           font-size: 33px;
           color: $dark-grey;

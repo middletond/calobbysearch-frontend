@@ -9,10 +9,9 @@
   position: relative;
   transition: 0.3s;
   .icon {
-    width: 28px;
-    height: 28px;
     font-size: 27px;
     color: $dark-grey;
+    svg { max-width: 28px; } // slightly smaller than normal
     svg path { stroke: $dark-grey; }
     &.active {
       transition: 0.3s;
@@ -30,64 +29,5 @@
     z-index: 99;
     background-color: $white;
     box-shadow: 0px 0px 12px rgba(0,0,0,0.35);
-    .filter-field {
-      border-left: $light-grey solid 1px;
-      .icon {
-        padding-left: 45px;
-        display: inline-block;
-        margin-top: 12px;
-      }
-      input {
-        padding: 13px 10px 13px 95px;
-      }
-    }
-  }
-
-  .filter-field {
-    width: 74%;
-    input {
-      padding: 21px 10px 25px 65px;
-      font-style: italic;
-    }
-    .icon {
-      // XXX refactor these flex groups
-      @include flex_display();
-      @include flex_justify_content(center);
-      @include flex_align_items(center);
-      position: absolute;
-      height: 100%;
-      padding: 0px 20px;
-    }
-  }
-
-  .export-button {
-    width: 26%;
-    @include flex_display();
-    @include flex_justify_content(start);
-    @include flex_align_items(center);
-    border-left: $light-grey solid 1px;
-    padding: 10px 0;
-    cursor: pointer;
-    button, .icon {
-      display: inline-block;
-    }
-    .icon {
-      padding: 0px 25px;
-      transition: 0.3s;
-    }
-    button {
-      width: auto;
-      padding: 0px;
-      transition: 0.3s;
-    }
-    &:hover {
-      button { color: darken($dark-grey, 8); }
-      .icon svg path { stroke: darken($dark-grey, 8); }
-    }
-    &.exporting {
-      button { animation: pulsing 1.0s alternate infinite; }
-      .icon svg { animation: spinning 1.5s linear infinite; }
-      .icon svg path { stroke: $magenta; }
-    }
   }
 }

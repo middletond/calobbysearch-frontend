@@ -1,0 +1,20 @@
+.filter-field {
+  width: 74%;
+  input {
+    padding: 21px 10px 25px 67px;
+    font-style: italic;
+  }
+  .icon {
+    width: 70px;
+  }
+}
+
+.sticky .filter-field {
+  border-left: $light-grey solid 1px;
+  .icon {
+    padding-left: 25px;
+  }
+  input {
+    padding: 13px 10px 13px 95px;
+  }
+}

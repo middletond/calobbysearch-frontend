@@ -3,15 +3,21 @@ import React from "react";
 import Icon from "./Icon";
 
 const ExportButton = ({ onClick, isExporting }) => {
-  const label = (isExporting) ? "Exporting Visible" : "Export Spreadsheet";
-
+  if (isExporting) {
+    return (
+      <div className= "export-button exporting">
+        <Icon name="running" />
+        <button className="button">
+          Exporting Visible Rows
+        </button>
+      </div>
+    )
+  }
   return (
-    <div
-      className={(isExporting) ? "export-button exporting" : "export-button"}
-      onClick={onClick}>
-      <Icon name={(isExporting) ? "fetching" : "export"} />
+    <div className="export-button" onClick={onClick}>
+      <Icon name="export" />
       <button className="button">
-        {label}
+        Export Spreadsheet
       </button>
     </div>
   )

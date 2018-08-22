@@ -1,9 +1,18 @@
 .icon {
+  @include flex_display();
+  @include flex_justify_content(center);
+  @include flex_align_items(center);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   text-align: center;
   svg {
     display: inline-block;
     overflow: visible;
     width: 100%;
+    max-width: $default-icon-width;
     path {
       fill: transparent;
       stroke: $dark-grey;

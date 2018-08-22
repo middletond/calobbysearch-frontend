@@ -1,0 +1,36 @@
+.export-button {
+  width: 26%;
+  @include flex_display();
+  @include flex_justify_content(start);
+  @include flex_align_items(center);
+  border-left: $light-grey solid 1px;
+  padding: 10px 0;
+  cursor: pointer;
+  .icon {
+    width: 75px;
+    transition: 0.4s;
+  }
+  button {
+    display: block;
+    padding: 5px 10px 5px 75px;
+    transition: 0.4s;
+    text-align: left;
+  }
+  &:hover {
+    button { color: darken($dark-grey, 8); }
+    .icon svg path { stroke: darken($dark-grey, 8); }
+  }
+  &.exporting {
+    button {
+      padding-left: 68px; // slide text left a bit
+      animation: pulsing 1.0s alternate infinite;
+    }
+    .icon {
+      svg {
+        max-width: 25px;
+        animation: spinning 1s linear infinite;
+        path { stroke: $magenta; stroke-width: 4}
+      }
+    }
+  }
+}
