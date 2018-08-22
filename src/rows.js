@@ -8,6 +8,7 @@ import {
 } from "./constants";
 
 export const filtered = (records, term, view = FILINGS_VIEW) => {
+
   const columns = (view === BILLS_VIEW)
     ? BILLS_COLUMNS
     : FILINGS_COLUMNS
@@ -42,19 +43,37 @@ export const sorted = (records, sorting) => {
 }
 
 export const withOpened = (records, openedIds) => {
-  const appendOpened = (record) => { // XXX this alters redux state and shouldn't.
-    record.opened = (openedIds.includes(record.filing_id));
-    return record;
+
+  const appendOpened = (record) => {
+    return { ...record,
+      opened: openedIds.includes(record.filing_id)
+    }
   }
   return records.map(record => appendOpened(record));
 }
 
+export const highlighted = (records, term, view = FILINGS_VIEW) => {
+  const columns = (BILLS_VIEW) ? BILLS_COLUMNS : FILINGS_COLUMNS;
+
+  if (!term) return records;
+
+  const highlight = (record) => {
+    return { ...record, highlight: true }
+  }
+  const matching = filtered(records, term, view).map(record => highlight(record));
+  const nonmatching = records.filter(record => !hasTerm(record, term, columns));
+  return matching.concat(nonmatching);
+}
+
 export const getVisible = (records, controls) => { // XXX find a better name?
   const { filterTerm, sorting, opened, view } = controls;
+  let visible = records;
 
-  let visible;
-  visible = filtered(records, filterTerm, view);
-  visible = sorted(visible, sorting);
-  visible = withOpened(visible, opened);
+  if (filterTerm)
+    visible = filtered(visible, filterTerm, view);
+  if (sorting)
+    visible = sorted(visible, sorting);
+  if (opened)
+    visible = withOpened(visible, opened);
   return visible;
 }
