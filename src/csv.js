@@ -35,7 +35,7 @@ const BILLS_FIELDS = [
   "status"
 ]
 
-const convert = (records, view = FILINGS_VIEW) => {
+const convert = (records, view) => {
   return new Promise((resolve, reject) => {
     const opts = {
       delimiter : {
@@ -67,8 +67,8 @@ const download = (csv) => {
   })
 }
 
-const run = (records) => {
-  return convert(records)
+const run = (records, view = FILINGS_VIEW) => {
+  return convert(records, view)
     .then(
       csv => download(csv),
       err => console.log("PROBLEM!")

@@ -1,4 +1,5 @@
-import exportCSV from "../export";
+import exportCSV from "../csv";
+import { FILINGS_VIEW, BILLS_VIEW } from "../constants";
 
 export const UPDATE_FILTER_TERM = "UPDATE_FILTER_TERM";
 export const UPDATE_SORTING = "UPDATE_SORTING";
@@ -64,15 +65,17 @@ export const exportResults = () => {
   return (dispatch, getState) => {
     // get visible records based on current controls
     const { searchForm, controls, results } = getState();
+    const { filterTerm, view } = controls;
     const currentResults = results[searchForm.submitted];
 
     if (!currentResults) return;
 
-    const { filterTerm, view } = controls;
-    const { records } = currentResults;
-    // begin request
     dispatch(requestExport());
-    // make csv
+    // get visible records
+    const records = (view === FILINGS_VIEW)
+      ? currentResults.records
+      : currentResults.bills;
+    // export them
     exportCSV(records, view).then(
       (success) => dispatch(finishExport()),
       (error) => console.log(error)
