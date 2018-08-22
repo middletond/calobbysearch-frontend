@@ -20,3 +20,8 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
 
 export const BILLS_VIEW = "bills";
 export const FILINGS_VIEW = "filings";
+
+export const NOT_FOUND_ERROR = "404 error";
+export const NETWORK_ERROR = "network error";
+export const SERVER_ERROR = "server error";
+export const EXPORT_ERROR = "export error";

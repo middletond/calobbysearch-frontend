@@ -17,7 +17,7 @@ class ResultsTable extends React.Component {
 
   visibleRows() {
     const { filterTerm, sorting, opened } = this.props;
-    const { records } = this.props.results
+    const { records } = this.props.results;
 
     return rows.getVisible(records, {
       filterTerm,
@@ -35,6 +35,8 @@ class ResultsTable extends React.Component {
       return "";
     if (results.isFetching)
       return <ResultsFetching />;
+    if (results.error)
+      return <div className="table no-results error">Oops. It appears there was a {results.errorType} :(</div>
     if (!results.records.length)
       return <div className="table no-results">No activities found</div>;
 

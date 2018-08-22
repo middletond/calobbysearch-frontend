@@ -25,15 +25,21 @@ const resultsFromAPI = (state = {}, action) => {
         isFetching: true
       });
     case RECEIVE_RESULTS:
-    return fresh(state, {
-      params: action.params,
-      records: action.records,
-      bills: findMatchingBills(action.records), // aggregate for header or separate bill-based view
-      page: action.page,
-      isFetching: false
-    });
+      return fresh(state, {
+        params: action.params,
+        records: action.records,
+        bills: findMatchingBills(action.records), // aggregate for header or separate bill-based view
+        page: action.page,
+        isFetching: false,
+        receivedAt: action.receivedAt
+      });
     case RECEIVE_ERROR:
-      return state;
+      return fresh(state, {
+        isFetching: false,
+        error: action.error,
+        errorType: action.errorType,
+        receivedAt: action.receivedAt
+      })
     default:
       return state;
   }
