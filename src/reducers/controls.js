@@ -10,6 +10,9 @@ import {
   REQUEST_EXPORT,
   FINISH_EXPORT
 } from "../actions/controls";
+import {
+  SUBMIT_SEARCH
+} from "../actions/search_form"; 
 
 import { ASCENDING, DESCENDING } from "../constants";
 import * as settings from "../settings";
@@ -28,6 +31,10 @@ const controls = (state = {
   isExporting: false
 }, action) => {
   switch (action.type) {
+    case SUBMIT_SEARCH: // clear filter when search submitted
+      return fresh(state, {
+        filterTerm: ""
+      })
     case UPDATE_FILTER_TERM:
       return fresh(state, {
         filterTerm: action.term
