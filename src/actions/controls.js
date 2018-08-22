@@ -1,4 +1,5 @@
 import exportCSV from "../csv";
+import * as rows from "../rows";
 import { FILINGS_VIEW, BILLS_VIEW } from "../constants";
 
 export const UPDATE_FILTER_TERM = "UPDATE_FILTER_TERM";
@@ -65,7 +66,7 @@ export const exportResults = () => {
   return (dispatch, getState) => {
     // get visible records based on current controls
     const { searchForm, controls, results } = getState();
-    const { filterTerm, view } = controls;
+    const { view } = controls;
     const currentResults = results[searchForm.submitted];
 
     if (!currentResults) return;
@@ -75,8 +76,9 @@ export const exportResults = () => {
     const records = (view === FILINGS_VIEW)
       ? currentResults.records
       : currentResults.bills;
+    const visibleRecs = rows.getVisible(records, controls);
     // export them
-    exportCSV(records, view).then(
+    exportCSV(visibleRecs, view).then(
       (success) => dispatch(finishExport()),
       (error) => console.log(error)
     )

@@ -5,7 +5,7 @@ import Icon from "../controls/Icon";
 import { sortingClasses } from "../../utils";
 
 import {
-  RESULTS_COLUMNS,
+  FILINGS_COLUMNS,
   TYPE_SEARCH_ONLY,
   filingType
 } from "../../columns";
@@ -29,7 +29,7 @@ const ResultsRow = ({ record, sorting, onShowBillsClick }) => {
 
   return (
     <div className={`row results-row ${filingType(record)}-filing`}>
-      {RESULTS_COLUMNS
+      {FILINGS_COLUMNS
         .filter(col => col.type !== TYPE_SEARCH_ONLY)
         .map((col, index) => {
         return <TableCell

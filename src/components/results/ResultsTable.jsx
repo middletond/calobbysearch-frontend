@@ -5,7 +5,7 @@ import converter from "json-2-csv";
 import ResultsRowGroup from "./ResultsRowGroup";
 import ResultsFetching from "./ResultsFetching";
 
-import { RESULTS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
+import { FILINGS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { ASCENDING, DESCENDING } from "../../constants";
 import {hasTerm, sortingClasses } from "../../utils";
 
@@ -32,7 +32,7 @@ class ResultsTable extends React.Component {
 
   filtered(records) {
     const { filterTerm } = this.props;
-    return records.filter(record => hasTerm(record, filterTerm, RESULTS_COLUMNS));
+    return records.filter(record => hasTerm(record, filterTerm, FILINGS_COLUMNS));
   }
 
   sorted(records) {
@@ -87,7 +87,7 @@ class ResultsTable extends React.Component {
     return (
       <div className="table results-table">
         <div className="row header">
-          {RESULTS_COLUMNS
+          {FILINGS_COLUMNS
             .filter(col => col.type !== TYPE_SEARCH_ONLY)
             .map((col, index) => {
             return (
