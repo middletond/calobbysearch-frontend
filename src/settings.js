@@ -5,7 +5,7 @@ import {
   BILLS_VIEW
 } from "./constants";
 
-export const RESULTS_ENDPOINT = "http://localhost:8000/search.json";
+export const RESULTS_ENDPOINT = "http://localhost:8000/serch.json";
 
 // https://devhints.io/moment
 export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";

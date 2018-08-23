@@ -21,7 +21,8 @@ export const SESSIONS = [ // XXX Dummy data: move this to API call
 export const BILLS_VIEW = "bills";
 export const FILINGS_VIEW = "filings";
 
-export const NOT_FOUND_ERROR = "404 error";
+export const BAD_REQUEST_ERROR = "400 bad request"; // XXX verbose versions should happen in component
+export const NOT_FOUND_ERROR = "404 not found error";
+export const SERVER_ERROR = "500 server error";
 export const NETWORK_ERROR = "network error";
-export const SERVER_ERROR = "server error";
 export const EXPORT_ERROR = "export error";

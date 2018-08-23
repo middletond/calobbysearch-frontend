@@ -1,4 +1,9 @@
-import { NETWORK_ERROR, SERVER_ERROR, NOT_FOUND_ERROR } from "../constants";
+import {
+  NETWORK_ERROR,
+  SERVER_ERROR,
+  NOT_FOUND_ERROR,
+  BAD_REQUEST_ERROR
+} from "../constants";
 import { makeResultKey } from "../utils";
 import * as settings from "../settings";
 
@@ -54,9 +59,11 @@ export const fetchResults = (params) => {
       .then(
         response => {
           if (response.status == 400)
-            return logError(response.statusText, SERVER_ERROR);
+            return logError(response.statusText, BAD_REQUEST_ERROR);
           if (response.status == 404)
             return logError(response.statusText, NOT_FOUND_ERROR);
+          if (response.status == 500)
+            return logError(response.statusText, SERVER_ERROR);
           return response.json();
         },
         error => logError(error, NETWORK_ERROR)
@@ -71,11 +78,20 @@ export const fetchResults = (params) => {
 // helpers
 const resultsUrl = ({ bill, company, startDate, endDate }) => {
   const url = new URL(settings.RESULTS_ENDPOINT);
-  url.search = new URLSearchParams({
-    bill,
-    company,
-    start: startDate.format("YYYY-MM-DD"),
-    end: endDate.format("YYYY-MM-DD")
-  });
+  // url.search = new URLSearchParams({
+  //   bill,
+  //   company,
+  //   start: startDate.format("YYYY-MM-DD"),
+  //   end: endDate.format("YYYY-MM-DD")
+  // });
   return url;
+}
+
+// So we can pass whole response in Error
+class HttpError extends Error {
+  constructor(response) {
+    super(`${response.status}, ${response.statusText}`);
+    this.name = "HttpError";
+    this.response = response;
+  }
 }

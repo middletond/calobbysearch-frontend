@@ -42,4 +42,14 @@
     margin-top: 100px;
     color: lighten($grey, 6);
   }
+  &.no-results.error {
+    .error-heading {
+      color: $magenta;
+      margin-bottom: 12px;
+    }
+    .error-details {
+      color: $grey;
+      font-size: 14px;
+    }
+  }
 }

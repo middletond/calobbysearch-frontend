@@ -3,6 +3,7 @@ import _ from "lodash";
 
 import ResultsRowGroup from "./ResultsRowGroup";
 import ResultsFetching from "./ResultsFetching";
+import ResultsError from "./ResultsError";
 
 import { FILINGS_COLUMNS, TYPE_SEARCH_ONLY } from "../../columns";
 import { ASCENDING, DESCENDING, FILINGS_VIEW } from "../../constants";
@@ -36,7 +37,7 @@ class ResultsTable extends React.Component {
     if (results.isFetching)
       return <ResultsFetching />;
     if (results.error)
-      return <div className="table no-results error">Oops. It appears there was a {results.errorType} :(</div>
+      return <ResultsError errorType={results.errorType} />
     if (!results.records.length)
       return <div className="table no-results">No activities found</div>;
 
