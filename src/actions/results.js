@@ -78,12 +78,12 @@ export const fetchResults = (params) => {
 // helpers
 const resultsUrl = ({ bill, company, startDate, endDate }) => {
   const url = new URL(settings.RESULTS_ENDPOINT);
-  // url.search = new URLSearchParams({
-  //   bill,
-  //   company,
-  //   start: startDate.format("YYYY-MM-DD"),
-  //   end: endDate.format("YYYY-MM-DD")
-  // });
+  url.search = new URLSearchParams({
+    bill,
+    company,
+    start: startDate.format("YYYY-MM-DD"),
+    end: endDate.format("YYYY-MM-DD")
+  });
   return url;
 }
 

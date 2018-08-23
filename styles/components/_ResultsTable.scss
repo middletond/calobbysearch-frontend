@@ -52,14 +52,14 @@
       }
       // individual cells, both header and body
       &.employer { flex: 0 0 11%; }
-      &.compensation { flex: 0 0 9%; }
+      &.compensation { flex: 0 0 11%; }
       &.lobbyer { flex: 0 0 11%; }
-      &.interests { flex: 0 0 28%; }
+      &.interests { flex: 0 0 26%; }
       &.matching_bills { flex: 0 0 11%; }
       &.start_date { flex: 0 0 8%; }
       &.end_date { flex: 0 0 8%; }
-      &.filing_date { flex: 0 0 8%; }
-      &.show-bills { flex: 0 0 8%; }
+      &.filing_date { flex: 0 0 9%; }
+      &.show-bills { flex: 0 0 5%; }
       &.start_date, &.end_date, &.filing_date {
         white-space: nowrap;
       }
