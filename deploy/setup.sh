@@ -33,8 +33,10 @@ sudo apt-get install -y nginx >> setup.log
 echo "Linking $NGINX_CONF_SOURCE to $NGINX_CONF_DEST"
 sudo rm $NGINX_CONF_DEST
 sudo ln -s $NGINX_CONF_SOURCE $NGINX_CONF_DEST >> setup.log
+echo "Restarting server."
+sudo service nginx restart
 
-echo "Adding to .bashrc for easier ssh."
+echo "Tweaking .bashrc for easier ssh."
 echo "cd $SITE_ROOT" >> ~/.bashrc
 
-echo "Server is set up."
+echo "App is set up."
