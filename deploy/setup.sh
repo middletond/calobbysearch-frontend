@@ -8,7 +8,7 @@ NGINX_CONF_SOURCE=$SITE_ROOT"/deploy/nginx.conf"
 NGINX_CONF_DEST="/etc/nginx/sites-enabled/default"
 NODE_PPA_SCRIPT="nodesource_setup.sh"
 
-echo "Setting up app with root $SITEROOT"
+echo "Setting up app with root $SITE_ROOT"
 touch setup.log
 
 echo "Updating package manager."
