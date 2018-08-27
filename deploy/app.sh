@@ -39,4 +39,7 @@ sudo service nginx restart
 echo "Tweaking .bashrc for easier ssh."
 echo "cd $SITE_ROOT" >> ~/.bashrc
 
-echo "App is set up."
+echo "Building the public site."
+npm run build
+
+echo "Done. App is set up and running."
