@@ -5,7 +5,7 @@ import {
   BILLS_VIEW
 } from "./constants";
 
-export const RESULTS_ENDPOINT = "http://api.calobbysearch.org/activities.json";
+export const RESULTS_ENDPOINT = "https://api.calobbysearch.org/activities.json";
 
 // https://devhints.io/moment
 export const DATE_DISPLAY_FORMAT = "MMM D, YYYY";
