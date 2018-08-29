@@ -139,20 +139,6 @@ export const makeCell = (record, column) => {
       value = rawVal;
   }
 
-  // Handle renaming of lobbyer field if not a firm
-  if (column.name === "lobbyer") {
-    switch (record.type) {
-      case LOBBYER_TYPE_INHOUSE:
-        value = "In-House Lobbyists";
-        url = "";
-        break;
-      case LOBBYER_TYPE_OTHER:
-        value = "Other Payments to Influence";
-        url = "";
-        break;
-    }
-  }
-
   if (column.transform)
     value = column.transform(value);
 
