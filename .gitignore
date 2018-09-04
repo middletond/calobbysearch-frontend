@@ -7,3 +7,6 @@ dist
 
 ### Ignore Mac filesystem ###
 .DS_Store
+
+### Ignore logs ###
+*.log
