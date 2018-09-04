@@ -6,7 +6,7 @@ import SearchForm from "../../containers/SearchForm";
 import Results from "../../containers/Results";
 
 const Content = () => {
-  if (isMobile && window.outerWidth) {
+  if (isMobile) {
     return (
       <main className="content mobile-message">
         <h2>Apologies.</h2>
