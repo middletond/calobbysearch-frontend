@@ -3,7 +3,8 @@ node_modules
 package-lock.json
 
 ### Ignore bundled assets ###
-dist
+dist/app.js
+dist/app.css
 
 ### Ignore Mac filesystem ###
 .DS_Store

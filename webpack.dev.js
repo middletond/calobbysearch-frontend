@@ -33,7 +33,7 @@ module.exports = {
   },
   mode: "development",
   devServer: {
-    contentBase: "./",
+    contentBase: "./dist",
     port: 8001
   }
 };
