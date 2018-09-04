@@ -17,6 +17,12 @@ const About = () => {
         <li>Lobbying to influence bill <b>SB 300</b> after <b>April 2018</b></li>
       </ul>
 
+      <p>[gif of the app]</p>
+
+      <div className="button-block">
+        <a href="/" className="button">Run Some Searches</a>
+      </div>
+
       <h2>Why?</h2>
 
       <p>There is a difference between available public data, and actionable public data.</p>
@@ -112,6 +118,11 @@ const About = () => {
         <li><code>Status</code></li>
         <li><code>Url</code></li>
       </ul>
+
+      <div className="button-block">
+        <a href="/" className="button">Try The Tool</a>
+        <a href="https://github.com/middletond/calobbysearch" className="button">View the Code</a>
+      </div>
 
     </main>
   )

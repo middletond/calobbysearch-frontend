@@ -23,7 +23,7 @@ main.content {
   }
   &.page {
     position: initial;
-    margin: 0px auto;
+    margin: 0px auto 40px auto;
     padding-left: 5%;
     padding-right: 5%;
     max-width: 700px;
@@ -37,18 +37,32 @@ main.content {
       text-align: left;
       font-size: 20px;
       letter-spacing: 0.0em;
-      color: lighten($magenta, 5);
+      color: lighten($magenta, 0);
     }
     p, li {
       font-size: 18px;
       line-height: 170%;
       a {
         color: $text-black;
-        border-bottom: lighten($magenta, 14) solid 2px;
+        border-bottom: lighten($magenta, 12) solid 2px;
+        transition: 0.3s;
+        &:hover { border-bottom-color: $magenta; }
       }
     }
     ul {
       padding-left: 25px;
+    }
+    .button {
+      min-width: 280px;
+      padding: 20px 0px;
+      margin: 35px 15px;
+      background-color: $magenta;
+      border: $magenta-dark solid 1px;
+      border-radius: 3px;
+      color: $white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     }
   }
 }
