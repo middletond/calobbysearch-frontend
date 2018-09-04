@@ -1,3 +1,24 @@
 main.content {
-  
+  &.mobile-message {
+    @include flex_display();
+    @include flex_justify_content(center);
+    @include flex_direction(column);
+    min-height: 80%; // roughly account for header height
+    h2 {
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+    h3 {
+      margin: 20px auto;
+      max-width: 350px;
+      @include below($break-small) { margin: 20px 10%; }
+      max-width: 400px;
+      color: lighten($grey, 5);
+      font-size: 13px;
+      b {
+        color: darken($grey, 15);
+      }
+    }
+  }
 }

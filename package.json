@@ -33,6 +33,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "react": "^16.4.2",
     "react-datepicker": "^1.6.0",
+    "react-device-detect": "^1.5.9",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
