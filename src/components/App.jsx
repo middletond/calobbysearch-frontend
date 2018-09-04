@@ -1,14 +1,23 @@
 import React from "react";
+import { isMobile } from 'react-device-detect';
 
-import Header from "../containers/Header";
-import Content from "./layout/Content";
+import SearchForm from "../containers/SearchForm";
+import Results from "../containers/Results";
 
 const App = () => {
+  if (isMobile) {
+    return (
+      <main className="content page mobile-message">
+        <h2>Apologies.</h2>
+        <h3>This tool is currently available for <b>desktops and laptops only</b>.</h3>
+      </main>
+    )
+  }
   return (
-    <div>
-      <Header />
-      <Content />
-    </div>
+    <main className="content">
+      <SearchForm />
+      <Results />
+    </main>
   )
 };
 

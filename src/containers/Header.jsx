@@ -47,15 +47,5 @@ const mapStateToProps = (state) => {
     stickyControls: state.controls.sticky
   }
 }
-//
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     onWindowScroll: () => {
-//       console.log("HELLO", ownProps)
-//       const shouldBeSticky = (window.scrollY >= STICKY_CONTROLS_THRESH);
-//       dispatch(updateStickyControls(shouldBeSticky));
-//     }
-//   }
-// }
 
 export default connect(mapStateToProps)(Header);
