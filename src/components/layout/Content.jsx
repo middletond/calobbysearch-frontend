@@ -9,7 +9,7 @@ const Content = () => {
   if (isMobile && window.outerWidth) {
     return (
       <main className="content mobile-message">
-        <h2>So sorry.</h2>
+        <h2>Apologies.</h2>
         <h3>This tool is currently available for <b>desktops and laptops only</b>.</h3>
       </main>
     )
