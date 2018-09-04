@@ -1,7 +1,6 @@
 import React from "react";
 import { isMobile } from 'react-device-detect';
 
-
 import SearchForm from "../../containers/SearchForm";
 import Results from "../../containers/Results";
 

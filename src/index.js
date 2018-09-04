@@ -1,22 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import { createLogger } from "redux-logger";
-import thunk from "redux-thunk";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from "./components/App";
-import reducer from "./reducers";
+import store from "./store";
 
 import "../styles/app.scss";
-
-const logger = createLogger();
-
-const store = createStore(
-  reducer,
-  applyMiddleware(thunk, logger)
-)
 
 console.log(store.getState());
 
