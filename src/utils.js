@@ -94,3 +94,9 @@ export const hasTerm = (record, term, columns = null) => {
   let recordVals = valuesToString(record, columns);
   return recordVals.toUpperCase().includes(term.toUpperCase());
 }
+
+export const clientIP = () => {
+  return fetch("https://api.ipify.org?format=json")
+    .then(resp => resp.json())
+    .then(json => json.ip)
+}
