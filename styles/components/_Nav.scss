@@ -1,0 +1,16 @@
+nav {
+  position: absolute;
+  right: 0px;
+  a.nav-item {
+    color: lighten($dark-grey, 12);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 11px;
+    display: block;
+    width: 150px;
+    text-align: center;
+  }
+  @include below($break-medium) {
+    display: none;
+  }
+}

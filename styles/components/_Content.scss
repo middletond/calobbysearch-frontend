@@ -1,27 +1,28 @@
 main.content {
-  &.mobile-message {
-    @include flex_display();
-    @include flex_justify_content(center);
-    @include flex_direction(column);
-    min-height: 80%; // roughly account for header height
-    h2 {
-      font-weight: bold;
-      text-align: center;
-      margin: 0;
-    }
-    h3 {
-      margin: 20px auto;
-      max-width: 350px;
-      @include below($break-small) { margin: 20px 10%; }
-      max-width: 400px;
-      color: lighten($grey, 5);
-      font-size: 13px;
-      b {
-        color: darken($grey, 15);
-      }
-    }
-  }
+  // &.mobile-message {
+  //   @include flex_display();
+  //   @include flex_justify_content(center);
+  //   @include flex_direction(column);
+  //   min-height: 80%; // roughly account for header height
+  //   h2 {
+  //     font-weight: bold;
+  //     text-align: center;
+  //     margin: 0;
+  //   }
+  //   h3 {
+  //     margin: 20px auto;
+  //     max-width: 350px;
+  //     @include below($break-small) { margin: 20px 10%; }
+  //     max-width: 400px;
+  //     color: lighten($grey, 5);
+  //     font-size: 13px;
+  //     b {
+  //       color: darken($grey, 15);
+  //     }
+  //   }
+  //
   &.page {
+    width: initial;
     position: initial;
     margin: 0px auto 40px auto;
     padding-left: 5%;
@@ -30,17 +31,30 @@ main.content {
     h2 {
       text-align: center;
       font-size: 100px;
+      margin-top: 60px;
       margin-bottom: 40px;
+      @include below($break-small) {
+        font-size: 80px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
     }
     h3 {
       margin-top: 40px;
       text-align: left;
       font-size: 20px;
       letter-spacing: 0.0em;
+      line-height: 1.3em;
       color: lighten($magenta, 0);
+      @include below($break-small) {
+        font-size: 18px;
+      }
     }
     p, li {
       font-size: 18px;
+      @include below($break-small) {
+        font-size: 17px;
+      }
       line-height: 170%;
       a {
         color: $text-black;
@@ -49,13 +63,21 @@ main.content {
         &:hover { border-bottom-color: $magenta; }
       }
     }
-    ul {
+    ul, ol {
       padding-left: 25px;
+      @include below($break-small) {
+        padding-left: 17px;
+      }
     }
     .button {
       min-width: 280px;
       padding: 20px 0px;
       margin: 35px 15px;
+      @include below($break-small) {
+        margin: 10px 0px;
+        width: 100%;
+        min-width: initial;
+      }
       background-color: $magenta;
       border: $magenta-dark solid 1px;
       border-radius: 3px;
@@ -63,6 +85,22 @@ main.content {
       cursor: pointer;
       transition: 0.2s;
       box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+    .button-block {
+      @include below($break-small) {
+        margin: 40px 0px;
+      }
+    }
+  }
+  &.mobile-message {
+    h2 { font-size: 90px; }
+    h3 {
+      color: $grey;
+      text-align: center;
+    }
+    @include below($break-small) {
+      h2 { font-size: 60px; }
+      h3 { text-align: center; }
     }
   }
 }
