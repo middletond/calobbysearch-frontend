@@ -5,7 +5,6 @@ import { fieldClasses } from "../../utils";
 import 'react-datepicker/dist/react-datepicker.css';
 
 const StartDateField = ({ date, active, onChange }) => {
-  console.log("HELLO FROM FIELD", date, date.value.isValid());
   return (
     <div className={fieldClasses("start-date", date, active)}>
       <label>{date.label}</label>
