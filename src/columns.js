@@ -53,8 +53,9 @@ export const FILINGS_COLUMNS = [
   {
     name: "employer",
     verbose: "Company",
-    url: "employer_url",
-    type: TYPE_TEXT
+    url: "filing_url",
+    type: TYPE_TEXT,
+    urlCondition: (employer, record) => !!(record.filer.trim() == employer)
   },
   {
     name: "compensation",
@@ -64,8 +65,9 @@ export const FILINGS_COLUMNS = [
   {
     name: "lobbyer",
     verbose: "Lobby Firm",
-    url: "lobbyer_url",
-    type: TYPE_TEXT
+    url: "filing_url",
+    type: TYPE_TEXT,
+    urlCondition: (lobbyer, record) => !!(record.filer.trim() == lobbyer)
   },
   {
     name: "interests",
@@ -141,6 +143,9 @@ export const makeCell = (record, column) => {
 
   if (column.transform)
     value = column.transform(value);
+
+  if (column.urlCondition)
+    url = (column.urlCondition(value, record)) ? url : null;
 
   return {
     value: value,
