@@ -30,7 +30,7 @@ export const receiveResults = (resultKey, params, json) => {
       next: json.next,
       prev: json.previous
     },
-    receivedAt: Date.now()
+    receivedAt: Date.now(),
   }
 }
 
@@ -70,7 +70,7 @@ export const fetchResults = (params) => {
       )
       .then(
         json => dispatch(receiveResults(key, params, json)),
-        error => console.log("ERROR:", error)
+        error => console.log("ERROR:", error) // error already logged in state, just catching it here
       )
   }
 }

@@ -26,3 +26,4 @@ export const NOT_FOUND_ERROR = "404 not found error";
 export const SERVER_ERROR = "500 server error";
 export const NETWORK_ERROR = "network error";
 export const EXPORT_ERROR = "export error";
+export const NO_ERROR = "no error";
