@@ -2,6 +2,7 @@ import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 
+import Nav from "../components/Nav.jsx";
 import { updateStickyControls } from "../actions/controls";
 
 const STICKY_CONTROLS_THRESH = 300;
@@ -35,8 +36,9 @@ class Header extends React.Component {
     return (
       <header className={(this.props.stickyControls) ? "hide" : ""}>
         <h1 className="logo">
-          California State Lobbying Search
+          <a href="/">California State Lobbying Search</a>
         </h1>
+        <Nav />
       </header>
     )
   }
