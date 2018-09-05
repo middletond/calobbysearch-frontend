@@ -5,11 +5,12 @@ import { fieldClasses } from "../../utils";
 import 'react-datepicker/dist/react-datepicker.css';
 
 const StartDateField = ({ date, active, onChange }) => {
+  console.log("HELLO FROM FIELD", date, date.value.isValid());
   return (
     <div className={fieldClasses("start-date", date, active)}>
       <label>{date.label}</label>
       <DatePicker
-        selected={date.value}
+        selected={(date.value)}
         disabledKeyboardNavigation
         autoComplete="startdate"
         className={(!active) ? "start-date-field inactive" : "start-date-field"}
@@ -20,3 +21,5 @@ const StartDateField = ({ date, active, onChange }) => {
 }
 
 export default StartDateField;
+
+//     onChangeRaw={event => onChange(event.target.value)}

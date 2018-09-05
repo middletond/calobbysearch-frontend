@@ -28,10 +28,6 @@ class SearchForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() { // XXX remove this, just for testing
-    // this.onSubmit(null, this.props.fields);
-  }
-
   isValid(fields) { // validation in reducers, just check for any errors here
     const { dispatch } = this.props;
     const billVal = fields.bill.value;
@@ -43,7 +39,6 @@ class SearchForm extends React.Component {
     // add multi-field errors
     if (!(billVal || companyVal))
       errors.push("To find records, include either a bill name or company name.");
-
     dispatch(updateFieldErrors(errors));
     return !errors.length;
   }
