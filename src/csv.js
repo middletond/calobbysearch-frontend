@@ -6,11 +6,6 @@ const DOWNLOAD_FILENAME = "lobby_activity.csv"
 const UI_ACTION_DURATION = 2000;
 
 const FILINGS_FIELDS = [
-  "filing_id",
-  "amendment_id",
-  "filing_url",
-  "form_type",
-  "entity_code",
   "employer",
   "compensation",
   "reimbursement",
@@ -23,7 +18,9 @@ const FILINGS_FIELDS = [
   "filing_date",
   "filer",
   "filer_id",
-  "filer_url"
+  "filing_id",
+  "amendment_id",
+  "filing_url",
 ];
 
 const BILLS_FIELDS = [
