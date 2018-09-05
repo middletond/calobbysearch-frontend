@@ -14,6 +14,9 @@ import {
   EXPORT_CURRENT_SEARCH,
   TOGGLE_BILLS_FOR_RECORD
 } from "../actions/controls";
+import {
+  NO_ERROR
+} from "../constants";
 
 import { fresh, findMatchingBills } from "../utils";
 
@@ -31,7 +34,9 @@ const resultsFromAPI = (state = {}, action) => {
         bills: findMatchingBills(action.records), // aggregate for header or separate bill-based view
         page: action.page,
         isFetching: false,
-        receivedAt: action.receivedAt
+        receivedAt: action.receivedAt,
+        error: null,
+        errorType: NO_ERROR
       });
     case RECEIVE_ERROR:
       return fresh(state, {
