@@ -48,6 +48,8 @@ export const validate = (field) => {
 
   switch (field.type) {
     case TYPE_DATE:
+      if (typeof value == "string")
+        value = moment(value);
       if (!value.isValid())
         error = `${label} is not a valid date.`;
       break;
