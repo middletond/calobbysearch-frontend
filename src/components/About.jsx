@@ -25,6 +25,8 @@ const About = () => {
         <a href="/" className="button">Run Some Searches</a>
       </div>
 
+      <hr />
+
       <h2>Why?</h2>
 
       <p>Though lobbying data in California is technically <i>available</i>, it is not particularly <i>actionable</i>.</p>
@@ -40,6 +42,8 @@ const About = () => {
       <p>This makes broad-based questions about lobbying functionally impossible. For example, suppose I wanted to know which companies or interest groups are lobbying on bills about nutrition this year. In order to answer this, I would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
 
       <p>At the time of this writing there are over 575,000 filed lobbying activities. It would be too long a night for a very unlucky poli-sci intern.</p>
+
+      <hr />
 
       <h2>How?</h2>
 
@@ -72,6 +76,8 @@ const About = () => {
 
       <p>Bill information is scraped from the <a href="https://leginfo.legislature.ca.gov/faces/billSearchClient.xhtml" target="_blank">official bill search page</a> of the California State Legislature website, and ingested into the Lobby Search database. That is pretty much all there is to it.</p>
 
+      <hr />
+
       <h2>Limits</h2>
 
       <p>The tool is still in nascent form, and there are some things left to button up.</p>
@@ -86,9 +92,11 @@ const About = () => {
 
       <p>The tool currently only returns the <b>latest amendment for each filed activity</b>. That said, the backend is amendment-aware, so if there is demand for viewing all amendments it can be added.</p>
 
+      <hr />
+
       <div className="button-block">
         <a href="/" className="button">Try The Tool</a>
-        <a href="https://github.com/middletond/calobbysearch" className="button">View the Code</a>
+        <a href="https://github.com/middletond/calobbysearch" target="_blank" className="button">View the Code</a>
       </div>
 
     </main>

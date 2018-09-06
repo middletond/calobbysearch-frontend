@@ -1,26 +1,4 @@
 main.content {
-  // &.mobile-message {
-  //   @include flex_display();
-  //   @include flex_justify_content(center);
-  //   @include flex_direction(column);
-  //   min-height: 80%; // roughly account for header height
-  //   h2 {
-  //     font-weight: bold;
-  //     text-align: center;
-  //     margin: 0;
-  //   }
-  //   h3 {
-  //     margin: 20px auto;
-  //     max-width: 350px;
-  //     @include below($break-small) { margin: 20px 10%; }
-  //     max-width: 400px;
-  //     color: lighten($grey, 5);
-  //     font-size: 13px;
-  //     b {
-  //       color: darken($grey, 15);
-  //     }
-  //   }
-  //
   &.page {
     width: initial;
     position: initial;
@@ -36,7 +14,7 @@ main.content {
     h2 {
       text-align: center;
       font-size: 100px;
-      margin-top: 60px;
+      margin-top: 40px;
       margin-bottom: 40px;
       @include below($break-small) {
         font-size: 80px;
@@ -80,10 +58,18 @@ main.content {
         // padding-left: 17px;
       }
     }
+    hr {
+      margin: 60px auto 40px auto;
+      padding: 0;
+      width: 100px;
+      height: 2px;
+      background-color: $cream-dark;
+      border: none;
+    }
     .button {
       min-width: 280px;
       padding: 20px 0px;
-      margin: 35px 15px;
+      margin: 0px 15px;
       @include below($break-small) {
         margin: 10px 0px;
         width: 100%;
@@ -98,6 +84,8 @@ main.content {
       box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     }
     .button-block {
+      margin-top: 60px;
+      margin-bottom: 40px;
       @include below($break-small) {
         margin: 40px 0px;
       }
