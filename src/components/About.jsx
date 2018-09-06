@@ -7,14 +7,14 @@ const About = () => {
 
       <p><b>California Lobby Search</b> is an open-source public records research tool that connects bills from the <a href="https://leginfo.legislature.ca.gov/" target="_blank">California state legislature</a> with lobbying activity filings from the <a href="http://cal-access.sos.ca.gov/Lobbying/" target="_blank">California Secretary of State office</a>.</p>
 
-      <p>You can search all lobbying activity for a bill or bill keyword within a given time range. You can also narrow results by company name &mdash; both employers or lobby firms. Ideally, your searches will quickly answer the question, <i>"Who is interested in this bill and how interested are they?"</i></p>
+      <p>You can search all lobbying activity for a bill or bill keyword within a given time range. You can also narrow results by company name - both employers or lobby firms. Ideally, your searches will quickly answer the question, <i>"Who is interested in this bill and how interested are they?"</i></p>
 
       <p>Here are some examples of some searches:</p>
 
       <ul>
         <li>Lobbying to influence bills about <b>addiction</b> in <b>2018</b></li>
         <li>Lobbying to influence bills about <b>free speech</b> before <b>2017</b></li>
-        <li>Lobbying by <b>coca-cola</b>to influence bill <b>SB 300</b> after <b>April 2018</b></li>
+        <li>Lobbying by <b>coca-cola</b> to influence bill <b>SB 300</b> after <b>April 2018</b></li>
       </ul>
 
       <figure className="demo">
