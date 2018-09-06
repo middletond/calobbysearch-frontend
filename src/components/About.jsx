@@ -27,7 +27,7 @@ const About = () => {
 
       <h2>Why?</h2>
 
-      <p>Because while California lobbying data is technically <i>available</i> to the public, it is not particularly <i>actionable</i>.</p>
+      <p>Though lobbying data in California is technically <i>available</i>, it is not particularly <i>actionable</i>.</p>
 
       <p>Despite all lobby activity filings <a href="http://cal-access.sos.ca.gov/Lobbying/Employers/" target="_blank">being posted</a> on the Secretary of State website, it is only possible to search filings by the name of the company. Moreover, the filings themselves only refer to bill names (e.g. "AB 300") and <i>not</i> to bill titles (e.g. "Internet Privacy").</p>
 
@@ -37,7 +37,7 @@ const About = () => {
         <img src={require("../../static/F635_example.jpg")} alt="Example of a lobby activity filing" />
       </figure>
 
-      <p>This makes broad-based questions about lobbying functionally impossible. In order to make inquiries about the interests of <i>all</i> companies, one would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
+      <p>This makes broad-based questions about lobbying functionally impossible. For example, suppose I wanted to know which companies or interest groups are lobbying on bills about nutrition this year. In order to answer this, I would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
 
       <p>At the time of this writing there are over 575,000 filed lobbying activities. It would be too long a night for a very unlucky poli-sci intern.</p>
 
@@ -72,54 +72,19 @@ const About = () => {
 
       <p>Bill information is scraped from the <a href="https://leginfo.legislature.ca.gov/faces/billSearchClient.xhtml" target="_blank">official bill search page</a> of the California State Legislature website, and ingested into the Lobby Search database. That is pretty much all there is to it.</p>
 
+      <h2>Limits</h2>
+
+      <p>The tool is still in nascent form, and there are some things left to button up.</p>
+
+      <h3>Number of Results</h3>
+
+      <p>To keep things snappy, the backend currently limits itself to <b>500 results per search</b>. Moreover, <i>there is currently nothing in the UI that warns when this has happened.</i> So, searches with extra broad criteria (e.g. generic terms like <i>transportation</i>, <i>education</i>, or <i>energy</i>) will inevitably hit this limit and omit results.</p>
+
+      <p>The workaround for this currently is to narrow the date range. It is my intention that the next version will allow unlimited results.</p>
+
       <h3>Amendment Handling</h3>
 
-      <p>The Lobby Search tool currently only returns the latest amendment for each filed activity. That said, the tool's backend has an API that is amendment-aware, so the future is wide open.</p>
-
-      <h3>The Table Fields</h3>
-
-      <p>We pull the following fields for each filed activity:</p>
-
-      <ul>
-        <li><code>Filing ID</code></li>
-        <li><code>Amendment ID</code></li>
-        <li><code>Transaction ID</code></li>
-        <li><code>Filing Url</code></li>
-        <li><code>Form Type</code></li>
-        <li><code>Filing Date</code></li>
-        <li><code>Filer Last Name</code></li>
-        <li><code>Filer First Name</code></li>
-        <li><code>Lobbyer Last Name</code></li>
-        <li><code>Lobbyer First Name</code></li>
-        <li><code>Lobbyer City</code></li>
-        <li><code>Lobbyer State</code></li>
-        <li><code>Lobbyer Phone</code></li>
-        <li><code>Employer Last Name</code></li>
-        <li><code>Employer First Name</code></li>
-        <li><code>Employer City</code></li>
-        <li><code>Employer State</code></li>
-        <li><code>Employer Phone</code></li>
-        <li><code>Filer Type</code></li>
-        <li><code>Start Date</code></li>
-        <li><code>End Date</code></li>
-        <li><code>Interests</code></li>
-        <li><code>Compensation</code></li>
-        <li><code>Reimbursement</code></li>
-        <li><code>Period Total</code></li>
-        <li><code>Session Total</code></li>
-        <li><code>Related Bills</code></li>
-      </ul>
-
-      <p>We pull the following fields for each bill:</p>
-
-      <ul>
-        <li><code>Type</code></li>
-        <li><code>Number</code></li>
-        <li><code>Title</code></li>
-        <li><code>Author</code></li>
-        <li><code>Status</code></li>
-        <li><code>Url</code></li>
-      </ul>
+      <p>The tool currently only returns the <b>latest amendment for each filed activity</b>. That said, the backend is amendment-aware, so if there is demand for viewing all amendments it can be added.</p>
 
       <div className="button-block">
         <a href="/" className="button">Try The Tool</a>
