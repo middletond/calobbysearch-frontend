@@ -47,6 +47,11 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: "file-loader",
+        include: path.resolve(__dirname, "static")
       }
     ]
   },
