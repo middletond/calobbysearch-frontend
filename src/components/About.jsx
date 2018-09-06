@@ -27,9 +27,9 @@ const About = () => {
 
       <h2>Why?</h2>
 
-      <p>There is a difference between available public data, and actionable public data.</p>
+      <p>Because while California lobbying data is technically <i>available</i> to the public, it is not particularly <i>actionable</i>.</p>
 
-      <p>Despite all lobby activity filings being posted on the Secretary of State website, it is only possible to search filings by the name of the company. Moreover, the filings themselves only refer to bill names (e.g. "AB 300") and <i>not</i> to bill titles (e.g. "Internet Privacy").</p>
+      <p>Despite all lobby activity filings <a href="http://cal-access.sos.ca.gov/Lobbying/Employers/" target="_blank">being posted</a> on the Secretary of State website, it is only possible to search filings by the name of the company. Moreover, the filings themselves only refer to bill names (e.g. "AB 300") and <i>not</i> to bill titles (e.g. "Internet Privacy").</p>
 
       <p>Here is an example filing:</p>
 
@@ -37,9 +37,7 @@ const About = () => {
         <img src={require("../../static/F635_example.jpg")} alt="Example of a lobby activity filing" />
       </figure>
 
-      <p>This makes broad-based questions about the lobbying interests of entities functionally impossible. Okay, maybe if I want to find out a single company's interests, it's not too terrible. I either need intimate knowledge of what each bill name represents, or a willingness to look up each of them at the state legislature. Of course, this is assuming I only care about the current session; what if I want all company interests since filing began in 1999? Ugh... possible, but starting to be very laborious.</p>
-
-      <p>Anything broader than this becomes cost prohibitive. In order to answer questions about the interests of <i>all</i> companies, I would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
+      <p>This makes broad-based questions about lobbying functionally impossible. In order to make inquiries about the interests of <i>all</i> companies, one would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
 
       <p>At the time of this writing there are over 575,000 filed lobbying activities. It would be too long a night for a very unlucky poli-sci intern.</p>
 
