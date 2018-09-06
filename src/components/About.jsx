@@ -39,7 +39,7 @@ const About = () => {
         <img src={require("../../static/F635_example.jpg")} alt="Example of a lobby activity filing" />
       </figure>
 
-      <p>This makes broad-based questions about lobbying functionally impossible. For example, suppose I wanted to know which companies or interest groups are lobbying on bills about nutrition this year. In order to answer this, I would have to manually go through every filing of every single company, <i>plus</i> translating all of the bill names found in each.</p>
+      <p>This makes broad-based questions about lobbying functionally impossible. For example, suppose I wanted to know which companies or interest groups are lobbying on bills about nutrition this year. In order to answer this, I would have to manually go through every filing of every single company, <i>plus</i> translate all of the bill names found in each.</p>
 
       <p>At the time of this writing there are over 575,000 filed lobbying activities. It would be too long a night for a very unlucky poli-sci intern.</p>
 
@@ -87,6 +87,16 @@ const About = () => {
       <p>To keep things snappy, the backend currently limits itself to <b>500 results per search</b>. Moreover, <i>there is currently nothing in the UI that warns when this has happened.</i> So, searches with extra broad criteria (e.g. generic terms like <i>transportation</i>, <i>education</i>, or <i>energy</i>) will inevitably hit this limit and omit results.</p>
 
       <p>The workaround for this currently is to narrow the date range. It is my intention that the next version will allow unlimited results.</p>
+
+      <h3>Accuracy of Results</h3>
+
+      <p>In the course of development I've spot checked probably a couple hundred or so filings, which have been accurate. Beyond that there has been no formal or programmatic testing for accuracy.</p>
+
+      <p>That said, the nature of the data is such that we can expect reliably correct results. There is very little transformation of the original SOS records; what you see in the tool is what you see on the SOS website.</p>
+
+      <p>The meaningful component that we add is to identify bill names in these records, and connect them up with our canonical legislative bill list. This is definitely a potential point of failure, and while it has thus far proven reliable, more formal testing should be prioritized.</p>
+
+      <p>In the meantime, <b>each result contains a direct link to its source filing</b>, so can always be verified. Hopefully this is enough to get us started.</p>
 
       <h3>Amendment Handling</h3>
 
