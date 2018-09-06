@@ -2,10 +2,11 @@ nav {
   position: absolute;
   right: 0px;
   a.nav-item {
-    color: lighten($dark-grey, 12);
+    color: $dark-grey;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 400;
     display: block;
     width: 150px;
     text-align: center;

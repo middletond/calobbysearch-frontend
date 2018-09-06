@@ -12,12 +12,14 @@ const About = () => {
       <p>Here are some examples of some searches:</p>
 
       <ul>
-        <li>Lobbying by <b>Tesla Motors</b> to influence bills about <b>permits</b> in <b>2017</b></li>
-        <li>Lobbying to influence bills about <b>free speech</b> from <b>2000 to today</b></li>
-        <li>Lobbying to influence bill <b>SB 300</b> after <b>April 2018</b></li>
+        <li>Lobbying to influence bills about <b>addiction</b> in <b>2018</b></li>
+        <li>Lobbying to influence bills about <b>free speech</b> before <b>2017</b></li>
+        <li>Lobbying by <b>coca-cola</b>to influence bill <b>SB 300</b> after <b>April 2018</b></li>
       </ul>
 
-      <p>[gif of the app]</p>
+      <figure className="demo">
+        <img src={require("../../static/search_demo.gif")} alt="Search Demo" />
+      </figure>
 
       <div className="button-block">
         <a href="/" className="button">Run Some Searches</a>
@@ -31,7 +33,9 @@ const About = () => {
 
       <p>Here is an example filing:</p>
 
-      <p>[F635 filing image]</p>
+      <figure>
+        <img src={require("../../static/F635_example.jpg")} alt="Example of a lobby activity filing" />
+      </figure>
 
       <p>This makes broad-based questions about the lobbying interests of entities functionally impossible. Okay, maybe if I want to find out a single company's interests, it's not too terrible. I either need intimate knowledge of what each bill name represents, or a willingness to look up each of them at the state legislature. Of course, this is assuming I only care about the current session; what if I want all company interests since filing began in 1999? Ugh... possible, but starting to be very laborious.</p>
 

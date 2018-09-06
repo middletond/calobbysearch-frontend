@@ -35,6 +35,15 @@ a {
   text-decoration: none;
   outline: none;
   color: darken($magenta, 5);
-  // color: $text-black;
-  // border-bottom: lighten($grey, 2) dotted 1px;
+}
+
+figure {
+  width: 100%;
+  margin: 50px 0px;
+  overflow: hidden;
+}
+img {
+  display: block;
+  position: relative;
+  width: 100%;
 }
