@@ -1,13 +1,14 @@
 import React from "react";
 
 const About = () => {
+  const MDASH = "\u2014";
   return (
     <main className="content page about">
       <h2>What?</h2>
 
       <p><b>California Lobby Search</b> is an open-source public records research tool that connects bills from the <a href="https://leginfo.legislature.ca.gov/" target="_blank">California state legislature</a> with lobbying activity filings from the <a href="http://cal-access.sos.ca.gov/Lobbying/" target="_blank">California Secretary of State office</a>.</p>
 
-      <p>You can search all lobbying activity for a bill or bill keyword within a given time range. You can also narrow results by company name - both employers or lobby firms. Ideally, your searches will quickly answer the question, <i>"Who is interested in this bill and how interested are they?"</i></p>
+      <p>You can search all lobbying activity for a bill or bill keyword within a given time range. You can also search by company name {MDASH} both employers or lobby firms. Ideally, your searches will quickly answer the question, <i>"Who is interested in this bill and how interested are they?"</i></p>
 
       <p>Here are some examples of some searches:</p>
 
