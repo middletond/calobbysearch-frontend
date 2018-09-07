@@ -1,7 +1,8 @@
 import React from "react";
 
 const About = () => {
-  const MDASH = "\u2014";
+//  const MDASH = "\u2014";
+  const MDASH = String.fromCharCode(8212);
   return (
     <main className="content page about">
       <h2>What?</h2>
