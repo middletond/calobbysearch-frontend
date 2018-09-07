@@ -5,6 +5,8 @@ package-lock.json
 ### Ignore bundled assets ###
 dist/app.js
 dist/app.css
+dist/*.jpg
+dist/*.gif
 
 ### Ignore Mac filesystem ###
 .DS_Store
