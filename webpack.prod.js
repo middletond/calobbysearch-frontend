@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: ["whatwg-fetch", "@babel/polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "./app.js"
