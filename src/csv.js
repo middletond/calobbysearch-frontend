@@ -27,9 +27,9 @@ const BILLS_FIELDS = [
   "name",
   "title",
   "session",
-  "url",
   "authors",
-  "status"
+  "status",
+  "url"
 ]
 
 const convert = (records, view) => {
@@ -52,13 +52,17 @@ const convert = (records, view) => {
 
 const download = (csv) => {
   return new Promise((resolve, reject) => {
-    const csvBlob = new Blob([csv]);
-    // i guess this is best way?
-    const dataUrl = window.URL.createObjectURL(csvBlob);
-    const link = document.createElement("a");
-    link.href = dataUrl;
-    link.download = DOWNLOAD_FILENAME;
-    link.click();
+    const data = new Blob([csv]);
+
+    if (window.navigator.msSaveOrOpenBlob) { // IE version
+      window.navigator.msSaveOrOpenBlob(data, DOWNLOAD_FILENAME);
+    }
+    else {
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(data);
+      link.download = DOWNLOAD_FILENAME;
+      link.dispatchEvent(new MouseEvent("click"));
+    }
 
     window.setTimeout(resolve, UI_ACTION_DURATION);
   })
