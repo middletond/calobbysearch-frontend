@@ -53,7 +53,7 @@ const About = () => {
 
       <p>It is my hope that the tool will enable journalists and researchers to ask questions that were previously impossible to answer practically, and that the answers to those questions can drive new stories and understandings about the wetworks of California state government.</p>
 
-      <p>If you have any feedback or questions about the tool, how it could be improved, or other glaring needs in the current public data landscape, <b>please <a href="mailto:dave@davemiddleton.co">email me</a>!</b> I would love to hear your thoughts.</p>
+      <p>If you have any feedback or questions about the tool, how it could be improved, or other glaring needs in the current public data landscape, <b><a href="mailto:dave@davemiddleton.co">please email me</a>!</b> I would love to hear your thoughts.</p>
 
       <hr />
 
