@@ -47,6 +47,16 @@ const About = () => {
 
       <hr />
 
+      <h2>Who?</h2>
+
+      <p>My name is Dave Middleton. I am a Sacramento-based <a href="https://davemiddleton.co" target="_blank">digital creative</a> with a background in web programming, public data, publishing, music, and design.</p>
+
+      <p>It is my hope that the tool will enable journalists and researchers to ask questions that were previously impossible to answer practically, and that the answers to those questions can drive new stories and understandings about the wetworks of California state government.</p>
+
+      <p>If you have any feedback or questions about the tool, how it could be improved, or other glaring needs in the current public data landscape, <b>please <a href="mailto:dave@davemiddleton.co">email me</a>!</b> I would love to hear your thoughts.</p>
+
+      <hr />
+
       <h2>How?</h2>
 
       <p>Both filed lobby activities and bills are updated to their latest and greatest each morning at 5 a.m. Here is a technical overview of the process.</p>

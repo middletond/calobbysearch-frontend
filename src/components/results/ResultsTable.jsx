@@ -33,7 +33,11 @@ class ResultsTable extends React.Component {
             onShowBillsClick, onColumnNameClick } = this.props;
 
     if (!results.params)
-      return "";
+      return (
+        <div className="table no-results hello-message">
+          First time here? <br/>Skimming the <a href="/search-tips">search tips</a> can be helpful :)
+        </div>
+      )
     if (results.isFetching)
       return <ResultsFetching />;
     if (results.error)

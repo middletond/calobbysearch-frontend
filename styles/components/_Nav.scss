@@ -1,6 +1,7 @@
 nav {
   position: absolute;
-  right: 0px;
+  right: 10px;
+  @include flex_display();
   a.nav-item {
     color: $dark-grey;
     text-transform: uppercase;
@@ -8,7 +9,7 @@ nav {
     font-size: 12px;
     font-weight: 400;
     display: block;
-    width: 150px;
+    width: 120px;
     text-align: center;
   }
   @include below($break-medium) {

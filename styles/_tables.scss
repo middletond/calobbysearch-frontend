@@ -52,4 +52,10 @@
       font-size: 14px;
     }
   }
+  &.no-results.hello-message {
+    padding-top: 70px;
+    line-height: 140%;
+    color: #d0d0d0;
+    a { color: $magenta; }
+  }
 }
