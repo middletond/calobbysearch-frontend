@@ -27,7 +27,7 @@ class Results extends React.Component {
             onResultsTabClick, currentResults,
             onShowBillsClick, onColumnNameClick,
             sorting, opened, view, stickyControls,
-            onExportClick, isExporting } = this.props;
+            onExportClick, isExporting, onTourButtonClick } = this.props;
 
     return (
       <div className={(stickyControls) ? "results sticky-controls" : "results"}>
@@ -48,7 +48,8 @@ class Results extends React.Component {
             sorting={sorting}
             opened={opened}
             onColumnNameClick={onColumnNameClick}
-            onShowBillsClick={onShowBillsClick} />
+            onShowBillsClick={onShowBillsClick}
+            onTourButtonClick={onTourButtonClick} />
           :
           <BillsTable
             results={currentResults}

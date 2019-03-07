@@ -5,7 +5,7 @@ const About = () => {
   const MDASH = String.fromCharCode(8212);
   return (
     <main className="content page about">
-      <h2>What?</h2>
+      <h2 id="what">What?</h2>
 
       <p><b>California Lobby Search</b> is an open-source public records research tool that connects bills from the <a href="https://leginfo.legislature.ca.gov/" target="_blank">California state legislature</a> with lobbying activity filings from the <a href="http://cal-access.sos.ca.gov/Lobbying/" target="_blank">California Secretary of State office</a>.</p>
 
@@ -29,7 +29,7 @@ const About = () => {
 
       <hr />
 
-      <h2>Why?</h2>
+      <h2 id="why">Why?</h2>
 
       <p>Though lobbying data in California is technically <i>available</i>, it is not particularly <i>actionable</i>.</p>
 
@@ -47,7 +47,7 @@ const About = () => {
 
       <hr />
 
-      <h2>Who?</h2>
+      <h2 id="who">Who?</h2>
 
       <p>My name is Dave Middleton. I am a Sacramento-based <a href="https://davemiddleton.co" target="_blank">digital creative</a> with a background in web programming, public data, publishing, music, and design.</p>
 
@@ -57,7 +57,7 @@ const About = () => {
 
       <hr />
 
-      <h2>How?</h2>
+      <h2 id="how">How?</h2>
 
       <p>Both filed lobby activities and bills are updated to their latest and greatest each morning at 5 a.m. Here is a technical overview of the process.</p>
 
@@ -90,7 +90,7 @@ const About = () => {
 
       <hr />
 
-      <h2>Limits</h2>
+      <h2 id="limits">Limits</h2>
 
       <p>The tool is still in nascent form, and there are some things left to button up.</p>
 

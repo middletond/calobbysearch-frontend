@@ -30,12 +30,13 @@ class ResultsTable extends React.Component {
 
   render() {
     const { results, sorting, filterTerm,
-            onShowBillsClick, onColumnNameClick } = this.props;
+            onShowBillsClick, onColumnNameClick,
+            onTourButtonClick } = this.props;
 
     if (!results.params)
       return (
         <div className="table no-results hello-message">
-          First time here? <br/>Skimming the <a href="/search-tips">search tips</a> can be helpful :)
+          First time here? Take a <a href="#" onClick={(event) => onTourButtonClick(event)}>one minute tour.</a>
         </div>
       )
     if (results.isFetching)

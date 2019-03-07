@@ -1,0 +1,24 @@
+.react-joyride__tooltip {
+  h4 {
+    margin-top: 35px !important;
+  }
+  button[data-test-id="button-primary"],
+  button[data-test-id="button-back"] {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    border-radius: 2px !important;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 13px !important;
+    letter-spacing: 0.01em;
+  }
+  button[data-test-id="button-primary"] {
+    background-color: $magenta !important;
+  }
+  button[data-test-id="button-back"] {
+    color: $magenta !important;
+  }
+  button[data-test-id="button-close"] {
+    text-align: right !important;
+  }
+}
