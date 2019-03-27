@@ -15,9 +15,9 @@ const FILINGS_FIELDS = [
   "compensation",
   "reimbursement",
   "lobbyer",
-  "interests",
   "start_date",
   "end_date",
+  "interests",
   "    ", // divider col
   "amendment_id",
   "form_type",
