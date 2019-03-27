@@ -6,20 +6,21 @@ const DOWNLOAD_FILENAME = "lobby_activity.csv"
 const UI_ACTION_DURATION = 2000;
 
 const FILINGS_FIELDS = [
+  "filing_date",
+  "filing_id",
+  "filer_id",
+  "filed_by",
+  "    ", // divider col
   "employer",
   "compensation",
   "reimbursement",
-  "period_total",
-  "session_total",
   "lobbyer",
   "interests",
   "start_date",
   "end_date",
-  "filing_date",
-  "filer",
-  "filer_id",
-  "filing_id",
+  "    ", // divider col
   "amendment_id",
+  "form_type",
   "filing_url",
 ];
 
@@ -35,6 +36,7 @@ const BILLS_FIELDS = [
 const convert = (records, view) => {
   return new Promise((resolve, reject) => {
     const opts = {
+      emptyFieldValue: "",
       delimiter : {
         wrap  : '"', // Double Quote (") character
         field : ',', // Comma field delimiter
