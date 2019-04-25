@@ -13,15 +13,19 @@ import {
   UPDATE_SESSION
 } from "../actions/search_form";
 
+const DEFAULT_SESSION = "20192020";
+const DEFAULT_START_DATE = "20190101";
+const DEFAULT_END_DATE = "20201231";
+
 const searchForm = (state = {
   submitted: "",
   errors: [],
   fields: {
     bill: fields.create("", "bill name or keyword", TYPE_TEXT),
     company: fields.create("", "company name", TYPE_TEXT),
-    session: fields.create("20172018", "session", TYPE_TEXT),
-    startDate: fields.create("20170101", "starting", TYPE_DATE),
-    endDate: fields.create("20181231", "ending", TYPE_DATE)
+    session: fields.create(DEFAULT_SESSION, "session", TYPE_TEXT),
+    startDate: fields.create(DEFAULT_START_DATE, "starting", TYPE_DATE),
+    endDate: fields.create(DEFAULT_END_DATE, "ending", TYPE_DATE)
   }
 }, action) => {
   switch (action.type) {
