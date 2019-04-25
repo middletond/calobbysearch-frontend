@@ -63,7 +63,7 @@ class App extends React.Component {
             <div>
               <p><b>Number of results.</b> To keep things snappy, the backend currently limits itself to 500 results per search. Searches with extra broad criteria will inevitably hit this limit and omit results. You can narrow the date range to fix this.</p>
 
-              <p><b>Accuracy of results.</b> No formalized testing for accuracy has been performed. That said, a couple hundred records have been informally spot-checked, with accurate results. Also, each result contains <i>a direct link to its source filing</i>, so can (and should!) be verified.</p>
+              <p><b>Accuracy of results.</b> I have spot-checked a few hundred records during the build process, with accurate results. Each result contains <i>a direct link to its source filing</i>, so can (and should!) be verified.</p>
 
               <p><b>Amendment Handling.</b> The tool currently only returns the <i>latest amendment only</i> for each filed activity.</p>
 
