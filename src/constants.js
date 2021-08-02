@@ -5,6 +5,7 @@ export const USE_DATES_NOT_SESSION = "USE_DATES";
 export const DATE_PICKER_FIELDS = ["startDate", "endDate"];
 
 export const SESSIONS = [ // XXX Dummy data: move this to API call
+  { value: "20212022", verbose: "2021 - 2022" },
   { value: "20192020", verbose: "2019 - 2020" },
   { value: "20172018", verbose: "2017 - 2018" },
   { value: "20152016", verbose: "2015 - 2016" },

@@ -13,9 +13,9 @@ import {
   UPDATE_SESSION
 } from "../actions/search_form";
 
-const DEFAULT_SESSION = "20192020";
-const DEFAULT_START_DATE = "20190101";
-const DEFAULT_END_DATE = "20201231";
+const DEFAULT_SESSION = "20212022";
+const DEFAULT_START_DATE = "20210101";
+const DEFAULT_END_DATE = "20221231";
 
 const searchForm = (state = {
   submitted: "",
